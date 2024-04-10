@@ -4,12 +4,11 @@ import cors from "cors";
 
 const PORT = process.env.PORT;
 const app = express();
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 
-app.get("/", (req, res) => {
+app.get("/", async (req, res) => {
   res.status(200).json({ Message: "Welcome" });
 });
 
