@@ -1,13 +1,14 @@
 import express from "express";
 import "dotenv/config";
 import cors from "cors";
+import swaggerDocs from "./src/api/v1/utils/swagger.js";
 
 const PORT = process.env.PORT;
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
-
+swaggerDocs(app, PORT);
 app.get("/", async (req, res) => {
   res.status(200).json({ Message: "Welcome" });
 });
