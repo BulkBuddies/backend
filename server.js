@@ -9,6 +9,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 swaggerDocs(app, PORT);
+
 app.get("/", async (req, res) => {
   res.status(200).json({ Message: "Welcome" });
 });
