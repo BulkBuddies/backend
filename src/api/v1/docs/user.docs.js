@@ -77,7 +77,7 @@
  *             schema:
  *               type: array
  *               items:
- *                 $ref: 'post.docs.js#/components/schemas/post'
+ *                 $ref: '#/components/schemas/post'
  *             example:
  *               - id: "1"
  *                 title: "Sample Post"

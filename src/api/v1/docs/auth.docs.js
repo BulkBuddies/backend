@@ -7,7 +7,7 @@
 
 /**
  * @openapi
- * api/v1/login:
+ * /login:
  *   post:
  *     summary: Login to the application and generate a JWT
  *     tags: [Authentication]

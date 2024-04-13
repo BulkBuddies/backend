@@ -75,3 +75,45 @@
  *         '400':
  *           description: Bad request
  */
+
+/**
+ * @openapi
+ * paths:
+ *   /post:
+ *     get:
+ *       summary: Get all posts
+ *       tags: [Post]
+ *       responses:
+ *         '200':
+ *           description: Successfully retrieved all posts
+ *           content:
+ *             application/json:
+ *               schema:
+ *                 type: array
+ *                 items:
+ *                   $ref: '#/components/schemas/post'
+ *         '400':
+ *           description: Bad request
+ */
+
+/**
+ * @openapi
+ * paths:
+ *   /post/{postId}:
+ *     put:
+ *       summary: Update post to add new users
+ *       tags:
+ *         - Post
+ *       parameters:
+ *         - in: path
+ *           name: postId
+ *           required: true
+ *           schema:
+ *             type: string
+ *           description: The post id
+ *       responses:
+ *         '200':
+ *           description: The user has been added to the post
+ *         '400':
+ *           description: Bad request
+ */
