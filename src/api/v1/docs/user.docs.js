@@ -59,7 +59,7 @@
 
 /**
  * @openapi
- * /user/{userId}/posts:
+ * /user/posts/{userId}:
  *   get:
  *     summary: Get the user's own posts and the ones he's participating with
  *     tags:
@@ -87,4 +87,36 @@
  *                 expiration_date: "2022-12-31"
  *                 created_at: "2022-01-01 10:00:00"
  *                 updated_at: null
+ */
+
+/**
+ * @openapi
+ * /user/profile/{userId}:
+ *   put:
+ *     summary: update user personal info into profile table
+ *     tags:
+ *       - User
+ *     parameters:
+ *       - name: userId
+ *         in: path
+ *         required: true
+ *         description: The ID of the user to update profile
+ *     responses:
+ *       '200':
+ *         description: OK
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/post'
+ *             example:
+ *               - rut: "16595343-5"
+ *                 phone: "569999999"
+ *                 address: "Street 123"
+ *                 comuna_id: "67"
+ *                 postal_code: "12345"
+ *                 updated_at: "2024-04-13"
+ *                 picture: "my-pic.jpg"
+ *                 
  */
