@@ -6,7 +6,7 @@ const createNewUser = async (req, res) =>{
         await createUser(user)
         res.send("Usuario registrado con éxito");
     } catch (error) {
-        res.status(500).send(error);
+        next(error)
     }
 }
 
@@ -18,7 +18,7 @@ const getAllUser = async (req, res) => {
         return res.status(200).json(users);
     }
     catch (error) {
-        res.status(400).json(error.message);
+        next(error)
     }
 };
 
