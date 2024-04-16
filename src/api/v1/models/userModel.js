@@ -15,7 +15,7 @@ const createUser = async (user) => {
 
 const byEmail = async (email, password) => {
   const sqlQuery = {
-    text: "SELECT * FROM public.user where email = $1",
+    text: "SELECT email, username, refresh_token, password FROM public.user where email = $1",
     values: [email],
   };
   const { rowCount, rows } = await pool.query(sqlQuery);
@@ -28,7 +28,8 @@ const byEmail = async (email, password) => {
   if (!isPasswordValid) {
     throw createNewError("auth_02");
   }
-  return user;
+  const { password: pwd, ...rest } = user;
+  return rest;
 };
 
 const getAll = async () => {
@@ -41,6 +42,16 @@ const getAll = async () => {
   } catch (error) {
     console.log(error);
   }
+};
+
+const addRefreshToken = async (refreshToken) => {
+  const hashedRefreshToken = await bcrypt.hash(refreshToken, 10);
+  try {
+    const sqlQuery = {
+      text: "UPDATE public.user SET refresh_token = $1",
+      values: [hashedRefreshToken],
+    };
+  } catch (error) {}
 };
 
 export { createUser, byEmail, getAll };

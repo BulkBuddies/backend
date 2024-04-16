@@ -1,5 +1,4 @@
 import jwt from "jsonwebtoken";
-import { findError } from "../src/api/v1/utils/utils.js";
 import { createNewError } from "../src/api/v1/helpers/requestError.js";
 
 const isLogin = async (req, res, next) => {

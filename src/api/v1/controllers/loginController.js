@@ -7,13 +7,15 @@ const loginUser = async (req, res, next) => {
   try {
     const { email, password } = req.body;
     const findUser = await byEmail(email, password);
+    console.log(findUser);
     if (!findUser) {
       throw createNewError("auth_01");
     }
-    const token = jwt.sign({ email }, process.env.JWT_SECRET, {
+    const accessToken = jwt.sign({ email }, process.env.JWT_SECRET, {
       expiresIn: "1h",
     });
-    res.send({ token });
+
+    res.send({ accessToken });
   } catch (error) {
     next(error);
   }
