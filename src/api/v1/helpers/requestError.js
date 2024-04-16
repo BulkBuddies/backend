@@ -1,4 +1,4 @@
-import ERRORS from "./errors";
+import ERRORS from "./errors.js";
 
 class RequestError extends Error {
   constructor(message, statusCode, code) {
@@ -9,9 +9,9 @@ class RequestError extends Error {
   }
   checkCode(code) {
     const error = ERRORS.get(code);
-    if (typeof code === "string" && error) {
+    if (error) {
       this.message = error.message;
-      this.statusCode = error.statusCode;
+      this.statusCode = error.status;
     } else {
       this.message = this.message;
       this.statusCode = this.statusCode;
