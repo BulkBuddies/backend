@@ -6,6 +6,6 @@ import { isLogin } from '../middlewares/isLogin.js';
 const router = express.Router();
 
 router.post("/", validateParamUser, createNewUser)
-router.get("/", isLogin, getAllUser)
+router.get("/", getAllUser)
 
 export default router;
