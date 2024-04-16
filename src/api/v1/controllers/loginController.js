@@ -1,8 +1,9 @@
 import { byEmail } from "../models/userModel.js";
 import jwt from "jsonwebtoken";
+
 import { createNewError } from "../helpers/requestError.js";
 
-const loginUser = async (req, res) => {
+const loginUser = async (req, res, next) => {
   try {
     const { email, password } = req.body;
     const findUser = await byEmail(email, password);
@@ -10,14 +11,12 @@ const loginUser = async (req, res) => {
       throw createNewError("auth_01");
     }
     const token = jwt.sign({ email }, process.env.JWT_SECRET, {
-      expiresIn: 60,
+      expiresIn: "1h",
     });
     res.send({ token });
   } catch (error) {
-    console.error("Error al autenticar al usuario:", error);
-    res.status(500).json({ error: error.message });
+    next(error);
   }
 };
-
 
 export { loginUser };
