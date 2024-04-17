@@ -24,7 +24,6 @@ const byEmail = async (email, password) => {
   }
   const user = rows[0];
   const isPasswordValid = await bcrypt.compare(password, user.password);
-  console.log(isPasswordValid);
   if (!isPasswordValid) {
     throw createNewError("auth_02");
   }
@@ -43,11 +42,12 @@ const getAll = async () => {
   }
 };
 
-const addRefreshToken = async (refreshToken, id) => {
+const updateRefreshToken = async (refreshToken, id) => {
   try {
+    const hashedRefreshToken = await bcrypt.hash(refreshToken, 10);
     const sqlQuery = {
       text: "UPDATE usuario SET refresh_token = $1 WHERE id = $2",
-      values: [refreshToken, id],
+      values: [hashedRefreshToken, id],
     };
 
     await pool.query(sqlQuery);
@@ -56,4 +56,4 @@ const addRefreshToken = async (refreshToken, id) => {
   }
 };
 
-export { createUser, byEmail, getAll, addRefreshToken };
+export { createUser, byEmail, getAll, updateRefreshToken };

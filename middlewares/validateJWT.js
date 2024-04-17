@@ -2,33 +2,24 @@ import jwt from "jsonwebtoken";
 import { createNewError } from "../src/api/v1/helpers/requestError.js";
 import { JWT_SECRET, REFRESH_SECRET } from "../config/constants.js";
 
-const isLoggedin = async (req, res, next) => {
+const verifyJWT = async (req, res, next) => {
   try {
     validateHeaders(req, res);
     const token = req.header("Authorization").split(" ")[1];
-    const tokenData = await validateToken(token);
-    req.user = tokenData;
-    console.log(req.user.id);
+    const tokenData = await validateToken(token, JWT_SECRET);
+    req.id = tokenData;
+    console.log(req.id);
     next();
   } catch (error) {
     next(error);
   }
 };
 
-const validateToken = async (token) => {
+const validateToken = async (token, secretKey) => {
   try {
-    const decoded = jwt.verify(token, JWT_SECRET);
-    return decoded;
-  } catch (err) {
-    throw createNewError(err.message);
-  }
-};
-
-const validateRefreshToken = async (token, userId) => {
-  try {
-    const { id } = jwt.verify(token, REFRESH_SECRET);
+    const { id } = jwt.verify(token, secretKey);
     return id;
-  } catch (error) {
+  } catch (err) {
     throw createNewError(err.message);
   }
 };
@@ -39,4 +30,9 @@ const validateHeaders = (req) => {
   }
 };
 
-export { isLoggedin, validateToken, validateRefreshToken };
+const validateRefreshToken = async (req, res, next) => {
+  try {
+  } catch (error) {}
+};
+
+export { verifyJWT, validateToken };
