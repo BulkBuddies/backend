@@ -59,7 +59,7 @@
 /**
  * @openapi
  * paths:
- *   /post:
+ *   /product:
  *     get:
  *       summary: Get all products
  *       tags: [Product]
@@ -103,4 +103,33 @@
  *           description: Bad request
  *         '404':
  *           description: Product not found
+ */
+
+/**
+ * @openapi
+ * paths:
+ *   /product/category/{categoryId}:
+ *     get:
+ *       summary: Get product by category id
+ *       tags:
+ *         - Product
+ *       parameters:
+ *         - in: path
+ *           name: productId
+ *           required: true
+ *           schema:
+ *             type: string
+ *           description: The product id
+ *       responses:
+ *         '200':
+ *           description: Product
+ *           content:
+ *             application/json:
+ *               schema:
+ *                 type: object
+ *                 $ref: '#/components/schemas/product'
+ *         '400':
+ *           description: Bad request
+ *         '404':
+ *           description: Category not found
  */

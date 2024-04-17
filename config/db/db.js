@@ -12,4 +12,9 @@ const pool = new Pool({
   ssl: true,
 });
 
+pool.query('SELECT NOW()', (err,res) =>{
+  res ? console.log('DB-Connected', res.rows[0].now) : console.log({err});
+});
+
+
 export default pool;
