@@ -1,11 +1,11 @@
 import express from "express";
-import { createNewUser , getAllUser } from '../src/api/v1/controllers/usersController.js';
-import {validateParamUser } from '../middlewares/validateParamUser.js';
-import { isLogin } from '../middlewares/isLogin.js';
+import {
+  getAllUser,
+} from "../src/api/v1/controllers/usersController.js";
 
 const router = express.Router();
 
-router.post("/", validateParamUser, createNewUser)
-router.get("/", isLogin, getAllUser)
+router.get("/user", getAllUser);
+
 
 export default router;

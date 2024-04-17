@@ -5,7 +5,7 @@ const validateParamLogin = (req, res, next) => {
   if (!email || !password) {
     throw createNewError("auth_05");
   }
-  next(error);
+  next();
 };
 
 export { validateParamLogin };
