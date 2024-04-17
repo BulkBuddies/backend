@@ -1,21 +1,16 @@
 import { byEmail } from "../models/userModel.js";
 import jwt from "jsonwebtoken";
-
 import { createNewError } from "../helpers/requestError.js";
+import { generateToken, generateRefreshToken } from "../utils/generateToken.js";
 
 const loginUser = async (req, res, next) => {
   try {
     const { email, password } = req.body;
-    const findUser = await byEmail(email, password);
-    console.log(findUser);
-    if (!findUser) {
-      throw createNewError("auth_01");
-    }
-    const accessToken = jwt.sign({ email }, process.env.JWT_SECRET, {
-      expiresIn: "1h",
-    });
+    const { id } = await byEmail(email, password);
+    const { token, time } = generateToken(id);
 
-    res.send({ accessToken });
+    
+    res.send({ token, time });
   } catch (error) {
     next(error);
   }

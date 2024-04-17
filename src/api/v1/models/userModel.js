@@ -6,7 +6,7 @@ const createUser = async (user) => {
   let { first_name, last_name, email, username, password } = user;
   const hashedPass = await bcrypt.hash(password, 10);
   const sqlQuery = {
-    text: "INSERT INTO public.user (first_name, last_name, email, username, password) VALUES ($1, $2, $3, $4, $5) RETURNING *",
+    text: "INSERT INTO usuario (first_name, last_name, email, username, password) VALUES ($1, $2, $3, $4, $5) RETURNING *",
     values: [first_name, last_name, email, username, hashedPass],
   };
   const response = await pool.query(sqlQuery);
@@ -15,7 +15,7 @@ const createUser = async (user) => {
 
 const byEmail = async (email, password) => {
   const sqlQuery = {
-    text: "SELECT email, username, refresh_token, password FROM public.user where email = $1",
+    text: "SELECT id, email, username, refresh_token, password FROM usuario where email = $1",
     values: [email],
   };
   const { rowCount, rows } = await pool.query(sqlQuery);
@@ -28,14 +28,13 @@ const byEmail = async (email, password) => {
   if (!isPasswordValid) {
     throw createNewError("auth_02");
   }
-  const { password: pwd, ...rest } = user;
-  return rest;
+  return user;
 };
 
 const getAll = async () => {
   try {
     const sqlQuery = {
-      text: "SELECT first_name, last_name, email, username FROM public.user",
+      text: "SELECT first_name, last_name, email, username FROM usuario",
     };
     const users = await pool.query(sqlQuery);
     return users.rows;
@@ -44,14 +43,17 @@ const getAll = async () => {
   }
 };
 
-const addRefreshToken = async (refreshToken) => {
-  const hashedRefreshToken = await bcrypt.hash(refreshToken, 10);
+const addRefreshToken = async (refreshToken, id) => {
   try {
     const sqlQuery = {
-      text: "UPDATE public.user SET refresh_token = $1",
-      values: [hashedRefreshToken],
+      text: "UPDATE usuario SET refresh_token = $1 WHERE id = $2",
+      values: [refreshToken, id],
     };
-  } catch (error) {}
+
+    await pool.query(sqlQuery);
+  } catch (error) {
+    throw createNewError(error.code);
+  }
 };
 
-export { createUser, byEmail, getAll };
+export { createUser, byEmail, getAll, addRefreshToken };

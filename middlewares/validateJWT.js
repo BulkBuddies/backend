@@ -1,12 +1,14 @@
 import jwt from "jsonwebtoken";
 import { createNewError } from "../src/api/v1/helpers/requestError.js";
+import { JWT_SECRET, REFRESH_SECRET } from "../config/constants.js";
 
-const isLogin = async (req, res, next) => {
+const isLoggedin = async (req, res, next) => {
   try {
     validateHeaders(req, res);
     const token = req.header("Authorization").split(" ")[1];
     const tokenData = await validateToken(token);
     req.user = tokenData;
+    console.log(req.user.id);
     next();
   } catch (error) {
     next(error);
@@ -15,11 +17,19 @@ const isLogin = async (req, res, next) => {
 
 const validateToken = async (token) => {
   try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    console.log("here is decoded", decoded);
+    const decoded = jwt.verify(token, JWT_SECRET);
     return decoded;
   } catch (err) {
-    throw createNewError("auth_04");
+    throw createNewError(err.message);
+  }
+};
+
+const validateRefreshToken = async (token, userId) => {
+  try {
+    const { id } = jwt.verify(token, REFRESH_SECRET);
+    return id;
+  } catch (error) {
+    throw createNewError(err.message);
   }
 };
 
@@ -29,4 +39,4 @@ const validateHeaders = (req) => {
   }
 };
 
-export { isLogin };
+export { isLoggedin, validateToken, validateRefreshToken };
