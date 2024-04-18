@@ -1,0 +1,100 @@
+
+Started GET /product for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 15:52:57 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Started GET /product for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 16:25:26 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Started GET /docs/ for :: ::1 at Thu Apr 18 2024 16:41:21 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 304 message:  Time response: 19 ms Request ID: [ff05d36f-df75-4087-9e15-349f7437e6ca]
+
+Started GET /docs/swagger-ui-bundle.js for :: ::1 at Thu Apr 18 2024 16:41:21 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Started GET /docs/swagger-ui-init.js for :: ::1 at Thu Apr 18 2024 16:41:21 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Started GET /docs/swagger-ui.css for :: ::1 at Thu Apr 18 2024 16:41:21 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 304 message:  Time response: 8 ms Request ID: [37f94339-c3eb-4156-8b03-ba26275f3d1d]
+
+Completed: 200 message:  Time response: 17 ms Request ID: [ce5b96b6-db6f-4da0-ac2d-cf953b050d28]
+
+Started GET /docs/swagger-ui-standalone-preset.js for :: ::1 at Thu Apr 18 2024 16:41:21 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 36 ms Request ID: [50adbb37-6d0c-4926-91d0-e82b34e58a34]
+
+Completed: 200 message:  Time response: 206 ms Request ID: [b84c006d-adfc-4a0f-818d-2da7cec41a04]
+
+Started GET /docs/favicon-32x32.png for :: ::1 at Thu Apr 18 2024 16:41:21 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 14 ms Request ID: [de8d1a4f-df82-4d0c-9670-41edc73ce639]
+
+Started GET /product for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 16:47:18 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 1098 ms Request ID: [2f16c511-42f5-460e-b6d2-ac5c5e2d5484]
+
+Started GET /docs/ for :: ::1 at Thu Apr 18 2024 17:05:03 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 304 message:  Time response: 73 ms Request ID: [db75da20-6ae7-4a69-939a-e1991a960b1a]
+
+Started GET /docs/swagger-ui-init.js for :: ::1 at Thu Apr 18 2024 17:05:04 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Started GET /docs/swagger-ui.css for :: ::1 at Thu Apr 18 2024 17:05:04 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 304 message:  Time response: 9 ms Request ID: [c962437d-1eaf-4c4c-8388-31aeef04b401]
+
+Completed: 304 message:  Time response: 5 ms Request ID: [6fb4046a-5b0c-4d21-bc03-578a42b13501]
+
+Started GET /docs/swagger-ui-standalone-preset.js for :: ::1 at Thu Apr 18 2024 17:05:04 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 304 message:  Time response: 5 ms Request ID: [22b0b487-fd78-4628-921f-853302864825]
+
+Started GET /docs/swagger-ui-bundle.js for :: ::1 at Thu Apr 18 2024 17:05:04 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 304 message:  Time response: 4 ms Request ID: [c2b4261a-3d95-4145-bff5-4786883d98ee]
+
+Started GET /docs/favicon-32x32.png for :: ::1 at Thu Apr 18 2024 17:05:04 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 304 message:  Time response: 5 ms Request ID: [cc58fd82-4bd3-4ad1-bc89-8e5d9cf1dcae]
+
+Started GET /product/efe035ae-1a9c-4dfb-a9dd-d93f443c2096 for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 17:15:43 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 1146 ms Request ID: [9e8f2f8f-ad10-4546-9321-e574002d0a3c]
+
+Started GET /product for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 17:18:41 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 1079 ms Request ID: [8e9a22fc-b05b-417a-89db-176df895c45c]
+
+Started GET /product?limit=2 for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 17:18:54 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 1051 ms Request ID: [4cd63fa7-b134-4fdf-ae4d-12d226e433a5]
+
+Started GET /product/category/3122ad61-5c89-4271-93b3-613487401afd for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 17:29:10 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 1226 ms Request ID: [292d3e39-818c-4510-82a4-f21cb932a9fb]
+
+Started GET /product/category/73ab2a97-7421-4aeb-abc9-5e893bae6d49 for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 17:29:28 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 1068 ms Request ID: [429e3876-0287-4d3d-9bda-91fe5580a9e3]
+
+Started GET /product/category/73ab2a97-7421-4aeb-abc9-5e893bae6d49 for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 17:29:59 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 172 ms Request ID: [6f3c98d4-93f0-4446-a7bc-325748f7d6aa]
+
+Started GET /product for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 17:30:25 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 1174 ms Request ID: [4ec445cb-ebc0-48e4-ab4a-0e8258e032b5]
+
+Started GET /product/category/73ab2a97-7421-4aeb-abc9-5e893bae6d49 for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 17:34:41 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 1072 ms Request ID: [7ce9eec8-9122-4d8f-90d3-50d12e3257e2]
+
+Started GET /product/category/73ab2a97-7421-4aeb-abc9-5e893bae6d49 for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 17:35:18 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 194 ms Request ID: [4c10b923-d960-4e7c-a73e-b4b4b06ee6b5]
+
+Started GET /product/category/73ab2a97-7421-4aeb-abc9-5e893bae6d49 for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 17:49:05 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 348 ms Request ID: [8420ff14-b250-4a7b-9013-a07df47e88eb]
+
+Started GET /product/category/73ab2a97-7421-4aeb-abc9-5e893bae6d49 for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 17:49:37 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 341 ms Request ID: [331dd392-fc04-468f-85a1-5219eee34788]

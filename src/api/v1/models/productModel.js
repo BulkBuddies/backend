@@ -15,6 +15,7 @@ export const getAllPro = async () => {
   }
 };
 
+
 export const getProductById = async (id) => {
   const sqlQuery = {
     text: "SELECT id, name, description, required_stock, unit_price, created_at, updated_at, url, category_id FROM product where id = $1",
@@ -22,6 +23,25 @@ export const getProductById = async (id) => {
   };
   const { rows } = await pool.query(sqlQuery);
   return rows[0];
+};
+
+export const getCategoryName = async (id) => {
+  const sqlQuery = {
+    text: "SELECT name FROM category where id = $1",
+    values: [id],
+  };
+  const { rows } = await pool.query(sqlQuery);
+  return rows[0];
+};
+
+
+export const getProductByCategoryId = async (category_id) => {
+  const sqlQuery = {
+    text: "SELECT id, name, description, required_stock, unit_price, created_at, updated_at, url, category_id FROM product where category_id = $1",
+    values: [category_id],
+  };
+  const { rows } = await pool.query(sqlQuery);
+  return rows;
 };
 
 export const getProLimitOrder = async (
