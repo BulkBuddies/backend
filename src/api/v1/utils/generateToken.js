@@ -1,11 +1,11 @@
 import jwt from "jsonwebtoken";
 import { JWT_SECRET, REFRESH_SECRET } from "../../../../config/constants.js";
 import { createNewError } from "../helpers/requestError.js";
-import { addRefreshToken } from "../models/userModel.js";
+import { updateRefreshToken } from "../models/userModel.js";
 
 const generateToken = (id) => {
+  const time = 60;
   try {
-    const time = 60;
     const token = jwt.sign({ id }, JWT_SECRET, { expiresIn: time });
     return { token, time };
   } catch (error) {
@@ -13,7 +13,7 @@ const generateToken = (id) => {
   }
 };
 
-const generateRefreshToken = (id) => {
+const generateRefreshToken = (id, res) => {
   const time = 60 * 60 * 24;
   try {
     const refreshToken = jwt.sign({ id }, REFRESH_SECRET, { expiresIn: time });
