@@ -4,6 +4,7 @@ import cors from "cors";
 import swaggerDocs from "./src/api/v1/utils/swagger.js";
 import errorHandler from "./middlewares/error.handler.js";
 import userRoutes from "./routes/userRoutes.js";
+import productRoutes from "./routes/productRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
 import cookieParser from "cookie-parser";
 import { verifyJWT } from "./middlewares/validateJWT.js";
@@ -13,14 +14,16 @@ const PORT = process.env.PORT;
 const app = express();
 app.use(cors(corsOptions));
 app.use(express.json());
-/* app.use(logger()); */
+app.use(logger());
+app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 swaggerDocs(app, PORT);
-app.use("/", authRoutes);
 
 app.get("/", async (req, res) => {
   res.status(200).json({ Message: "Welcome" });
 });
+app.use("/", authRoutes);
+app.use("/", productRoutes);
 app.use(verifyJWT);
 app.use("/", userRoutes);
 app.use(errorHandler);
