@@ -77,9 +77,33 @@ const getProLimitOrder = async (
   }
 };
 
-// export getProductFilter = async ({}) =>{
+const getProductFilter = async ({
+  unit_max,
+  unit_min,
+}) => {
+  //console.log('hi')
+  let filtros = [];
+  let valores = [];
 
-// }
+  if (unit_max) {
+    filtros.push(`unit_price <= $${valores.length + 1}`);
+    valores.push(unit_max);
+  }
+  if (unit_min) {
+    filtros.push(`unit_price >= $${valores.length + 1}`);
+    valores.push(unit_min);
+  }
 
-export { getAllPro,getProductById,getCategoryName, getProLimitOrder, getProductByCategoryId  }
+  let consulta = "SELECT * FROM product";
+  if (filtros.length > 0) {
+    consulta += ` WHERE ${filtros.join(" AND ")}`;
+  }
+
+  const { rows: product } = await pool.query(consulta, valores);
+  return product;
+};
+
+
+
+export { getAllPro,getProductById,getCategoryName, getProLimitOrder, getProductByCategoryId, getProductFilter  }
 
