@@ -22,11 +22,16 @@ swaggerDocs(app, PORT);
 app.get("/", async (req, res) => {
   res.status(200).json({ Message: "Welcome" });
 });
-app.use("/", authRoutes);
 app.use("/", productRoutes);
+app.use("/", authRoutes);
+
+app.get("*", (req, res) => {
+  res.status(404).send("Not found");
+});
 app.use(verifyJWT);
 app.use("/", userRoutes);
 app.use(errorHandler);
+
 
 app.listen(PORT, () => {
   console.log(`LISTENING ON ${PORT}`);
