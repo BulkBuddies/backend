@@ -1,6 +1,7 @@
 import express from "express";
 import "dotenv/config";
 import cors from "cors";
+import passport from "passport";
 import swaggerDocs from "./src/api/v1/utils/swagger.js";
 import errorHandler from "./middlewares/error.handler.js";
 import userRoutes from "./routes/userRoutes.js";
@@ -18,6 +19,8 @@ app.use(express.json());
 app.use(logger());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(passport.initialize());
+app.use(passport.session());
 swaggerDocs(app, PORT);
 
 app.get("/", async (req, res) => {
