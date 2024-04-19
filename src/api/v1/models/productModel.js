@@ -81,7 +81,7 @@ const getProductFilter = async ({
   unit_max,
   unit_min,
 }) => {
-  //console.log('hi')
+  try {
   let filtros = [];
   let valores = [];
 
@@ -101,8 +101,11 @@ const getProductFilter = async ({
 
   const { rows: product } = await pool.query(consulta, valores);
   return product;
-};
 
+} catch (error) {
+     throw createNewError(error.code);
+}  
+};
 
 
 export { getAllPro,getProductById,getCategoryName, getProLimitOrder, getProductByCategoryId, getProductFilter  }

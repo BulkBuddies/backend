@@ -54,12 +54,10 @@ const getProductOrderLimit = async (req, res, next) => {
 };
 
 const getProductsByFilter = async (req, res) => {
- // console.log('hi')
   try {
       const parametrosQuery = req.query
-      console.log(parametrosQuery)
       const products = await getProductFilter(parametrosQuery);    
-      res.status(200).json({products: products})        
+      res.status(200).json({count: products.length, products: products})        
   } catch (error) {
     next(error);            
   }
