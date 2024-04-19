@@ -8,7 +8,6 @@ const verifyJWT = async (req, res, next) => {
     const token = req.header("Authorization").split(" ")[1];
     const tokenData = await validateToken(token, JWT_SECRET);
     req.id = tokenData;
-    console.log(req.id);
     next();
   } catch (error) {
     next(error);
@@ -17,8 +16,8 @@ const verifyJWT = async (req, res, next) => {
 
 const validateToken = async (token, secretKey) => {
   try {
-    const { id } = jwt.verify(token, secretKey);
-    return id;
+    const { id, exp } = jwt.verify(token, secretKey);
+    return { id, exp };
   } catch (err) {
     throw createNewError(err.message);
   }

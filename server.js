@@ -10,6 +10,7 @@ import cookieParser from "cookie-parser";
 import { verifyJWT } from "./middlewares/validateJWT.js";
 import corsOptions from "./config/cors.js";
 import { logger } from "logger-express";
+import { notFoundHandler } from "./middlewares/notFoundHandler.js";
 const PORT = process.env.PORT;
 const app = express();
 app.use(cors(corsOptions));
@@ -22,10 +23,12 @@ swaggerDocs(app, PORT);
 app.get("/", async (req, res) => {
   res.status(200).json({ Message: "Welcome" });
 });
-app.use("/", authRoutes);
 app.use("/", productRoutes);
-app.use(verifyJWT);
+app.use("/", authRoutes);
+
+
 app.use("/", userRoutes);
+app.get("*", notFoundHandler);
 app.use(errorHandler);
 
 app.listen(PORT, () => {

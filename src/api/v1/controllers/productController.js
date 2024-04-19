@@ -5,53 +5,45 @@ import {
   getProductByCategoryId,
   getCategoryName,
 } from "../models/productModel.js";
-import { findError } from "../utils/utils.js";
 
-export const getAllProducts = async (req, res) => {
+export const getAllProducts = async (req, res, next) => {
   try {
     const products = await getAllPro();
     res.status(200).json({ products: products });
   } catch (error) {
-    //console.error("Error al procesar", error.code);
-    const errorFound = findError(error.code);
-    res.status(errorFound[0].status).json({ error: errorFound[0].message });
+    next(error);
   }
 };
 
-
-export const getProductId = async (req, res) => {
+export const getProductId = async (req, res, next) => {
   try {
     const { id } = req.params;
     const product = await getProductById(id);
     res.status(200).json({ product: product });
   } catch (error) {
-    const errorFound = findError(error.code);
-    res.status(errorFound[0].status).json({ error: errorFound[0].message });
+    next(error);
   }
 };
 
-export const getProductCategoryId = async (req, res) => {
+export const getProductCategoryId = async (req, res, next) => {
   try {
     const { id } = req.params;
     const product = await getProductByCategoryId(id);
     const name_category = await getCategoryName(id);
     res.status(200).json({ name_category, product: product });
   } catch (error) {
-    const errorFound = findError(error.code);
-    res.status(errorFound[0].status).json({ error: errorFound[0].message });
+    next(error);
   }
 };
 
-export const getProductOrderLimit = async (req, res) => {
+export const getProductOrderLimit = async (req, res, next) => {
   try {
     const { field, direction, limit, page } = req.query;
     const products = await getProLimitOrder(field, direction, limit, page);
     //const products = await getAllPro();
     //const stockTotal = await getAllPro();
-    //const productsHateoas = await prepareHateoas("id", products)
     res.status(200).json({ products: products });
   } catch (error) {
-    const errorFound = findError(error.code);
-    res.status(errorFound[0].status).json({ error: errorFound[0].message });
+    next(error);
   }
 };

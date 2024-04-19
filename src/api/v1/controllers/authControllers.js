@@ -9,6 +9,7 @@ const loginUser = async (req, res, next) => {
   try {
     const { email, password } = req.body;
     const { id } = await byEmail(email, password);
+    console.log(id);
     const { token, time } = generateToken(id);
     generateRefreshToken(id, res);
     return res.send({ token, time });
@@ -33,7 +34,7 @@ const refreshTokenController = async (req, res, next) => {
     const cookie = req.cookies;
     if (!cookie.jwt) throw createNewError("auth_07");
     const refreshToken = cookie.jwt;
-    const id = validateToken(refreshToken, REFRESH_SECRET);
+    const { id } = await validateToken(refreshToken, REFRESH_SECRET);
     const { token, time } = generateToken(id);
     return res.send({ token, time });
   } catch (error) {
