@@ -6,7 +6,8 @@ import {
   getCategoryName,
 } from "../models/productModel.js";
 
-export const getAllProducts = async (req, res, next) => {
+
+const getAllProducts = async (req, res, next) => {
   try {
     const products = await getAllPro();
     res.status(200).json({ products: products });
@@ -15,7 +16,8 @@ export const getAllProducts = async (req, res, next) => {
   }
 };
 
-export const getProductId = async (req, res, next) => {
+
+const getProductId = async (req, res, next) => {
   try {
     const { id } = req.params;
     const product = await getProductById(id);
@@ -25,7 +27,8 @@ export const getProductId = async (req, res, next) => {
   }
 };
 
-export const getProductCategoryId = async (req, res, next) => {
+
+const getProductCategoryId = async (req, res, next) => {
   try {
     const { id } = req.params;
     const product = await getProductByCategoryId(id);
@@ -36,7 +39,8 @@ export const getProductCategoryId = async (req, res, next) => {
   }
 };
 
-export const getProductOrderLimit = async (req, res, next) => {
+
+const getProductOrderLimit = async (req, res, next) => {
   try {
     const { field, direction, limit, page } = req.query;
     const products = await getProLimitOrder(field, direction, limit, page);
@@ -46,4 +50,11 @@ export const getProductOrderLimit = async (req, res, next) => {
   } catch (error) {
     next(error);
   }
+};
+
+export {
+  getAllProducts,
+  getProductId,
+  getProductCategoryId,
+  getProductOrderLimit,
 };

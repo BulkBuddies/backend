@@ -25,11 +25,10 @@ app.get("/", async (req, res) => {
 });
 app.use("/", productRoutes);
 app.use("/", authRoutes);
-
-
 app.use("/", userRoutes);
 app.get("*", notFoundHandler);
 app.use(errorHandler);
+
 
 app.listen(PORT, () => {
   console.log(`LISTENING ON ${PORT}`);

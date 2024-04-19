@@ -1,532 +1,144 @@
-
-Started GET /products for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 20:28:00 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {}
-Completed: 401 message:  Time response: 10 ms Request ID: [6b4fbd46-03eb-4ab0-8559-e81f66d3a048]
-
-Started GET /products for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 20:28:14 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {}
-Completed: 401 message:  Time response: 3 ms Request ID: [6a429a01-cfc2-4fe7-aa18-baf5bb5703cd]
-
-Started GET /products for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 20:28:14 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {}
-Completed: 401 message:  Time response: 3 ms Request ID: [1529d8c4-521f-4f7f-a55e-abdffeab212f]
-
-Started GET / for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 20:28:41 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {}
-Completed: 200 message:  Time response: 2 ms Request ID: [dccf3e8a-743e-4aac-b0b1-a1425c4ef0d0]
-
-Started GET /products for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 20:29:05 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {}
-Completed: 401 message:  Time response: 9 ms Request ID: [f431ba1d-6d72-47b5-870c-9e93d62845df]
-
-Started GET /products for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 20:29:06 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {}
-Completed: 401 message:  Time response: 3 ms Request ID: [d6747968-539b-4334-896a-067f3fe44786]
-
-Started GET /products for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 20:29:07 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {}
-Completed: 401 message:  Time response: 4 ms Request ID: [52b167d3-d0c1-4538-a9c0-aca5eba1cf2f]
-
-Started GET /products for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 20:29:08 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {}
-Completed: 401 message:  Time response: 5 ms Request ID: [2a778ed5-ee8a-4561-83c0-8e3569ad4afa]
-
-Started GET /products for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 20:29:10 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {}
-Completed: 401 message:  Time response: 3 ms Request ID: [7da32d59-9c5c-4b89-80d0-39ca141421f1]
-
-Started GET /products for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 20:29:16 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {}
-Completed: 401 message:  Time response: 3 ms Request ID: [d398d4d6-e802-4474-9778-b9108b0d7c33]
-
-Started GET /products for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 20:29:17 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {}
-Completed: 401 message:  Time response: 3 ms Request ID: [0e01c275-6f95-464d-bc15-09bb61755bb9]
-
-Started GET /product for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 20:29:28 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {}
-Completed: 200 message:  Time response: 1092 ms Request ID: [cc27a421-a4db-43b3-b7a8-ddcb31bb0d12]
-
-Started GET /products for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 20:29:36 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {}
-Completed: 401 message:  Time response: 3 ms Request ID: [de20329f-3a73-4eb5-90d4-4b579a6e1aba]
-
-Started GET /bobi for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 20:29:59 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {}
-Completed: 401 message:  Time response: 4 ms Request ID: [d27551a4-6809-4d1c-97f1-3591c02204bd]
-
-Started GET /bobi for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 20:30:28 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {}
-Completed: 404 message:  Time response: 6 ms Request ID: [80fe844a-e0d9-4a24-a3ff-a548b4135d55]
-
-Started GET /bobi for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 20:30:29 GMT-0400 (hora estándar de Chile)
+Started GET /product for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 20:03:04 GMT-0400 (Chile Standard Time)
   Parameters in body: {}
-Completed: 404 message:  Time response: 3 ms Request ID: [cf2eb30d-7aa6-4c53-a1fc-4d05dfd56331]
+Completed: 200 message:  Time response: 187 ms Request ID: [2282c874-12c3-4710-9b5c-2ea2d868764d]
 
-Started GET /bobi for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:01:39 GMT-0400 (hora estándar de Chile)
+Started GET /product/efe035ae-1a9c-4dfb-a9dd-d93f443c209 for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 20:03:10 GMT-0400 (Chile Standard Time)
   Parameters in body: {}
-Completed: 404 message:  Time response: 6 ms Request ID: [e6103991-6b41-439b-a504-347704b8f31e]
-
-Started GET /user for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:01:48 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {}
-Completed: 404 message:  Time response: 3 ms Request ID: [f9ed1154-ab23-4d3d-a8e2-df2ec7779f6c]
-
-Started GET /users for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:01:52 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {}
-Completed: 404 message:  Time response: 3 ms Request ID: [e4de0907-0856-4fd1-b6d9-6152ea2f5bff]
-
-Started GET /user for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:02:19 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {}
-Completed: 404 message:  Time response: 2 ms Request ID: [c755bfe9-0ee6-412e-b602-3cbc0e72dcd3]
-
-Started GET /user for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:02:20 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {}
-Completed: 404 message:  Time response: 2 ms Request ID: [4aa8cd90-c0dc-4ab6-bae6-2f3bcc3335fb]
-
-Started GET /products for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:02:27 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {}
-Completed: 404 message:  Time response: 2 ms Request ID: [75f147ea-52de-4d41-a03b-a2abf252d57b]
-
-Started GET /products for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:02:28 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {}
-Completed: 404 message:  Time response: 2 ms Request ID: [294a20cc-534b-483a-bf5f-825c602e6577]
-
-Started GET /login for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:03:36 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {}
-Completed: 404 message:  Time response: 2 ms Request ID: [73d50ccb-46d6-40b9-817e-ae33dd93e133]
-
-Started GET /login for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:03:36 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {}
-Completed: 404 message:  Time response: 2 ms Request ID: [0629e8b0-c2d2-4659-9230-b160d38e2ed0]
-
-Started GET /login for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:03:37 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {}
-Completed: 404 message:  Time response: 3 ms Request ID: [f1a3e735-f181-4879-a1dd-02639f56adb6]
-
-Started GET / for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:03:52 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {}
-Completed: 200 message:  Time response: 3 ms Request ID: [38f63b79-d353-4155-9668-2aa32999cc54]
-
-Started GET /user for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:04:03 GMT-0400 (hora estándar de Chile)
+Started GET /product/efe035ae-1a9c-4dfb-a9dd-d93f443c209 for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 20:05:07 GMT-0400 (Chile Standard Time)
   Parameters in body: {}
-Completed: 404 message:  Time response: 2 ms Request ID: [41031008-a14d-4be3-9e6b-225ed9dffc13]
-
-Started GET /product for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:04:38 GMT-0400 (hora estándar de Chile)
+Started GET /product/efe035ae-1a9c-4dfb-a9dd-d93f443c209 for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 20:06:28 GMT-0400 (Chile Standard Time)
   Parameters in body: {}
-Completed: 200 message:  Time response: 1083 ms Request ID: [a0228218-ee35-4fbd-b1a5-638275bbd32d]
-
-Started GET /products for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:04:42 GMT-0400 (hora estándar de Chile)
+Started GET /product/category/73ab2a97-7421-4aeb-abc9-5e893bae6d49 for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 20:07:21 GMT-0400 (Chile Standard Time)
   Parameters in body: {}
-Completed: 404 message:  Time response: 3 ms Request ID: [9f112b3f-7996-406e-acd5-c4e5fc3e1188]
+Completed: 200 message:  Time response: 361 ms Request ID: [c36e0622-63d5-4714-8ce2-98b06344b0f0]
 
-Started GET /product for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:04:45 GMT-0400 (hora estándar de Chile)
+Started GET /product/efe035ae-1a9c-4dfb-a9dd-d93f443c209 for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 20:07:24 GMT-0400 (Chile Standard Time)
   Parameters in body: {}
-Completed: 200 message:  Time response: 166 ms Request ID: [dee544f2-a607-4aab-b70f-4a537be8e1d5]
-
-Started GET /product/sdfsdf for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:04:52 GMT-0400 (hora estándar de Chile)
+Started GET /product/efe035ae-1a9c-4dfb-a9dd-d93f443c209 for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 20:08:52 GMT-0400 (Chile Standard Time)
   Parameters in body: {}
-Started GET /product/sdfsdf for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:05:34 GMT-0400 (hora estándar de Chile)
+Started GET /product/category/73ab2a97-7421-4aeb-abc9-5e893bae6d49 for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 20:10:09 GMT-0400 (Chile Standard Time)
   Parameters in body: {}
-Completed: 400 message:  Time response: 173 ms Request ID: [20355780-768a-4093-a7ec-4f8c56d18056]
+Completed: 200 message:  Time response: 367 ms Request ID: [226d596d-f7c9-4f29-bc5f-ad4df52dc379]
 
-Started GET /products for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:05:43 GMT-0400 (hora estándar de Chile)
+Started GET /product/efe035ae-1a9c-4dfb-a9dd-d93f443c209 for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 20:10:13 GMT-0400 (Chile Standard Time)
   Parameters in body: {}
-Completed: 404 message:  Time response: 3 ms Request ID: [6b679877-9a8c-48e0-9deb-cd9aff2e27c0]
-
-Started GET /products for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:07:26 GMT-0400 (hora estándar de Chile)
+Started GET /product/efe035ae-1a9c-4dfb-a9dd-d93f443c209 for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 20:15:06 GMT-0400 (Chile Standard Time)
   Parameters in body: {}
-Completed: 404 message:  Time response: 3 ms Request ID: [99afae0f-891d-437d-8f9f-59322944ac0e]
-
-Started GET /products for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:07:27 GMT-0400 (hora estándar de Chile)
+Started GET /product/efe035ae-1a9c-4dfb-a9dd-d93f443c209 for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 20:16:27 GMT-0400 (Chile Standard Time)
   Parameters in body: {}
-Completed: 404 message:  Time response: 2 ms Request ID: [f7a000a5-759e-4761-94e0-72b464974e8f]
-
-Started GET /product for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:07:31 GMT-0400 (hora estándar de Chile)
+Started GET /product/efe035ae-1a9c-4dfb-a9dd-d93f443c209 for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 20:18:11 GMT-0400 (Chile Standard Time)
   Parameters in body: {}
-Completed: 200 message:  Time response: 1108 ms Request ID: [04ccad11-633e-4587-9c0f-3778791bbf71]
+Completed: 500 message:  Time response: 185 ms Request ID: [98a6271e-8269-4d5c-99ae-a0aa9ae038c1]
 
-Started GET /product for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:10:11 GMT-0400 (hora estándar de Chile)
+Started GET /product/efe035ae-1a9c-4dfb-a9dd-d93f443c2096 for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 20:18:21 GMT-0400 (Chile Standard Time)
   Parameters in body: {}
-Completed: 200 message:  Time response: 172 ms Request ID: [f91d6ed7-1074-4a04-a653-0974532b55c9]
+Completed: 200 message:  Time response: 1118 ms Request ID: [eea7caaa-f249-4ba0-be4a-6cbe399920ac]
 
-Started GET /products for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:10:13 GMT-0400 (hora estándar de Chile)
+Started GET /product/efe035ae-1a9c-4dfb-a9dd-d93f443c209 for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 20:18:27 GMT-0400 (Chile Standard Time)
   Parameters in body: {}
-Completed: 401 message:  Time response: 6 ms Request ID: [f98929bf-8c1b-4ffc-b661-5faf9ad0f01f]
+Completed: 500 message:  Time response: 176 ms Request ID: [f8f4487f-b83b-4fb6-997a-b9a73fecab2d]
 
-Started GET /products for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:11:02 GMT-0400 (hora estándar de Chile)
+Started GET /product/efe035ae-1a9c-4dfb-a9dd-d93f443c209 for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 20:19:06 GMT-0400 (Chile Standard Time)
   Parameters in body: {}
-Completed: 404 message:  Time response: 7 ms Request ID: [5e070470-261a-4116-b8b9-25a74e5a5270]
+Completed: 500 message:  Time response: 1129 ms Request ID: [c470cc21-2282-46f2-943d-fa73024375b9]
 
-Started GET /products for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:13:41 GMT-0400 (hora estándar de Chile)
+Started GET /product/efe035ae-1a9c-4dfb-a9dd-d93f443c209 for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 20:21:07 GMT-0400 (Chile Standard Time)
   Parameters in body: {}
-Completed: 500 message:  Time response: 6 ms Request ID: [9e5b6307-5e92-4774-9bcd-8ac841a797a3]
+Completed: 400 message:  Time response: 187 ms Request ID: [35fc4e5b-7456-4d96-a47b-0ed34fe44e5e]
 
-Started GET /products for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:14:25 GMT-0400 (hora estándar de Chile)
+Started GET /product/category/73ab2a97-7421-4aeb-abc9-5e893bae6d49 for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 20:22:21 GMT-0400 (Chile Standard Time)
   Parameters in body: {}
-Completed: 404 message:  Time response: 7 ms Request ID: [c1b4b4f8-0029-473c-bb56-495d44c8394d]
+Completed: 200 message:  Time response: 385 ms Request ID: [c5345d76-0a49-4940-8a9a-b2f7b87b1e03]
 
-Started GET /login for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:16:14 GMT-0400 (hora estándar de Chile)
+Started GET /product/efe035ae-1a9c-4dfb-a9dd-d93f443c2096 for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 20:22:25 GMT-0400 (Chile Standard Time)
   Parameters in body: {}
-Completed: 404 message:  Time response: 7 ms Request ID: [0116fc9d-f03d-452a-923a-5f8d1c82dca4]
+Completed: 200 message:  Time response: 206 ms Request ID: [5e43d7e1-101d-40b5-85ee-56706a902ff7]
 
-Started GET /login for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:16:14 GMT-0400 (hora estándar de Chile)
+Started GET /product/efe035ae-1a9c-4dfb-a9dd-d93f443c209 for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 20:22:27 GMT-0400 (Chile Standard Time)
   Parameters in body: {}
-Completed: 404 message:  Time response: 3 ms Request ID: [351b4d14-b1bc-4a62-b25a-c3a9af693939]
+Completed: 400 message:  Time response: 186 ms Request ID: [b2c45ee8-8331-40b1-a3f8-f57ea9857157]
 
-Started POST /login for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:16:17 GMT-0400 (hora estándar de Chile)
+Started GET /product/efe035ae-1a9c-4dfb-a9dd-d93f443c2096 for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 20:22:30 GMT-0400 (Chile Standard Time)
   Parameters in body: {}
-Completed: 400 message:  Time response: 3 ms Request ID: [4184c76f-7993-4c59-bdaa-cadaec9889cf]
-
-Started POST /login for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:17:05 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {"email":"test@email.com","password":"test123."}
-Started POST /login for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:17:09 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {"email":"test@email.com","password":"test123."}
-Completed: 200 message:  Time response: 238 ms Request ID: [04cb70f9-4e99-43b1-88ea-e1062bbe6af5]
-
-Started POST /login for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:17:50 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {"email":"test@email.com","password":"test123."}
-Completed: 200 message:  Time response: 1153 ms Request ID: [59d61035-4111-413e-9c90-034fb13aea8c]
-
-Started POST /user for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:17:57 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {"email":"test@email.com","password":"test123."}
-Completed: 401 message:  Time response: 4 ms Request ID: [e68f47b3-9760-44bb-aec9-419a01bda89e]
-
-Started POST /user for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:18:04 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {"email":"test@email.com","password":"test123."}
-Completed: 404 message:  Time response: 6 ms Request ID: [e35887a2-6356-45e4-ac32-641d5b23cba0]
-
-Started GET /user for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:18:19 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {"email":"test@email.com","password":"test123."}
-Completed: 404 message:  Time response: 2 ms Request ID: [d792427d-61f0-40c6-9012-e805d3ed1efe]
+Completed: 200 message:  Time response: 1139 ms Request ID: [0ebf3a2d-ccc3-4683-b43f-8731410c36a1]
 
-Started GET /user for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:18:23 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {"email":"test@email.com","password":"test123."}
-Completed: 404 message:  Time response: 2 ms Request ID: [e0ceb26d-4c88-406f-9a75-e49be2ab99ba]
-
-Started GET /user for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:18:31 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {"email":"test@email.com","password":"test123."}
-Completed: 404 message:  Time response: 3 ms Request ID: [acb9354a-2c28-414c-b02c-953617fc5983]
-
-Started GET /user for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:18:31 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {"email":"test@email.com","password":"test123."}
-Completed: 404 message:  Time response: 2 ms Request ID: [75740276-890d-4805-8e3c-c368119b6517]
-
-Started GET /user for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:18:31 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {"email":"test@email.com","password":"test123."}
-Completed: 404 message:  Time response: 3 ms Request ID: [a7b498dc-4e46-4343-9761-15e59112ca09]
-
-Started GET /user for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:18:32 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {"email":"test@email.com","password":"test123."}
-Completed: 404 message:  Time response: 3 ms Request ID: [c0e14712-c8fd-4492-87c5-07b86565d56f]
-
-Started GET /user for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:18:32 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {"email":"test@email.com","password":"test123."}
-Completed: 404 message:  Time response: 3 ms Request ID: [9950faaf-3021-4058-93ac-f7960d6a3dc7]
-
-Started GET /user for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:18:39 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {"email":"test@email.com","password":"test123."}
-Completed: 404 message:  Time response: 2 ms Request ID: [d0464b9e-2534-4c60-bd8f-72e04fdcd396]
-
-Started GET /user for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:18:39 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {"email":"test@email.com","password":"test123."}
-Completed: 404 message:  Time response: 2 ms Request ID: [922a4c2b-c0bc-49da-8299-f105c76b4ed9]
-
-Started GET /user for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:18:42 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {"email":"test@email.com","password":"test123."}
-Completed: 404 message:  Time response: 2 ms Request ID: [d77a7a40-ce26-4180-9416-8cc5aa3a55d7]
-
-Started GET /user for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:19:26 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {"email":"test@email.com","password":"test123."}
-Completed: 403 message:  Time response: 8 ms Request ID: [3d61dae0-7464-4e25-9e3e-1ce837643064]
-
-Started GET /user for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:19:36 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {"email":"test@email.com","password":"test123."}
-Completed: 403 message:  Time response: 3 ms Request ID: [2453cc92-6fbe-4cb4-8dca-c8988c276291]
-
-Started GET /user for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:19:36 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {"email":"test@email.com","password":"test123."}
-Completed: 403 message:  Time response: 3 ms Request ID: [93a296d6-d0b7-4b5b-a4c9-1c522714776d]
-
-Started GET /user for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:19:37 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {"email":"test@email.com","password":"test123."}
-Completed: 403 message:  Time response: 3 ms Request ID: [29070a85-040c-431b-9fb9-a326d2b92f09]
-
-Started POST /login for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:19:46 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {"email":"test@email.com","password":"test123."}
-Completed: 200 message:  Time response: 1336 ms Request ID: [11b9a0de-759b-48f7-89d9-add4dd0e9577]
-
-Started GET /user for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:19:58 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {"email":"test@email.com","password":"test123."}
-Completed: 200 message:  Time response: 1092 ms Request ID: [e8e09a95-ed69-46c6-833f-a4dfccf1b09a]
-
-Started GET /user for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:20:54 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {"email":"test@email.com","password":"test123."}
-Completed: 403 message:  Time response: 2 ms Request ID: [8ffaa46b-c7a5-49f5-bfbb-c25cd300b284]
-
-Started GET /user for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:20:54 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {"email":"test@email.com","password":"test123."}
-Completed: 403 message:  Time response: 3 ms Request ID: [8e0e7407-b4e8-450d-a784-3fdeebc4baa7]
-
-Started POST /login for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:21:44 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {"email":"test@email.com","password":"test123."}
-Completed: 200 message:  Time response: 1249 ms Request ID: [95c4b088-562b-4640-80a2-2e5e4268ca59]
-
-Started GET /refresh for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:22:21 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {"email":"test@email.com","password":"test123."}
-Completed: 200 message:  Time response: 3 ms Request ID: [329957cf-5d07-4f89-8b21-bea6802d4721]
-
-Started GET /refresh for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:22:23 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {"email":"test@email.com","password":"test123."}
-Completed: 200 message:  Time response: 4 ms Request ID: [9b477190-d8a8-4694-9cf0-49e2ed1efc81]
-
-Started GET /refresh for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:22:23 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {"email":"test@email.com","password":"test123."}
-Completed: 200 message:  Time response: 3 ms Request ID: [54e36e4c-9df1-43f0-b0e2-4c4f5df29068]
-
-Started GET /refresh for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:22:32 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {"email":"test@email.com","password":"test123."}
-Completed: 200 message:  Time response: 3 ms Request ID: [ce50382d-8cdc-4326-9159-0c0e11b5d955]
-
-Started GET /refresh for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:22:32 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {"email":"test@email.com","password":"test123."}
-Completed: 200 message:  Time response: 4 ms Request ID: [2dc4b351-dbd0-466d-b429-4141f57211dc]
-
-Started GET /refresh for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:22:33 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {"email":"test@email.com","password":"test123."}
-Completed: 200 message:  Time response: 3 ms Request ID: [ecaf1afe-2ead-4d5a-88a4-86d9f7d43fde]
-
-Started GET /refresh for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:24:02 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {"email":"test@email.com","password":"test123."}
-Completed: 200 message:  Time response: 3 ms Request ID: [8ce9f853-65ba-4274-a5ba-3d1e7b7dbd83]
-
-Started GET /user for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:24:08 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {"email":"test@email.com","password":"test123."}
-Completed: 401 message:  Time response: 3 ms Request ID: [4ad3ecdd-74f5-4500-a7c2-b581fe3fe565]
-
-Started GET /user for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:24:12 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {"email":"test@email.com","password":"test123."}
-Completed: 200 message:  Time response: 1086 ms Request ID: [604b0140-8c11-4795-aeb9-2a29d2a26d60]
-
-Started GET /user for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:24:59 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {"email":"test@email.com","password":"test123."}
-Completed: 200 message:  Time response: 231 ms Request ID: [9934bb46-c4f5-492a-af05-fe784a09570b]
-
-Started GET /user for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:25:02 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {"email":"test@email.com","password":"test123."}
-Completed: 403 message:  Time response: 5 ms Request ID: [8320907c-aa30-4c0a-b3db-05a457f301ba]
-
-Started POST /refresh for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:25:18 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {"email":"test@email.com","password":"test123."}
-Completed: 404 message:  Time response: 3 ms Request ID: [53952003-ba63-47b5-a81c-f1b5d0f567d2]
-
-Started GET /refresh for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:25:21 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {"email":"test@email.com","password":"test123."}
-Completed: 200 message:  Time response: 4 ms Request ID: [015e5d71-8ad6-4af6-836f-bd2583bd1da4]
-
-Started GET /user for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:25:33 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {"email":"test@email.com","password":"test123."}
-Completed: 200 message:  Time response: 1136 ms Request ID: [ed3866f6-e5e7-4e98-920c-578d1e306775]
-
-Started GET /user for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:27:23 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {"email":"test@email.com","password":"test123."}
-Completed: 403 message:  Time response: 8 ms Request ID: [424df6a3-5b68-459b-a407-1eca16d573ed]
-
-Started GET /refresh for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:27:29 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {"email":"test@email.com","password":"test123."}
-Completed: 200 message:  Time response: 5 ms Request ID: [228bf3ac-675f-4b6a-8b51-2ecbec592eae]
-
-Started GET /user for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:27:42 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {"email":"test@email.com","password":"test123."}
-Completed: 200 message:  Time response: 1100 ms Request ID: [99f89c34-e262-4962-aaec-8f373243a2be]
-
-Started GET /user for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:32:43 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {"email":"test@email.com","password":"test123."}
-Completed: 403 message:  Time response: 8 ms Request ID: [411b7abc-a526-47bb-a917-f47c334b177f]
-
-Started GET /refresh for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:32:49 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {"email":"test@email.com","password":"test123."}
-Completed: 200 message:  Time response: 5 ms Request ID: [79c2e6ac-0f5e-4b5e-aaca-ebc842635b2f]
-
-Started GET /user for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:32:56 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {"email":"test@email.com","password":"test123."}
-Completed: 200 message:  Time response: 1088 ms Request ID: [4ea5c932-6350-4f35-855a-953afe009f1a]
-
-Started GET /user for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:34:11 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {"email":"test@email.com","password":"test123."}
-Completed: 403 message:  Time response: 9 ms Request ID: [a7e12005-5b20-455a-838a-8e4b50387f3b]
-
-Started GET /refresh for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:34:29 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {"email":"test@email.com","password":"test123."}
-Completed: 200 message:  Time response: 5 ms Request ID: [77713b91-f077-43d5-be7e-e449e9d04105]
-
-Started GET /user for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:34:40 GMT-0400 (hora estándar de Chile)
+Started GET /produc for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 20:22:33 GMT-0400 (Chile Standard Time)
   Parameters in body: {}
-Completed: 200 message:  Time response: 1108 ms Request ID: [a496d084-d0b8-441a-bc2c-ec48939de008]
+Completed: 401 message:  Time response: 7 ms Request ID: [b5471480-7f47-42ed-a7d3-f4a9a66e36ab]
 
-Started GET /user for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:35:18 GMT-0400 (hora estándar de Chile)
+Started GET /product for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 20:22:37 GMT-0400 (Chile Standard Time)
   Parameters in body: {}
-Completed: 200 message:  Time response: 1063 ms Request ID: [c197f291-1bee-43a2-8096-c8e05f51e211]
-
-Started GET /refresh for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:36:40 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {"email":"test@email.com","password":"test123."}
-Completed: 200 message:  Time response: 10 ms Request ID: [e1f7c127-5360-46b6-af8c-c421a764e97d]
+Completed: 200 message:  Time response: 177 ms Request ID: [cdf47be8-34e7-4703-b867-c419bfdbb12d]
 
-Started GET /user for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:36:45 GMT-0400 (hora estándar de Chile)
+Started GET /product/efe035ae-1a9c-4dfb-a9dd-d93f443c2096 for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 20:22:44 GMT-0400 (Chile Standard Time)
   Parameters in body: {}
-Completed: 200 message:  Time response: 177 ms Request ID: [ba91a99c-a055-49ce-aff5-e5bbbf78d53d]
-
-Started GET /refresh for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:38:33 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {"email":"test@email.com","password":"test123."}
-Completed: 200 message:  Time response: 9 ms Request ID: [66860279-47ba-4d1c-bb0f-422704ec8185]
-
-Started GET /login for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:40:01 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {"email":"test@email.com","password":"test123."}
-Completed: 404 message:  Time response: 6 ms Request ID: [5857c77e-67f2-4fac-85f7-b32305b13d52]
+Completed: 200 message:  Time response: 175 ms Request ID: [c9fee339-dfcf-4b16-9e7e-b3b3c5a7cc89]
 
-Started GET /login for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:40:06 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {"email":"test@email.com","password":"test123."}
-Completed: 404 message:  Time response: 3 ms Request ID: [e9675896-6ad5-4b0d-9c54-6268c54b93fe]
-
-Started POST /login for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:40:10 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {"email":"test@email.com","password":"test123."}
-Completed: 200 message:  Time response: 1154 ms Request ID: [cab923c2-14f5-46df-879d-e0983b8be722]
-
-Started GET /refresh for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:40:59 GMT-0400 (hora estándar de Chile)
+Started GET /produc for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 20:22:54 GMT-0400 (Chile Standard Time)
   Parameters in body: {}
-Completed: 200 message:  Time response: 5 ms Request ID: [7bb344e2-6765-44f2-ae92-3b625cd381ef]
+Completed: 401 message:  Time response: 3 ms Request ID: [693716e6-489c-452c-9a10-961b763221f5]
 
-Started POST /login for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:42:35 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {"email":"test@email.com","password":"test123."}
-Completed: 200 message:  Time response: 1199 ms Request ID: [8901a635-54ba-421d-9585-07c2fa09490b]
-
-Started GET /refresh for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:42:38 GMT-0400 (hora estándar de Chile)
+Started GET /product for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 20:23:07 GMT-0400 (Chile Standard Time)
   Parameters in body: {}
-Completed: 200 message:  Time response: 7 ms Request ID: [04dfc876-200d-4088-b080-2c1bd79b8d5c]
+Completed: 200 message:  Time response: 1236 ms Request ID: [a29a7316-b21c-4732-9914-a5b01e02b9e3]
 
-Started GET /refresh for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:42:55 GMT-0400 (hora estándar de Chile)
+Started GET /produc for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 20:23:31 GMT-0400 (Chile Standard Time)
   Parameters in body: {}
-Completed: 200 message:  Time response: 15 ms Request ID: [c1a968f7-9f76-4484-97cb-9c758fee80a8]
+Completed: 401 message:  Time response: 5 ms Request ID: [8695deb6-90a9-442a-8c4e-04519dab6541]
 
-Started GET /refresh for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:43:43 GMT-0400 (hora estándar de Chile)
+Started GET /product for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 20:23:34 GMT-0400 (Chile Standard Time)
   Parameters in body: {}
-Completed: 200 message:  Time response: 4 ms Request ID: [4169e383-44cc-4817-8baa-1e645f8c38f3]
+Completed: 200 message:  Time response: 1139 ms Request ID: [a0fed57c-3a41-4b21-8843-94b5cb743e92]
 
-Started GET /refresh for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:43:48 GMT-0400 (hora estándar de Chile)
+Started GET /product/category/73ab2a97-7421-4aeb-abc9-5e893bae6d49 for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 20:24:17 GMT-0400 (Chile Standard Time)
   Parameters in body: {}
-Completed: 200 message:  Time response: 5 ms Request ID: [292ea90a-626b-441b-9516-62fa9bffc991]
+Completed: 200 message:  Time response: 1331 ms Request ID: [a818ef0a-8e38-433f-aabe-5fb1a5c7afa4]
 
-Started GET /refresh for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:44:45 GMT-0400 (hora estándar de Chile)
+Started GET /produc for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 20:24:29 GMT-0400 (Chile Standard Time)
   Parameters in body: {}
-Completed: 200 message:  Time response: 11 ms Request ID: [4a1c86ad-1649-4ec6-9920-41be71426ba1]
+Completed: 401 message:  Time response: 11 ms Request ID: [45b1748a-6a35-451e-96b1-12b5ee76104f]
 
-Started GET /refresh for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:45:41 GMT-0400 (hora estándar de Chile)
+Started GET /product for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 20:24:42 GMT-0400 (Chile Standard Time)
   Parameters in body: {}
-Completed: 200 message:  Time response: 10 ms Request ID: [1ef62c0b-4261-43f4-be45-7a3eb866d5ad]
-
-Started GET /user for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:45:50 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {"email":"test@email.com","password":"test123."}
-Completed: 403 message:  Time response: 3 ms Request ID: [9ed00675-d23a-45a7-9317-ebc62133f976]
+Completed: 200 message:  Time response: 1234 ms Request ID: [192fe846-189e-47be-a701-ed942c657316]
 
-Started GET /user for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:45:55 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {"email":"test@email.com","password":"test123."}
-Completed: 200 message:  Time response: 1090 ms Request ID: [7498c091-2924-416b-8570-3537db472cf9]
-
-Started GET /refresh for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:46:41 GMT-0400 (hora estándar de Chile)
+Started GET /product for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 20:25:05 GMT-0400 (Chile Standard Time)
   Parameters in body: {}
-Completed: 200 message:  Time response: 11 ms Request ID: [cab0147d-1977-4488-8f28-4671920b80e1]
+Completed: 200 message:  Time response: 1122 ms Request ID: [cf93016c-4599-43a6-a7a8-d9f23dad4006]
 
-Started GET /refresh for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:47:04 GMT-0400 (hora estándar de Chile)
+Started GET /product for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 20:25:52 GMT-0400 (Chile Standard Time)
   Parameters in body: {}
-Completed: 200 message:  Time response: 4 ms Request ID: [c9af6903-f382-4465-be19-39cd9377e1e5]
-
-Started GET /user for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:47:25 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {"email":"test@email.com","password":"test123."}
-Completed: 403 message:  Time response: 3 ms Request ID: [dc823a64-66c3-47cc-8a4c-c619d388a7dd]
+Completed: 200 message:  Time response: 1155 ms Request ID: [d68a21ba-bc59-480b-9a76-fdda8db4fcd8]
 
-Started GET /user for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:47:27 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {"email":"test@email.com","password":"test123."}
-Completed: 200 message:  Time response: 1172 ms Request ID: [c5708f1a-4c77-48c5-a303-4667316b56be]
-
-Started GET /refresh for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:48:51 GMT-0400 (hora estándar de Chile)
+Started GET /produc for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 20:25:57 GMT-0400 (Chile Standard Time)
   Parameters in body: {}
-Completed: 200 message:  Time response: 11 ms Request ID: [d4ba7d11-1dd1-40cd-95ba-795ade039913]
-
-Started GET /login for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:50:44 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {"email":"test@email.com","password":"test123."}
-Completed: 404 message:  Time response: 6 ms Request ID: [51c68e32-bea4-4eef-ad19-598e8e030286]
+Completed: 401 message:  Time response: 5 ms Request ID: [7b1182ea-58b2-4991-aeca-6461db966a05]
 
-Started GET /login for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:50:45 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {"email":"test@email.com","password":"test123."}
-Completed: 404 message:  Time response: 3 ms Request ID: [25a0496e-0e2c-445e-8179-b35c5a1fdef7]
-
-Started GET /login for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:50:46 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {"email":"test@email.com","password":"test123."}
-Completed: 404 message:  Time response: 2 ms Request ID: [14c92f89-1373-4787-8505-f20d5a1ba422]
-
-Started POST /login for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:50:50 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {"email":"test@email.com","password":"test123."}
-Completed: 200 message:  Time response: 1188 ms Request ID: [aa00cd49-f90f-4e11-aa21-0287759928da]
-
-Started GET /refresh for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:51:13 GMT-0400 (hora estándar de Chile)
+Started GET /produc for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 20:34:31 GMT-0400 (Chile Standard Time)
   Parameters in body: {}
-Completed: 200 message:  Time response: 4 ms Request ID: [a7f54d12-625b-4b02-8814-9f5774fb1d94]
-
-Started POST /login for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:51:57 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {"email":"test@email.com","password":"test123."}
-Completed: 200 message:  Time response: 1138 ms Request ID: [0ca16dee-7b50-4869-b85e-534b9b5e2078]
+Completed: 404 message:  Time response: 10 ms Request ID: [6b29667f-0d87-4132-9b9d-d790414dae98]
 
-Started POST /login for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 21:54:26 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {"email":"test@email.com","password":"test123."}
-Completed: 200 message:  Time response: 1163 ms Request ID: [f3091b81-5358-4753-9727-b2e6851443f1]
-
-Started GET /refresh for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 22:08:46 GMT-0400 (hora estándar de Chile)
+Started GET /produc for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 20:34:36 GMT-0400 (Chile Standard Time)
   Parameters in body: {}
-Completed: 200 message:  Time response: 5 ms Request ID: [9bf02940-3659-4ab8-802f-2a4326942da7]
+Completed: 404 message:  Time response: 5 ms Request ID: [5a11bf4b-1c4e-487c-b486-4652ec2c6ec3]
 
-Started GET /refresh for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 22:09:50 GMT-0400 (hora estándar de Chile)
+Started GET /produc for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 20:34:36 GMT-0400 (Chile Standard Time)
   Parameters in body: {}
-Completed: 200 message:  Time response: 4 ms Request ID: [6dcd1550-917c-49bf-bf3c-dd4eda42bf83]
+Completed: 404 message:  Time response: 3 ms Request ID: [6d849edd-5d55-4bec-9ef1-a876beaabe11]
 
-Started GET /refresh for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 22:09:51 GMT-0400 (hora estándar de Chile)
+Started GET /produc for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 20:34:36 GMT-0400 (Chile Standard Time)
   Parameters in body: {}
-Completed: 200 message:  Time response: 4 ms Request ID: [30edd0bd-c190-4c46-bfd7-8a148bda86b6]
-
-Started POST /login for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 22:11:42 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {"email":"test@email.com","password":"test123."}
-Completed: 200 message:  Time response: 233 ms Request ID: [f56c7003-0c35-4317-bfc4-8cf0e0c6bd40]
+Completed: 404 message:  Time response: 3 ms Request ID: [a325a679-4450-4b7b-b91d-6f4e797b29ca]
 
-Started POST /login for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 22:11:55 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {"email":"test@email.com","password":"test123."}
-Completed: 200 message:  Time response: 1147 ms Request ID: [8e343744-5b0a-410d-a180-125a89afba20]
-
-Started GET /refresh for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 22:12:25 GMT-0400 (hora estándar de Chile)
+Started GET /produc for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 20:34:36 GMT-0400 (Chile Standard Time)
   Parameters in body: {}
-Completed: 200 message:  Time response: 10 ms Request ID: [8aa3268e-a85a-4b86-a7fd-f0d7f98201e5]
+Completed: 404 message:  Time response: 4 ms Request ID: [b977cec6-54cd-4d72-bc37-72b665ae7690]
 
-Started GET /refresh for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 22:12:50 GMT-0400 (hora estándar de Chile)
+Started GET /product/efe035ae-1a9c-4dfb-a9dd-d93f443c2096 for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 20:34:56 GMT-0400 (Chile Standard Time)
   Parameters in body: {}
-Completed: 200 message:  Time response: 4 ms Request ID: [14c0be20-c494-4aaa-a20a-370efb154e51]
-
-Started GET /user for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 22:13:11 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {"email":"test@email.com","password":"test123."}
-Completed: 200 message:  Time response: 1125 ms Request ID: [e74135f6-9a4c-4083-a10e-06e9af863535]
+Completed: 200 message:  Time response: 1112 ms Request ID: [663b7997-791e-4296-8c68-eb55e8e722e3]
 
-Started GET /user for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 22:13:49 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {"email":"test@email.com","password":"test123."}
-Completed: 200 message:  Time response: 181 ms Request ID: [4dd30b95-29ca-4ea9-827d-acfcd72bc3db]
-
-Started GET /user for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 22:13:50 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {"email":"test@email.com","password":"test123."}
-Completed: 403 message:  Time response: 4 ms Request ID: [3ccb1e10-2549-4682-b6c2-9ff37389e244]
-
-Started GET /refresh for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 22:13:58 GMT-0400 (hora estándar de Chile)
+Started GET /produc for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 20:40:47 GMT-0400 (Chile Standard Time)
   Parameters in body: {}
-Completed: 200 message:  Time response: 5 ms Request ID: [e26bb64d-a63c-4b8d-9de9-6a7b25d23f60]
+Completed: 404 message:  Time response: 12 ms Request ID: [cc7ec400-8a72-4205-aa0b-468faf238e02]
 
-Started GET /logout for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 22:14:08 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {"email":"test@email.com","password":"test123."}
-Completed: 200 message:  Time response: 3 ms Request ID: [90d4ca41-f049-4b23-836a-2eb1380a961e]
-
-Started GET /refresh for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 22:14:10 GMT-0400 (hora estándar de Chile)
-  Parameters in body: {}
-Completed: 401 message:  Time response: 3 ms Request ID: [c196ecb7-0995-4dc2-b7fa-45c5fe4775b8]

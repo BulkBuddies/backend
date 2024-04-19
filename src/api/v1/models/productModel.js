@@ -2,7 +2,7 @@ import pool from "../../../../config/db/db.js";
 import format from "pg-format";
 import { createNewError } from "../helpers/requestError.js";
 
-export const getAllPro = async () => {
+const getAllPro = async () => {
   try {
     const sqlQuery = {
       text: "SELECT id, name, description, required_stock, unit_price, created_at, updated_at, url, category_id FROM product",
@@ -14,7 +14,7 @@ export const getAllPro = async () => {
   }
 };
 
-export const getProductById = async (id) => {
+const getProductById = async (id) => {
   try {
     const sqlQuery = {
       text: "SELECT id, name, description, required_stock, unit_price, created_at, updated_at, url, category_id FROM product where id = $1",
@@ -27,7 +27,7 @@ export const getProductById = async (id) => {
   }
 };
 
-export const getCategoryName = async (id) => {
+const getCategoryName = async (id) => {
   try {
     const sqlQuery = {
       text: "SELECT name FROM category where id = $1",
@@ -40,7 +40,7 @@ export const getCategoryName = async (id) => {
   }
 };
 
-export const getProductByCategoryId = async (category_id) => {
+const getProductByCategoryId = async (category_id) => {
   try {
     const sqlQuery = {
       text: "SELECT id, name, description, required_stock, unit_price, created_at, updated_at, url, category_id FROM product where category_id = $1",
@@ -53,12 +53,14 @@ export const getProductByCategoryId = async (category_id) => {
   }
 };
 
-export const getProLimitOrder = async (
+
+const getProLimitOrder = async (
   field = "name",
   direction = "ASC",
   limit = 10,
   page = 0
 ) => {
+  try {
   const offset = Math.abs((page - 1) * limit);
   const formattedQuery = format(
     "SELECT * FROM product ORDER BY %s %s LIMIT %s OFFSET %s",
@@ -69,4 +71,15 @@ export const getProLimitOrder = async (
   );
   const result = await pool.query(formattedQuery);
   return result.rows;
+}
+  catch (error) {
+    throw createNewError(error.code);
+  }
 };
+
+// export getProductFilter = async ({}) =>{
+
+// }
+
+export { getAllPro,getProductById,getCategoryName, getProLimitOrder, getProductByCategoryId  }
+
