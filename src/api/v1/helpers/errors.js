@@ -7,7 +7,7 @@ const ERRORS = new Map([
   ["23505", { status: 500, message: "correo ya existe" }],
   ["22P02", { status: 400, message: "bad request" }],
   ["42601", { status: 400, message: "error de sintaxis en la consulta" }],
-  ["2201W", { status: 400, message: "Valor del LIMIT no puede ser negativo" }],  
+  ["2201W", { status: 400, message: "Valor del LIMIT no puede ser negativo" }],
   ["auth_01", { status: 400, message: "el usuario no existe" }],
   ["auth_02", { status: 400, message: "contraseña invalida" }],
   ["auth_03", { status: 401, message: "el token debe estar presente" }],

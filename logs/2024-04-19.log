@@ -1,4 +1,3 @@
-
 Started GET /product for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 20:03:04 GMT-0400 (Chile Standard Time)
   Parameters in body: {}
 Completed: 200 message:  Time response: 187 ms Request ID: [2282c874-12c3-4710-9b5c-2ea2d868764d]
@@ -142,3 +141,4 @@ Completed: 200 message:  Time response: 1112 ms Request ID: [663b7997-791e-4296-
 Started GET /produc for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 20:40:47 GMT-0400 (Chile Standard Time)
   Parameters in body: {}
 Completed: 404 message:  Time response: 12 ms Request ID: [cc7ec400-8a72-4205-aa0b-468faf238e02]
+

@@ -6,6 +6,7 @@ import {
   getCategoryName,
 } from "../models/productModel.js";
 
+
 const getAllProducts = async (req, res, next) => {
   try {
     const products = await getAllPro();
@@ -14,6 +15,7 @@ const getAllProducts = async (req, res, next) => {
     next(error);
   }
 };
+
 
 const getProductId = async (req, res, next) => {
   try {
@@ -24,6 +26,7 @@ const getProductId = async (req, res, next) => {
     next(error);
   }
 };
+
 
 const getProductCategoryId = async (req, res, next) => {
   try {
@@ -36,13 +39,13 @@ const getProductCategoryId = async (req, res, next) => {
   }
 };
 
+
 const getProductOrderLimit = async (req, res, next) => {
   try {
     const { field, direction, limit, page } = req.query;
     const products = await getProLimitOrder(field, direction, limit, page);
     //const products = await getAllPro();
     //const stockTotal = await getAllPro();
-    //const productsHateoas = await prepareHateoas("id", products)
     res.status(200).json({ products: products });
   } catch (error) {
     next(error);

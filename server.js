@@ -10,6 +10,7 @@ import cookieParser from "cookie-parser";
 import { verifyJWT } from "./middlewares/validateJWT.js";
 import corsOptions from "./config/cors.js";
 import { logger } from "logger-express";
+import { notFoundHandler } from "./middlewares/notFoundHandler.js";
 const PORT = process.env.PORT;
 const app = express();
 app.use(cors(corsOptions));
@@ -24,12 +25,8 @@ app.get("/", async (req, res) => {
 });
 app.use("/", productRoutes);
 app.use("/", authRoutes);
-
-app.get("*", (req, res) => {
-  res.status(404).send("Not found");
-});
-app.use(verifyJWT);
 app.use("/", userRoutes);
+app.get("*", notFoundHandler);
 app.use(errorHandler);
 
 
