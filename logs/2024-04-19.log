@@ -142,3 +142,243 @@ Started GET /produc for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 20:40:47 GMT-0400
   Parameters in body: {}
 Completed: 404 message:  Time response: 12 ms Request ID: [cc7ec400-8a72-4205-aa0b-468faf238e02]
 
+
+Started GET /auth/google for :: ::ffff:127.0.0.1 at Fri Apr 19 2024 10:07:06 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {}
+Completed: 500 message:  Time response: 21 ms Request ID: [2eccff72-8374-4c0f-9ce8-ddd983d3c9ea]
+
+Started GET /auth/google for :: ::ffff:127.0.0.1 at Fri Apr 19 2024 10:07:11 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {}
+Completed: 500 message:  Time response: 3 ms Request ID: [aa508435-e7c1-42ea-a32a-3f2cf244d241]
+
+Started GET /auth/google for :: ::ffff:127.0.0.1 at Fri Apr 19 2024 10:07:11 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {}
+Completed: 500 message:  Time response: 2 ms Request ID: [0411d08e-d7f5-493c-8e71-25a75fbacc95]
+
+Started GET /auth/google/callback for :: ::ffff:127.0.0.1 at Fri Apr 19 2024 10:07:22 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {}
+Completed: 500 message:  Time response: 3 ms Request ID: [9fa2db10-8ce1-4426-8d2e-043be11de705]
+
+Started GET /auth/google/callback for :: ::ffff:127.0.0.1 at Fri Apr 19 2024 10:07:23 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {}
+Completed: 500 message:  Time response: 3 ms Request ID: [e3802fb1-cffc-4b8c-be45-f1837c74f071]
+
+Started GET /auth/google/callback for :: ::ffff:127.0.0.1 at Fri Apr 19 2024 10:14:41 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {}
+Completed: 500 message:  Time response: 9 ms Request ID: [b2020428-bde1-4a2b-bc52-c3284f7eec16]
+
+Started GET /auth/google/callback for :: ::1 at Fri Apr 19 2024 10:14:46 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {}
+Completed: 500 message:  Time response: 2 ms Request ID: [84bc606c-502b-4972-af0c-a4865b30c485]
+
+Started GET /favicon.ico for :: ::1 at Fri Apr 19 2024 10:14:46 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {}
+Completed: 500 message:  Time response: 2 ms Request ID: [dbfe171a-d8d8-4683-acf4-00adda3fab4f]
+
+Started GET /auth/login/callback for :: ::1 at Fri Apr 19 2024 10:15:05 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {}
+Completed: 500 message:  Time response: 2 ms Request ID: [e7e545d1-1895-47d2-9188-c0b97bfb4a5f]
+
+Started GET /favicon.ico for :: ::1 at Fri Apr 19 2024 10:15:05 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {}
+Completed: 500 message:  Time response: 4 ms Request ID: [19ff7ce6-e916-4363-8d21-c2a3c1984d45]
+
+Started GET /auth for :: ::1 at Fri Apr 19 2024 10:18:52 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {}
+Completed: 500 message:  Time response: 3 ms Request ID: [8a2a9922-2129-46b6-b788-8d76c172eb81]
+
+Started GET /favicon.ico for :: ::1 at Fri Apr 19 2024 10:18:52 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {}
+Completed: 500 message:  Time response: 4 ms Request ID: [7cf9abd8-9de0-4cbb-b5eb-781d0e4ea1fe]
+
+Started GET /auth for :: ::1 at Fri Apr 19 2024 10:18:55 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {}
+Completed: 500 message:  Time response: 2 ms Request ID: [10ef8883-d9be-4d06-8390-138b59387fca]
+
+Started GET /favicon.ico for :: ::1 at Fri Apr 19 2024 10:18:56 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {}
+Completed: 500 message:  Time response: 4 ms Request ID: [d25115b9-4bfd-49ca-a71e-8fd70c3aabf6]
+
+Started GET / for :: ::1 at Fri Apr 19 2024 10:18:58 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {}
+Completed: 500 message:  Time response: 2 ms Request ID: [2a0b98a5-78cf-4ac7-af9e-c31d81c7b833]
+
+Started GET /favicon.ico for :: ::1 at Fri Apr 19 2024 10:18:58 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {}
+Completed: 500 message:  Time response: 5 ms Request ID: [bc2474eb-1c5c-4ee7-a825-991ef3d3f0ec]
+
+Started GET / for :: ::1 at Fri Apr 19 2024 10:21:11 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {}
+Completed: 500 message:  Time response: 21 ms Request ID: [e057171d-8bb8-409a-ab16-8db6318628b5]
+
+Started GET /favicon.ico for :: ::1 at Fri Apr 19 2024 10:21:11 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {}
+Completed: 500 message:  Time response: 5 ms Request ID: [6c1a36e6-56c5-4da8-83a1-26c2e8a112b6]
+
+Started GET / for :: ::1 at Fri Apr 19 2024 10:24:13 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {}
+Completed: 500 message:  Time response: 11 ms Request ID: [61b3c4fb-6c88-4a80-80dd-2217ecd5cc3e]
+
+Started GET /favicon.ico for :: ::1 at Fri Apr 19 2024 10:24:13 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {}
+Completed: 500 message:  Time response: 8 ms Request ID: [6f0a6abd-22fa-4f63-9493-642403afdd23]
+
+Started GET / for :: ::1 at Fri Apr 19 2024 10:24:13 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {}
+Completed: 500 message:  Time response: 3 ms Request ID: [fd0be3ca-a018-4468-9eb5-651e3a45d177]
+
+Started GET /favicon.ico for :: ::1 at Fri Apr 19 2024 10:24:13 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {}
+Completed: 500 message:  Time response: 2 ms Request ID: [2146f641-fc88-4028-8871-1b08842a9d71]
+
+Started GET / for :: ::1 at Fri Apr 19 2024 10:24:13 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {}
+Completed: 500 message:  Time response: 2 ms Request ID: [18ded088-627b-485f-8649-37c7d50f5103]
+
+Started GET /favicon.ico for :: ::1 at Fri Apr 19 2024 10:24:13 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {}
+Completed: 500 message:  Time response: 3 ms Request ID: [eacd21c9-0923-4dd1-a12f-c245cea973b5]
+
+Started GET / for :: ::1 at Fri Apr 19 2024 10:26:48 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {}
+Completed: 500 message:  Time response: 16 ms Request ID: [203e2520-e043-4fd7-897b-967521041080]
+
+Started GET /favicon.ico for :: ::1 at Fri Apr 19 2024 10:26:48 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {}
+Completed: 500 message:  Time response: 3 ms Request ID: [d27050ff-607a-41b8-8530-25f27813a724]
+
+Started GET / for :: ::1 at Fri Apr 19 2024 10:26:49 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {}
+Completed: 500 message:  Time response: 7 ms Request ID: [7eb2f1c5-98f3-4695-b368-a888e806a3f3]
+
+Started GET /favicon.ico for :: ::1 at Fri Apr 19 2024 10:26:49 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {}
+Completed: 500 message:  Time response: 2 ms Request ID: [13eefdcd-90df-4902-9310-b6ff9708639c]
+
+Started GET / for :: ::1 at Fri Apr 19 2024 10:26:49 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {}
+Completed: 500 message:  Time response: 2 ms Request ID: [2eb6ed8d-3644-465b-9786-e76797b03ef2]
+
+Started GET /favicon.ico for :: ::1 at Fri Apr 19 2024 10:26:49 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {}
+Completed: 500 message:  Time response: 3 ms Request ID: [604965c2-cfa0-4aea-9b6c-37ebdaa074e3]
+
+Started GET / for :: ::1 at Fri Apr 19 2024 10:26:49 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {}
+Completed: 500 message:  Time response: 7 ms Request ID: [2492c342-63cc-4c8c-aabb-16e05754c064]
+
+Started GET /favicon.ico for :: ::1 at Fri Apr 19 2024 10:26:49 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {}
+Completed: 500 message:  Time response: 3 ms Request ID: [3ce50e44-08fd-4cb3-838b-314b4930dc18]
+
+Started GET / for :: ::1 at Fri Apr 19 2024 10:26:50 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {}
+Completed: 500 message:  Time response: 2 ms Request ID: [9e4f7338-a84d-498b-9522-ecca3f0d7ae7]
+
+Started GET /favicon.ico for :: ::1 at Fri Apr 19 2024 10:26:50 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {}
+Completed: 500 message:  Time response: 2 ms Request ID: [7a8b41a9-30e7-4b6d-aa6a-049dcf7b2b20]
+
+Started GET / for :: ::1 at Fri Apr 19 2024 10:26:50 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {}
+Completed: 500 message:  Time response: 6 ms Request ID: [c355d324-f528-4aa4-b045-1ba5a5805472]
+
+Started GET /favicon.ico for :: ::1 at Fri Apr 19 2024 10:26:50 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {}
+Completed: 500 message:  Time response: 4 ms Request ID: [627c42b4-85bd-4a3d-9c74-1e32fb7d64c2]
+
+Started GET / for :: ::1 at Fri Apr 19 2024 10:26:51 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {}
+Completed: 500 message:  Time response: 8 ms Request ID: [0ee256cb-0bff-4793-928d-8907f5273385]
+
+Started GET /favicon.ico for :: ::1 at Fri Apr 19 2024 10:26:51 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {}
+Completed: 500 message:  Time response: 3 ms Request ID: [a71b4c10-d029-46d2-8c4e-fdd3a3324a33]
+
+Started GET /auth/login/callback for :: ::1 at Fri Apr 19 2024 10:27:33 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {}
+Completed: 500 message:  Time response: 3 ms Request ID: [da2e1b3a-df26-4db9-8f2f-cd97174642a9]
+
+Started GET /favicon.ico for :: ::1 at Fri Apr 19 2024 10:27:33 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {}
+Completed: 500 message:  Time response: 3 ms Request ID: [c755f688-ddf9-4a26-a3bb-b238c3da7b36]
+
+Started GET /auth/login/callback for :: ::1 at Fri Apr 19 2024 10:31:50 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {}
+Completed: 404 message:  Time response: 20 ms Request ID: [9ca9f48d-ddc0-45d7-8b49-37f4dbd3f25a]
+
+Started GET /favicon.ico for :: ::1 at Fri Apr 19 2024 10:31:50 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {}
+Completed: 404 message:  Time response: 4 ms Request ID: [67df9843-24eb-4e3a-9d70-2008fc86a9b9]
+
+Started GET /auth/login/callback for :: ::1 at Fri Apr 19 2024 10:31:51 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {}
+Completed: 404 message:  Time response: 2 ms Request ID: [46a31962-3425-4386-95d3-8e8ec6255082]
+
+Started GET /auth/login/callback for :: ::1 at Fri Apr 19 2024 10:31:51 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {}
+Completed: 404 message:  Time response: 2 ms Request ID: [77c37497-1aa2-4ae6-b132-6e9161e10c7a]
+
+Started GET / for :: ::1 at Fri Apr 19 2024 10:31:56 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 2 ms Request ID: [267feb01-7496-4fc4-bdbf-df851119abe3]
+
+Started GET /auth/login/callback for :: ::1 at Fri Apr 19 2024 10:32:50 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {}
+Completed: 404 message:  Time response: 9 ms Request ID: [c09250e8-2851-498f-9885-6e91c83bc2bf]
+
+Started GET /auth/login/callback for :: ::1 at Fri Apr 19 2024 10:32:51 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {}
+Completed: 404 message:  Time response: 3 ms Request ID: [ea6a3c27-6507-49ab-9f1f-815ae26f6afd]
+
+Started GET /auth/login/callback for :: ::1 at Fri Apr 19 2024 10:32:54 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {}
+Completed: 404 message:  Time response: 3 ms Request ID: [2a423d7e-44dd-4c72-a33b-b747727d66ea]
+
+Started GET /auth/login/callback for :: ::1 at Fri Apr 19 2024 10:32:54 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {}
+Completed: 404 message:  Time response: 3 ms Request ID: [bf095e76-a265-409b-9fb8-1b07311a6b56]
+
+Started GET /auth/google/callback for :: ::1 at Fri Apr 19 2024 10:46:06 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {}
+Completed: 500 message:  Time response: 43 ms Request ID: [3e84d229-4bf9-43f6-82c7-b1746b0f40de]
+
+Started GET /auth/google/callback for :: ::1 at Fri Apr 19 2024 10:56:03 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {}
+Completed: 500 message:  Time response: 11 ms Request ID: [73674faa-b7c5-4a20-a1dd-3c8b07c8e4a7]
+
+Started GET /auth/google for :: ::1 at Fri Apr 19 2024 10:56:35 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {}
+Completed: 500 message:  Time response: 2 ms Request ID: [4434bb8f-3a5d-4b81-8214-6a4bb0265861]
+
+Started GET /auth/google for :: ::1 at Fri Apr 19 2024 10:57:19 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {}
+Completed: 500 message:  Time response: 10 ms Request ID: [1773cce2-98a5-4903-a5bf-de0a44ce77f3]
+
+Started GET /auth/google for :: ::1 at Fri Apr 19 2024 10:57:19 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {}
+Completed: 500 message:  Time response: 3 ms Request ID: [70acc50a-a35d-42ef-838b-b464e22ea615]
+
+Started GET /auth/google for :: ::1 at Fri Apr 19 2024 11:13:03 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {}
+Completed: 500 message:  Time response: 53 ms Request ID: [268d5a23-95b0-4cfb-88ac-e24a7eba6bc0]
+
+Started GET /auth/google for :: ::1 at Fri Apr 19 2024 12:01:56 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {}
+Completed: 500 message:  Time response: 8 ms Request ID: [0d776d25-a94a-430d-b9eb-dcc2aa73c1e5]
+
+Started GET /auth/google for :: ::1 at Fri Apr 19 2024 12:23:35 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {}
+Completed: 500 message:  Time response: 11 ms Request ID: [276150ad-5e2f-4c9c-af27-738623dcdee2]
+
+Started GET /auth/google for :: ::1 at Fri Apr 19 2024 12:23:35 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {}
+Completed: 500 message:  Time response: 9 ms Request ID: [f09d6193-6175-45f8-b6f0-bd53c5623ca4]
+
+Started GET /auth/google for :: ::1 at Fri Apr 19 2024 12:23:35 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {}
+Completed: 500 message:  Time response: 3 ms Request ID: [7284a447-c626-4b2e-82f0-cff557cf7254]
+
+Started GET /auth/google for :: ::1 at Fri Apr 19 2024 12:24:10 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {}
+Completed: 500 message:  Time response: 41 ms Request ID: [924482ef-69f7-4242-af06-ce705dad17bf]

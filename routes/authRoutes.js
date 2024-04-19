@@ -12,16 +12,18 @@ const router = express.Router();
 
 //routes google
 
-router.get("/auth/google", passport.authenticate("google", ["profile", "email"]));
-
 router.get(
-	"/auth/google/callback",
-	passport.authenticate("google", {
-		successRedirect: process.env.CLIENT_URL,
-		failureRedirect: "/login/failed",
-	})
+  "/auth/google",
+  passport.authenticate("google", { scope: ["profile", "email"] })
 );
 
+router.get(
+  "/auth/google/callback",
+  passport.authenticate("google", {
+    successRedirect: process.env.CLIENT_URL,
+    failureRedirect: "/login/failed",
+  })
+);
 
 router.post("/login", validateParamLogin, loginUser);
 router.get("/logout", logoutController);
