@@ -142,3 +142,263 @@ Started GET /produc for :: ::ffff:127.0.0.1 at Thu Apr 18 2024 20:40:47 GMT-0400
   Parameters in body: {}
 Completed: 404 message:  Time response: 12 ms Request ID: [cc7ec400-8a72-4205-aa0b-468faf238e02]
 
+
+Started GET /product/filters for :: ::ffff:127.0.0.1 at Fri Apr 19 2024 14:11:57 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 400 message:  Time response: 1058 ms Request ID: [9a2cb979-fddc-4ba0-a94d-2daeae76d744]
+
+Started GET /product/filters for :: ::ffff:127.0.0.1 at Fri Apr 19 2024 15:04:12 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 400 message:  Time response: 177 ms Request ID: [885a5d32-cc49-41f3-99c7-983ed8daed81]
+
+Started GET /product/filters for :: ::ffff:127.0.0.1 at Fri Apr 19 2024 15:04:44 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 400 message:  Time response: 182 ms Request ID: [2c226c9b-574a-4920-adab-ecdbae1d31e8]
+
+Started GET /product for :: ::ffff:127.0.0.1 at Fri Apr 19 2024 15:05:30 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Started GET /product for :: ::ffff:127.0.0.1 at Fri Apr 19 2024 15:06:45 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 178 ms Request ID: [ae96d091-ddc6-4204-acf5-9f54dd5f6e4e]
+
+Started GET /product for :: ::ffff:127.0.0.1 at Fri Apr 19 2024 15:07:21 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Started GET /product for :: ::ffff:127.0.0.1 at Fri Apr 19 2024 15:08:20 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Started GET /product for :: ::ffff:127.0.0.1 at Fri Apr 19 2024 15:08:58 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 177 ms Request ID: [df2f30c4-414c-493d-97cf-30be3f97b4f6]
+
+Started GET /product/filters for :: ::ffff:127.0.0.1 at Fri Apr 19 2024 15:09:13 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 400 message:  Time response: 170 ms Request ID: [c64f65aa-82bf-4334-b3aa-fcbb0b20ed37]
+
+Started GET /product/filters for :: ::ffff:127.0.0.1 at Fri Apr 19 2024 15:10:23 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 400 message:  Time response: 2857 ms Request ID: [42f9a56c-12f0-4091-b360-aa88cee89ad6]
+
+Started GET /product/filters for :: ::ffff:127.0.0.1 at Fri Apr 19 2024 15:11:45 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 400 message:  Time response: 1111 ms Request ID: [e8e80ad7-c76c-473b-8190-20c7c0d4403e]
+
+Started GET /product/filters for :: ::ffff:127.0.0.1 at Fri Apr 19 2024 15:12:03 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 400 message:  Time response: 186 ms Request ID: [38f4ce46-c0c8-43d5-9633-948928b65e24]
+
+Started GET /product/filters for :: ::ffff:127.0.0.1 at Fri Apr 19 2024 15:12:57 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 400 message:  Time response: 1054 ms Request ID: [c416c865-2eff-498d-9430-d63fc517a042]
+
+Started GET /product/filters for :: ::ffff:127.0.0.1 at Fri Apr 19 2024 15:13:08 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 400 message:  Time response: 170 ms Request ID: [e4d95547-62c8-4755-abab-a500bf3492d7]
+
+Started GET /product/filters for :: ::ffff:127.0.0.1 at Fri Apr 19 2024 15:13:10 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 400 message:  Time response: 1093 ms Request ID: [4066b314-1f4c-4d1d-97de-2f79e0c05ac6]
+
+Started GET /product/filters for :: ::ffff:127.0.0.1 at Fri Apr 19 2024 15:13:12 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 400 message:  Time response: 1029 ms Request ID: [56499dab-8b93-4077-a9e0-632293b0d736]
+
+Started GET /product/filters for :: ::ffff:127.0.0.1 at Fri Apr 19 2024 15:13:41 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 400 message:  Time response: 168 ms Request ID: [1779163f-e28c-403e-964c-8f331aa294a5]
+
+Started GET /product/filters for :: ::ffff:127.0.0.1 at Fri Apr 19 2024 15:14:01 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 400 message:  Time response: 1152 ms Request ID: [c7243cd4-2f93-4394-b647-59609feebba7]
+
+Started GET /product/filters for :: ::ffff:127.0.0.1 at Fri Apr 19 2024 15:14:12 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 400 message:  Time response: 1069 ms Request ID: [9e70776e-1994-4648-bb81-736753f43199]
+
+Started GET /product/filters for :: ::ffff:127.0.0.1 at Fri Apr 19 2024 15:14:15 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 400 message:  Time response: 182 ms Request ID: [6c1f0d1b-1027-4a24-8296-e5d30acd201a]
+
+Started GET /product for :: ::ffff:127.0.0.1 at Fri Apr 19 2024 15:14:37 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Started GET /product for :: ::ffff:127.0.0.1 at Fri Apr 19 2024 15:14:56 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 175 ms Request ID: [bee4b0a9-be03-4c63-ac97-5a1e6b09b156]
+
+Started GET /product/category/73ab2a97-7421-4aeb-abc9-5e893bae6d49 for :: ::ffff:127.0.0.1 at Fri Apr 19 2024 15:15:07 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 1370 ms Request ID: [f6ce34f4-a447-4aee-9833-22315448a762]
+
+Started GET /product/filters for :: ::ffff:127.0.0.1 at Fri Apr 19 2024 15:15:46 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 400 message:  Time response: 172 ms Request ID: [44807c03-bf39-48ed-a275-569d06de21cf]
+
+Started GET /product/category/73ab2a97-7421-4aeb-abc9-5e893bae6d49 for :: ::ffff:127.0.0.1 at Fri Apr 19 2024 15:15:49 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 1228 ms Request ID: [40a47144-5642-4989-98fe-f537781b0653]
+
+Started GET /product for :: ::ffff:127.0.0.1 at Fri Apr 19 2024 15:15:51 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 167 ms Request ID: [2a07ee15-2357-4565-8921-eff149437770]
+
+Started GET /product/filters for :: ::ffff:127.0.0.1 at Fri Apr 19 2024 15:15:53 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 400 message:  Time response: 169 ms Request ID: [b20360e2-6189-4737-a1ee-f28f45160157]
+
+Started GET /product/filters for :: ::ffff:127.0.0.1 at Fri Apr 19 2024 15:16:22 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 400 message:  Time response: 1094 ms Request ID: [a9b3afad-fcfe-4a62-9c6d-34f90ec5d4aa]
+
+Started GET /product/filters for :: ::ffff:127.0.0.1 at Fri Apr 19 2024 15:17:13 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 400 message:  Time response: 184 ms Request ID: [3ef63290-4e3c-48df-ac4a-148134d35e98]
+
+Started GET /product/filters for :: ::ffff:127.0.0.1 at Fri Apr 19 2024 15:19:02 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 400 message:  Time response: 188 ms Request ID: [6594303d-75cb-4234-b92c-8943ecf1ce16]
+
+Started GET /product/filters for :: ::ffff:127.0.0.1 at Fri Apr 19 2024 15:19:20 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 400 message:  Time response: 261 ms Request ID: [bae38565-5cc1-4777-875d-746801953885]
+
+Started GET /product/filters for :: ::ffff:127.0.0.1 at Fri Apr 19 2024 15:23:39 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 400 message:  Time response: 1141 ms Request ID: [1134b3fe-e632-438b-8a0b-b3f7bedeefd3]
+
+Started GET /product for :: ::ffff:127.0.0.1 at Fri Apr 19 2024 15:23:44 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 1040 ms Request ID: [a3f8c8cd-fb23-48f8-9302-b2e470d1c616]
+
+Started GET /product/filters for :: ::ffff:127.0.0.1 at Fri Apr 19 2024 15:26:47 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 400 message:  Time response: 176 ms Request ID: [905576a3-13f7-48b0-83af-df66e4e7c2b0]
+
+Started GET /product/filters for :: ::ffff:127.0.0.1 at Fri Apr 19 2024 15:27:58 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 400 message:  Time response: 1118 ms Request ID: [eaf1c065-72f3-48ff-ac29-edd0c1d3461e]
+
+Started GET /product/filters for :: ::ffff:127.0.0.1 at Fri Apr 19 2024 15:28:00 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 400 message:  Time response: 221 ms Request ID: [2a9d45d2-ea37-4846-80d3-8f221428b44d]
+
+Started GET /product/filters for :: ::ffff:127.0.0.1 at Fri Apr 19 2024 15:28:16 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 400 message:  Time response: 173 ms Request ID: [768c9605-bb70-4fbe-8c15-cf121e61b468]
+
+Started GET /product/filters for :: ::ffff:127.0.0.1 at Fri Apr 19 2024 15:28:18 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 400 message:  Time response: 1066 ms Request ID: [b7c7d8c0-490d-4e27-94f2-5c12d2411004]
+
+Started GET /product/filters for :: ::ffff:127.0.0.1 at Fri Apr 19 2024 15:29:01 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 400 message:  Time response: 181 ms Request ID: [92b85f3e-3ca4-4fd7-b9fb-d9e03ab53efc]
+
+Started GET /product/filters for :: ::ffff:127.0.0.1 at Fri Apr 19 2024 15:29:21 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 400 message:  Time response: 174 ms Request ID: [a255914b-3917-4c8a-92cb-5a18bbf73196]
+
+Started GET /product/filters for :: ::ffff:127.0.0.1 at Fri Apr 19 2024 15:44:43 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 237 ms Request ID: [b6f5563f-5381-4da8-a7a4-f454db0cc73f]
+
+Started GET /product/filters for :: ::ffff:127.0.0.1 at Fri Apr 19 2024 15:44:45 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 190 ms Request ID: [944f57ca-288c-4e60-bf09-43fe229cdb66]
+
+Started GET /product for :: ::ffff:127.0.0.1 at Fri Apr 19 2024 15:44:52 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 174 ms Request ID: [b5ca5ed3-8105-4e52-b0ce-e4d98179de1a]
+
+Started GET /product/category/73ab2a97-7421-4aeb-abc9-5e893bae6d49 for :: ::ffff:127.0.0.1 at Fri Apr 19 2024 15:44:57 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 346 ms Request ID: [83ce269e-2426-4b6a-96ff-b218b93dfbb5]
+
+Started GET /product/filters for :: ::ffff:127.0.0.1 at Fri Apr 19 2024 15:45:30 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 400 message:  Time response: 1112 ms Request ID: [7b1e79fc-219a-45fe-82af-d73ab17ed0cb]
+
+Started GET /product/filters for :: ::ffff:127.0.0.1 at Fri Apr 19 2024 15:45:33 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 400 message:  Time response: 176 ms Request ID: [b5a08072-b95a-4114-bb0f-11efe4a795fa]
+
+Started GET /product/filters for :: ::ffff:127.0.0.1 at Fri Apr 19 2024 15:45:43 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 1113 ms Request ID: [4bf5e1cc-f965-4a6a-b846-257ad6ff3458]
+
+Started GET /product/filters?price_max=200000 for :: ::ffff:127.0.0.1 at Fri Apr 19 2024 15:45:54 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 172 ms Request ID: [44a8e318-31d4-49bb-a853-e42590a40949]
+
+Started GET /product/filters?price_max=200 for :: ::ffff:127.0.0.1 at Fri Apr 19 2024 15:45:59 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 164 ms Request ID: [db400a0a-cac7-4c18-8645-c74669cef082]
+
+Started GET /product/filters?price_min=200 for :: ::ffff:127.0.0.1 at Fri Apr 19 2024 15:46:18 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 1166 ms Request ID: [baf1c944-8bd7-4bce-9e6c-3b74b89250b2]
+
+Started GET /product for :: ::ffff:127.0.0.1 at Fri Apr 19 2024 15:46:34 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 1055 ms Request ID: [18471d4a-84e6-4ccb-a082-01e105e241b0]
+
+Started GET /product?limit=2 for :: ::ffff:127.0.0.1 at Fri Apr 19 2024 15:46:42 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 162 ms Request ID: [ea3d69ef-8c23-46e4-8cc6-47ef15524c36]
+
+Started GET /product/category/73ab2a97-7421-4aeb-abc9-5e893bae6d49 for :: ::ffff:127.0.0.1 at Fri Apr 19 2024 15:46:46 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 318 ms Request ID: [af7e1452-cfab-4fe8-b109-ce714e729c21]
+
+Started GET /product/efe035ae-1a9c-4dfb-a9dd-d93f443c2096 for :: ::ffff:127.0.0.1 at Fri Apr 19 2024 15:47:00 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 1153 ms Request ID: [e7ca5a6a-c3a7-429b-959c-cb00c83d7dc7]
+
+Started GET /product/filters?price_min=200 for :: ::ffff:127.0.0.1 at Fri Apr 19 2024 15:49:08 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 1087 ms Request ID: [2f722306-aa94-4d6f-87cf-f0f8239282fe]
+
+Started GET /product/filters?price_max=200000 for :: ::ffff:127.0.0.1 at Fri Apr 19 2024 15:49:20 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 1072 ms Request ID: [032f6b26-19b6-481b-8f84-c9819b5c3aa4]
+
+Started GET /product/filters?price_max=6900 for :: ::ffff:127.0.0.1 at Fri Apr 19 2024 15:49:31 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 161 ms Request ID: [6557785a-85d3-4f6d-b465-7f6c6199f7f4]
+
+Started GET /product/filters?price_min=6900 for :: ::ffff:127.0.0.1 at Fri Apr 19 2024 15:49:41 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 1191 ms Request ID: [d394604b-bd61-4a3f-8c7a-ae774e40459f]
+
+Started GET /product/filters?price_max=200 for :: ::ffff:127.0.0.1 at Fri Apr 19 2024 15:51:32 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 1097 ms Request ID: [0b0af164-5edb-4dfc-a56a-85e6820eaf8d]
+
+Started GET /product/filters?pric_max=200 for :: ::ffff:127.0.0.1 at Fri Apr 19 2024 15:51:35 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 172 ms Request ID: [3d1341ea-4dd4-4b67-8f93-0289524c61e3]
+
+Started GET /product/filters?price_max=200 for :: ::ffff:127.0.0.1 at Fri Apr 19 2024 15:51:37 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 165 ms Request ID: [a5c29e3e-4d09-4e07-b9cf-2165fbb19188]
+
+Started GET /product/filters?unit_max=200 for :: ::ffff:127.0.0.1 at Fri Apr 19 2024 15:51:53 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 1096 ms Request ID: [e8d54122-3dad-446e-bd00-a0abcbea4f3d]
+
+Started GET /product/filters?unit_max=2000 for :: ::ffff:127.0.0.1 at Fri Apr 19 2024 15:51:59 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 172 ms Request ID: [7ac27083-a2f8-48da-97a0-43ca23a7622b]
+
+Started GET /product/filters?unit_max=2000 for :: ::ffff:127.0.0.1 at Fri Apr 19 2024 15:53:10 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 400 message:  Time response: 1201 ms Request ID: [a58edfa5-7d75-49cd-928c-0e5a7e18e7c9]
+
+Started GET /product/filters?unit_max=2000 for :: ::ffff:127.0.0.1 at Fri Apr 19 2024 15:53:23 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 178 ms Request ID: [c144a8e2-3362-4b23-9738-06837bf161c5]
+
+Started GET /product/filters?unit_max=2000 for :: ::ffff:127.0.0.1 at Fri Apr 19 2024 16:08:54 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 4425 ms Request ID: [dbcdbfb1-2a64-4ec8-b766-ed5090f30c2e]
+
+Started GET /product/filters?unit_max=2000 for :: ::ffff:127.0.0.1 at Fri Apr 19 2024 16:09:53 GMT-0400 (Chile Standard Time)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 258 ms Request ID: [63749ba3-1d0a-4f92-91b5-5df0fa56cb83]

@@ -4,6 +4,7 @@ import {
   getProLimitOrder,
   getProductByCategoryId,
   getCategoryName,
+  getProductFilter
 } from "../models/productModel.js";
 
 
@@ -52,9 +53,20 @@ const getProductOrderLimit = async (req, res, next) => {
   }
 };
 
+const getProductsByFilter = async (req, res) => {
+  try {
+      const parametrosQuery = req.query
+      const products = await getProductFilter(parametrosQuery);    
+      res.status(200).json({count: products.length, products: products})        
+  } catch (error) {
+    next(error);            
+  }
+}
+
 export {
   getAllProducts,
   getProductId,
   getProductCategoryId,
   getProductOrderLimit,
+  getProductsByFilter
 };
