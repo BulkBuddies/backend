@@ -21,7 +21,7 @@ app.use(cookieParser());
 swaggerDocs(app, PORT);
 
 app.get("/", async (req, res) => {
-  res.status(200).json({ Message: "Welcome" });
+  res.status(200).json({ message: "Welcome" });
 });
 app.use("/", productRoutes);
 app.use("/", authRoutes);
