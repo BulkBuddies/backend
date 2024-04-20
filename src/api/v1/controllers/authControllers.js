@@ -23,6 +23,7 @@ const logoutController = async (req, res, next) => {
     const cookie = req.cookies;
     if (!cookie.jwt) throw createNewError("auth_06");
     res.clearCookie("jwt", { httpOnly: true });
+
     res.status(200).send("Logged out");
   } catch (error) {
     next(error);
