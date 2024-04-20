@@ -20,7 +20,12 @@ const router = express.Router();
 
 router.get(
   "/auth/google",
-  passport.authenticate("google", { scope: ["profile", "email"] })
+  passport.authenticate("google-signin", { scope: ["profile", "email"] })
+);
+
+router.get(
+  "/auth/google/register",
+  passport.authenticate("google-signup", { scope: ["profile", "email"] })
 );
 
 const test = async (req, res, next) => {
@@ -52,14 +57,34 @@ router.get("/logoutg", (req, res) => {
 
 router.get(
   "/auth/google/redirect",
-  passport.authenticate("google", {
-    successRedirect: "/success",
+  passport.authenticate("google-signin", {
+    successRedirect: "/dashboard",
     failureRedirect: "/login",
   })
 );
 
-router.get("/success", test);
+router.get(
+  "/auth/google/register/redirect",
+  passport.authenticate("google-signup", {
+    failureRedirect: "/login",
+  }),
+  (req, res) => {
+    try {
+      console.log("success");
+      res.redirect("/success");
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);
 
+router.get("/success", (req, res) => {
+  res.status(200).json({ hi: "welcome to this world", user: req.user?._json });
+});
+
+router.get("/dashboard", (req, res) => {
+  res.status(200).json({ hi: "DASHBOARD WORLD", user: req.user });
+});
 router.post("/login", validateParamLogin, loginUser);
 router.get("/logout", logoutController);
 router.post("/register", validateParamUser, createNewUser);
