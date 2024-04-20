@@ -4,6 +4,7 @@ import { createNewError } from "../helpers/requestError.js";
 
 const createUser = async (user) => {
   let { first_name, last_name, email, username, password } = user;
+
   const hashedPass = await bcrypt.hash(password, 10);
   const sqlQuery = {
     text: "INSERT INTO usuario (first_name, last_name, email, username, password) VALUES ($1, $2, $3, $4, $5) RETURNING *",
@@ -12,6 +13,15 @@ const createUser = async (user) => {
   const response = await pool.query(sqlQuery);
   return response.rows[0];
 };
+
+const uniqueUsername = async (username) => {
+  const sqlQuery = {
+    text: "SELECT id FROM usuario WHERE username = $1",
+    values: [username],
+  };
+  const { rowCount } = await pool.query(sqlQuery);
+  return rowCount;
+}
 
 const byEmail = async (email, password) => {
   const sqlQuery = {
@@ -56,4 +66,4 @@ const updateRefreshToken = async (refreshToken, id) => {
   }
 };
 
-export { createUser, byEmail, getAll, updateRefreshToken };
+export { createUser, byEmail, getAll, updateRefreshToken, uniqueUsername };
