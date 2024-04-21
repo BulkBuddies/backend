@@ -1,6 +1,7 @@
 import jwt from "jsonwebtoken";
 import { createNewError } from "../src/api/v1/helpers/requestError.js";
 import { JWT_SECRET, REFRESH_SECRET } from "../config/constants.js";
+import { usernameRegex } from "../src/api/v1/utils/regex.js"
 
 const verifyJWT = async (req, res, next) => {
   try {
@@ -34,4 +35,15 @@ const validateRefreshToken = async (req, res, next) => {
   } catch (error) {}
 };
 
-export { verifyJWT, validateToken };
+const validateUsername = async (req, res, next) => {
+  const { username } = req.query;
+  if (!username) {
+    return res.status(400).json({ message: "Username is required" });
+  }
+  if (usernameRegex.test(username)) {
+    return res.status(400).json({ message: "Invalid username" });
+  }
+  next();
+};
+
+export { verifyJWT, validateToken, validateUsername };
