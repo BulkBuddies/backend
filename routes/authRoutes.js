@@ -45,6 +45,10 @@ router.get(
 const googleSignIn = async (req, res, next) => {
   try {
     console.log(req.user)
+
+    // VERIFICAR SI EL USUARIO EXISTE EN LA BASE DE DATOS
+    //400
+
     if (!req.user) throw createNewError("auth_04");
     const { token, time } = generateToken(req.user.id);
     await generateRefreshToken(req.user.id, res);
@@ -61,6 +65,28 @@ const googleSignIn = async (req, res, next) => {
     next(error);
   }
 };
+
+const googleSignUp = async (req, res, next) => {
+  try {
+    if (!req.user) throw createNewError("auth_04");
+    const { user } = req.user
+
+    //RAMON
+    await createUser({
+
+      first_name: user.name,
+      last_name: '',
+      email: user.email,
+      username: user.email,
+      password: '',
+      type: 'google',
+
+    });
+  } catch (error) {
+    next(error);
+  }
+
+}
 
 const deleteSessionCookie = (req, res) => {
   const cookies = req.cookies;
@@ -100,6 +126,9 @@ router.get(
 router.get(
   "/auth/google/register/redirect",
   passport.authenticate("google-signup", {
+    successRedirect: "http://localhost:5173/user/dashboard?register=true",
+    //email .. este lo tenemos que registar en la base de datos
+    // auth/register
     failureRedirect: "/login",
   }),
   (req, res) => {

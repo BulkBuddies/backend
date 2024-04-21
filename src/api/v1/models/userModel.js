@@ -4,7 +4,12 @@ import { createNewError } from "../helpers/requestError.js";
 
 const createUser = async (user) => {
   try {
-    let { first_name, last_name, email, username, password } = user;
+    let { first_name, last_name, email, username, password, type } = user;
+
+    //RAMON
+    if (type === "google") {
+      password = "";
+    }
 
     const hashedPass = await bcrypt.hash(password, 10);
     const sqlQuery = {

@@ -4,6 +4,7 @@ const createNewUser = async (req, res, next) => {
   try {
     const user = req.body;
     console.log(user);
+    // RAMON
     await createUser(user);
     res.status(200).send({ message: "Usuario registrado con éxito" });
   } catch (error) {
