@@ -30,7 +30,7 @@ router.get(
 );
 
 /**
- * @return {
+ * @return user{
  * sub:            string;
  * name:           string;
  * given_name:     string;
@@ -38,15 +38,13 @@ router.get(
  * email:          string;
  * email_verified: boolean;
  * locale:         string;
- *
  *}
- *
- *
- * **/
+ **/
 
+// Inicia el login con google 
 const googleSignIn = async (req, res, next) => {
   try {
-    console.log(req.user);
+    console.log(req.user)
     if (!req.user) throw createNewError("auth_04");
     const { token, time } = generateToken(req.user.id);
     await generateRefreshToken(req.user.id, res);
@@ -54,15 +52,12 @@ const googleSignIn = async (req, res, next) => {
 
     res.status(200).send({
       data: {
-        user: req.user?._json,
-        credentials: {
-          token,
-          time,
-        },
+        ...req.user?._json,
+        token,
+        time
       },
     });
   } catch (error) {
-    console.log(error);
     next(error);
   }
 };
@@ -92,11 +87,13 @@ router.get("/logoutg", (req, res) => {
   res.status(200).send("CLEARED");
 });
 
+// Reedirecciona al front
 router.get(
   "/auth/google/redirect",
   passport.authenticate("google-signin", {
-    successRedirect: "/dashboard",
-    failureRedirect: "/login",
+    // Pasar a ENV
+    successRedirect: "http://localhost:5173/user/dashboard",
+    failureRedirect: "http://localhost:5173/auth/login",
   })
 );
 
@@ -107,7 +104,6 @@ router.get(
   }),
   (req, res) => {
     try {
-      console.log("success");
       res.redirect("/success");
     } catch (error) {
       console.log(error);
@@ -117,8 +113,8 @@ router.get(
 
 router.get("/success", getGoogleAccountInfo);
 
-router.get("/dashboard", googleSignIn);
 router.post("/login", validateParamLogin, loginUser);
+router.get("/login/success", googleSignIn);
 router.get("/logout", logoutController);
 router.post("/register", validateParamUser, createNewUser);
 router.get("/refresh", refreshTokenController);

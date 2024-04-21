@@ -12,6 +12,7 @@ const loginUser = async (req, res, next) => {
     console.log(id);
     const { token, time } = generateToken(id);
     generateRefreshToken(id, res);
+    //TODO: RETORNA LOS DATOS DEL USUARIO
     return res.send({ token, time });
   } catch (error) {
     next(error);
