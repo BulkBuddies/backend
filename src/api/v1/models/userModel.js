@@ -3,15 +3,20 @@ import bcrypt from "bcrypt";
 import { createNewError } from "../helpers/requestError.js";
 
 const createUser = async (user) => {
-  let { first_name, last_name, email, username, password } = user;
+  try {
+    let { first_name, last_name, email, username, password } = user;
 
-  const hashedPass = await bcrypt.hash(password, 10);
-  const sqlQuery = {
-    text: "INSERT INTO usuario (first_name, last_name, email, username, password) VALUES ($1, $2, $3, $4, $5) RETURNING *",
-    values: [first_name, last_name, email, username, hashedPass],
-  };
-  const response = await pool.query(sqlQuery);
-  return response.rows[0];
+    const hashedPass = await bcrypt.hash(password, 10);
+    const sqlQuery = {
+      text: "INSERT INTO usuario (first_name, last_name, email, username, password) VALUES ($1, $2, $3, $4, $5) RETURNING *",
+      values: [first_name, last_name, email, username, hashedPass],
+    };
+    const response = await pool.query(sqlQuery);
+    return response.rows[0];
+  } catch (error) {
+    console.log(error);
+    throw createNewError(error.code);
+  }
 };
 
 const uniqueUsername = async (username) => {
@@ -21,7 +26,7 @@ const uniqueUsername = async (username) => {
   };
   const { rowCount } = await pool.query(sqlQuery);
   return rowCount;
-}
+};
 
 const byEmail = async (email, password) => {
   const sqlQuery = {

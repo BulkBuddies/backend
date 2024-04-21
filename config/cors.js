@@ -11,6 +11,7 @@ const corsOptions = {
     console.log("No auth");
     throw createNewError("", 401, "No está autorizado por CORS");
   },
+  credentials: true,
 };
 
 export default corsOptions;

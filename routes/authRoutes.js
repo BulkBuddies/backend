@@ -14,6 +14,7 @@ import {
   generateRefreshToken,
   generateToken,
 } from "../src/api/v1/utils/generateToken.js";
+import { createNewError } from "../src/api/v1/helpers/requestError.js";
 const router = express.Router();
 
 //routes google
@@ -28,22 +29,58 @@ router.get(
   passport.authenticate("google-signup", { scope: ["profile", "email"] })
 );
 
-const test = async (req, res, next) => {
+/**
+ * @return {
+ * sub:            string;
+ * name:           string;
+ * given_name:     string;
+ * picture:        string;
+ * email:          string;
+ * email_verified: boolean;
+ * locale:         string;
+ *
+ *}
+ *
+ *
+ * **/
+
+const googleSignIn = async (req, res, next) => {
   try {
     console.log(req.user);
+    if (!req.user) throw createNewError("auth_04");
     const { token, time } = generateToken(req.user.id);
     await generateRefreshToken(req.user.id, res);
-    const cookies = req.cookies;
-    res.clearCookie("connect.sid", { httpOnly: true });
+    deleteSessionCookie(req, res);
+
     res.status(200).send({
       data: {
-        user: req.user?.displayName,
+        user: req.user?._json,
         credentials: {
           token,
           time,
         },
       },
     });
+  } catch (error) {
+    console.log(error);
+    next(error);
+  }
+};
+
+const deleteSessionCookie = (req, res) => {
+  const cookies = req.cookies;
+  if (cookies["connect.sid"]) {
+    res.clearCookie("connect.sid", { httpOnly: true });
+  }
+  return;
+};
+
+const getGoogleAccountInfo = (req, res, next) => {
+  try {
+    if (!req.user) throw createNewError("auth_04");
+    deleteSessionCookie(req, res);
+    const userInfo = req.user;
+    res.status(200).json({ data: userInfo?._json || "No data" });
   } catch (error) {
     console.log(error);
     next(error);
@@ -78,13 +115,9 @@ router.get(
   }
 );
 
-router.get("/success", (req, res) => {
-  res.status(200).json({ hi: "welcome to this world", user: req.user?._json });
-});
+router.get("/success", getGoogleAccountInfo);
 
-router.get("/dashboard", (req, res) => {
-  res.status(200).json({ hi: "DASHBOARD WORLD", user: req.user });
-});
+router.get("/dashboard", googleSignIn);
 router.post("/login", validateParamLogin, loginUser);
 router.get("/logout", logoutController);
 router.post("/register", validateParamUser, createNewUser);
