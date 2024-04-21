@@ -30,7 +30,7 @@ const signUpValidator = [
 
 const signInValidator = [
   body("email", "El email debe ser valido").trim().notEmpty().isEmail(),
-  body("password").trim().notEmpty,
+  body("password", "Ingresa una contraseña").trim().notEmpty(),
   validatorCheckHandler,
 ];
 

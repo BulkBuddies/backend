@@ -6,9 +6,8 @@ import {
   logoutController,
   googleAuthController,
 } from "../src/api/v1/controllers/authControllers.js";
-import { validateParamLogin } from "../middlewares/validateParamLogin.js";
 import { createNewUser } from "../src/api/v1/controllers/usersController.js";
-import { signUpValidator } from "../middlewares/dataValidatorHandler.js";
+import { signInValidator, signUpValidator } from "../middlewares/dataValidatorHandler.js";
 const router = express.Router();
 
 router.get(
@@ -41,7 +40,7 @@ router.get(
   })
 );
 
-router.post("/login", validateParamLogin, loginUser);
+router.post("/login", signInValidator, loginUser);
 router.get("/auth/success", googleAuthController);
 router.get("/logout", logoutController);
 router.post("/register", signUpValidator, createNewUser);
