@@ -89,6 +89,7 @@ const googleAuthController = async (req, res, next) => {
       });
     }
     const token = await generateTokens(res, foundUser.id);
+
     console.log("token", token);
     return res.status(200).json({
       data: {
@@ -109,4 +110,9 @@ const deleteSessionCookie = (req, res) => {
   return;
 };
 
-export { loginUser, refreshTokenController, logoutController, googleAuthController };
+export {
+  loginUser,
+  refreshTokenController,
+  logoutController,
+  googleAuthController,
+};

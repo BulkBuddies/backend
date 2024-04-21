@@ -1,6 +1,6 @@
 import { RequestError } from "../src/api/v1/helpers/requestError.js";
 
-const errorHandler = (error, req, res, next) => {
+const errorHandler =  async (error, req, res, next) => {
   if (error instanceof RequestError) {
     return res.status(error.statusCode).send({
       status: error.statusCode,

@@ -14,6 +14,7 @@
  *       required:
  *         - first name
  *         - last name
+ *         - username
  *         - email
  *         - password
  *       properties:
@@ -26,6 +27,9 @@
  *         last_name:
  *           type: string
  *           description: The user's last name
+ *         username:
+ *           type: string
+ *           description: The username
  *         email:
  *           type: string
  *           description: The user's email
@@ -35,6 +39,7 @@
  *       example:
  *         first_name: Felipe
  *         last_name: Castillo
+ *         username: felipec
  *         email: user@test.com
  *         password: password
  */

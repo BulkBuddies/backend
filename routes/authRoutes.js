@@ -7,8 +7,8 @@ import {
   googleAuthController,
 } from "../src/api/v1/controllers/authControllers.js";
 import { validateParamLogin } from "../middlewares/validateParamLogin.js";
-import { validateParamUser } from "../middlewares/validateParamUser.js";
 import { createNewUser } from "../src/api/v1/controllers/usersController.js";
+import { signUpValidator } from "../middlewares/dataValidatorHandler.js";
 const router = express.Router();
 
 router.get(
@@ -44,7 +44,7 @@ router.get(
 router.post("/login", validateParamLogin, loginUser);
 router.get("/auth/success", googleAuthController);
 router.get("/logout", logoutController);
-router.post("/register", validateParamUser, createNewUser);
+router.post("/register", signUpValidator, createNewUser);
 router.get("/register/success");
 router.get("/refresh", refreshTokenController);
 export default router;
