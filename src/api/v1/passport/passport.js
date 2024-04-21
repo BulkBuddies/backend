@@ -7,7 +7,7 @@ passport.use(
     {
       clientID: process.env.CLIENT_ID,
       clientSecret: process.env.CLIENT_SECRET,
-      callbackURL: process.env.REDIRECT_URL,
+      callbackURL: process.env.GOOGLE_LOGIN_REDIRECT_URL,
       scope: ["profile", "email"],
     },
     function (accessToken, refreshToken, profile, callback) {
@@ -22,7 +22,7 @@ passport.use(
     {
       clientID: process.env.CLIENT_ID,
       clientSecret: process.env.CLIENT_SECRET,
-      callbackURL: process.env.REGISTER_URL,
+      callbackURL: process.env.GOOGLE_REGISTER_REDIRECT_UR,
       scope: ["profile", "email"],
     },
     function (accessToken, refreshToken, profile, callback) {

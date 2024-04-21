@@ -7,7 +7,14 @@ import {
   googleAuthController,
 } from "../src/api/v1/controllers/authControllers.js";
 import { createNewUser } from "../src/api/v1/controllers/usersController.js";
-import { signInValidator, signUpValidator } from "../middlewares/dataValidatorHandler.js";
+import {
+  signInValidator,
+  signUpValidator,
+} from "../middlewares/dataValidatorHandler.js";
+import {
+  LOGIN_REDIRECT_CLIENT_URL,
+  REGISTER_REDIRECT_CLIENT_URL,
+} from "../config/constants.js";
 const router = express.Router();
 
 router.get(
@@ -24,8 +31,7 @@ router.get(
 router.get(
   "/auth/google/redirect",
   passport.authenticate("google-signin", {
-    // Pasar a ENV
-    successRedirect: "/auth/success",
+    successRedirect: LOGIN_REDIRECT_CLIENT_URL || "/auth/success",
     failureRedirect: "http://localhost:5173/auth/login",
   })
 );
@@ -33,9 +39,7 @@ router.get(
 router.get(
   "/auth/google/register/redirect",
   passport.authenticate("google-signup", {
-    successRedirect: "http://localhost:5173/user/dashboard?register=true",
-    //email .. este lo tenemos que registar en la base de datos
-    // auth/register
+    successRedirect: REGISTER_REDIRECT_CLIENT_URL || "/auth/success",
     failureRedirect: "/login",
   })
 );

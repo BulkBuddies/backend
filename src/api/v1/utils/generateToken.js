@@ -19,7 +19,6 @@ const generateRefreshToken = (id, res) => {
     const refreshToken = jwt.sign({ id }, REFRESH_SECRET, {
       expiresIn: time,
     });
-    /*  await addRefreshToken(token, id); */
     res.cookie("jwt", refreshToken, {
       maxAge: 24 * 60 * 60 * 1000,
       httpOnly: true,

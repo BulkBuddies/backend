@@ -6,7 +6,6 @@ import {
 import { createNewError } from "../helpers/requestError.js";
 import {
   generateToken,
-  generateRefreshToken,
   generateTokens,
 } from "../utils/generateToken.js";
 import { validateToken } from "../../../../middlewares/validateJWT.js";
@@ -63,7 +62,6 @@ const refreshTokenController = async (req, res, next) => {
 // Inicia el login con google
 const googleAuthController = async (req, res, next) => {
   try {
-    console.log("requi", req.user.provider);
     if (!req.user) throw createNewError("auth_04");
     const user = req.user?._json;
     const type = req.user.provider;
@@ -90,7 +88,6 @@ const googleAuthController = async (req, res, next) => {
     }
     const token = await generateTokens(res, foundUser.id);
 
-    console.log("token", token);
     return res.status(200).json({
       data: {
         ...foundUser,
