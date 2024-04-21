@@ -1,4 +1,9 @@
-import { createUser, getAll, uniqueUsername } from "../models/userModel.js";
+import {
+  createUser,
+  findUserByEmail,
+  getAll,
+  uniqueUsername,
+} from "../models/userModel.js";
 
 const createNewUser = async (req, res, next) => {
   try {
@@ -31,10 +36,24 @@ const validateUsernameController = async (req, res) => {
     }
     return res.status(400).json({ message: false });
   } catch (error) {
-
     return res.status(500).json({ message: error.message });
   }
+};
 
-}
+const checkEmailEquality = async (req, res, next) => {
+  try {
+    const { email } = req.body;
+    const { rowCount } = await findUserByEmail(email);
+    console.log(email);
+    res.status(200).send({ res: email, ...rows });
+  } catch (error) {
+    next(error);
+  }
+};
 
-export { createNewUser, getAllUser, validateUsernameController };
+export {
+  createNewUser,
+  getAllUser,
+  validateUsernameController,
+  checkEmailEquality,
+};

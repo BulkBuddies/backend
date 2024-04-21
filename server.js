@@ -13,6 +13,7 @@ import corsOptions from "./config/cors.js";
 import { logger } from "logger-express";
 import { notFoundHandler } from "./middlewares/notFoundHandler.js";
 import session from "express-session";
+import { JWT_SECRET } from "./config/constants.js";
 const PORT = process.env.PORT;
 const app = express();
 app.use(cors(corsOptions));
@@ -22,7 +23,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(
   session({
-    secret: "keyboard cat",
+    secret: JWT_SECRET,
     resave: false,
     saveUninitialized: false,
   })

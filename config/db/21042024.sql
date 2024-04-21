@@ -1,0 +1,1 @@
+ALTER TABLE usuario ADD type VARCHAR(25) DEFAULT 'local'
