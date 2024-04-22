@@ -4,10 +4,7 @@ import {
   createUser,
 } from "../models/userModel.js";
 import { createNewError } from "../helpers/requestError.js";
-import {
-  generateToken,
-  generateTokens,
-} from "../utils/generateToken.js";
+import { generateToken, generateTokens } from "../utils/generateToken.js";
 import { validateToken } from "../../../../middlewares/validateJWT.js";
 import { REFRESH_SECRET } from "../../../../config/constants.js";
 
@@ -62,6 +59,9 @@ const refreshTokenController = async (req, res, next) => {
 // Inicia el login con google
 const googleAuthController = async (req, res, next) => {
   try {
+    console.log("is auth", req.isAuthenticated());
+    console.log("user", req.user);
+
     if (!req.user) throw createNewError("auth_04");
     const user = req.user?._json;
     const type = req.user.provider;

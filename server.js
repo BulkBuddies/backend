@@ -13,23 +13,29 @@ import corsOptions from "./config/cors.js";
 import { logger } from "logger-express";
 import { notFoundHandler } from "./middlewares/notFoundHandler.js";
 import session from "express-session";
-import { JWT_SECRET } from "./config/constants.js";
+import cookieSession from "cookie-session";
+import { JWT_SECRET, TEST_ENV } from "./config/constants.js";
 const PORT = process.env.PORT;
 const app = express();
 app.use(cors(corsOptions));
 app.use(express.json());
 /* app.use(logger()); */
+
+/ */;
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(
-  session({
+/* app.use(
+  cookieSession({
     secret: JWT_SECRET,
     resave: false,
     saveUninitialized: false,
   })
-);
+); */
 app.use(passport.initialize());
-app.use(passport.session());
+app.use(function (req, res, next) {
+  req.session = null;
+  next();
+});
 swaggerDocs(app, PORT);
 
 app.get("/", async (req, res) => {
@@ -41,6 +47,8 @@ app.use("/", userRoutes);
 app.get("*", notFoundHandler);
 app.use(errorHandler);
 
-app.listen(PORT, () => {
-  console.log(`LISTENING ON ${PORT}`);
-});
+if (!TEST_ENV) {
+  app.listen(PORT, () => {
+    console.log(`LISTENING ON ${PORT}`);
+  });
+}
