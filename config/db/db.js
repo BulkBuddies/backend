@@ -1,7 +1,7 @@
 import pg from "pg";
 import "dotenv/config";
 const { Pool } = pg;
-
+import chalk from "chalk";
 // Crear un nuevo grupo de conexiones (pool) para interactuar con la base de datos
 const pool = new Pool({
   host: process.env.HOST,
@@ -14,9 +14,10 @@ const pool = new Pool({
 
 //console.log(process.env.USER);
 
-pool.query('SELECT NOW()', (err,res) =>{
-  res ? console.log('DB-Connected', res.rows[0].now) : console.log({err});
+pool.query("SELECT NOW()", (err, res) => {
+  res
+    ? console.log("DB-Connected", chalk.cyan(res.rows[0].now.toString()))
+    : console.log({ err });
 });
-
 
 export default pool;

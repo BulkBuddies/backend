@@ -1,0 +1,52 @@
+
+Started POST /register for :: ::ffff:127.0.0.1 at Sat Apr 20 2024 12:10:06 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {"first_name":"a","last_name":"a","email":"test3@gmail.com","password":"123"}
+Completed: 400 message:  Time response: 6 ms Request ID: [30bdaae8-58fa-4001-a0c7-e68aed672664]
+
+Started POST /register for :: ::ffff:127.0.0.1 at Sat Apr 20 2024 12:11:07 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {"first_name":"a","last_name":"a","email":"test3@gmail.com","password":"123"}
+Completed: 400 message:  Time response: 3 ms Request ID: [01fe821d-0a8a-4f3d-8fca-d85a06edce0d]
+
+Started POST /register for :: ::ffff:127.0.0.1 at Sat Apr 20 2024 12:12:56 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {"first_name":"a","last_name":"a","email":"test3@gmail.com","password":"123"}
+Completed: 400 message:  Time response: 2 ms Request ID: [2ca13f54-98b3-4c52-9b86-56b2ce3472dc]
+
+Started POST /register for :: ::ffff:127.0.0.1 at Sat Apr 20 2024 12:13:08 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {"first_name":"a","last_name":"a","username":"secondtest","email":"test3@gmail.com","password":"123"}
+Completed: 500 message:  Time response: 1117 ms Request ID: [fa324a22-acd0-4507-b31a-7bec9da15563]
+
+Started POST /register for :: ::ffff:127.0.0.1 at Sat Apr 20 2024 12:13:13 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {"first_name":"a","last_name":"a","username":"secondtest","email":"test4@gmail.com","password":"123"}
+Completed: 200 message:  Time response: 1140 ms Request ID: [87b0b0b2-865f-4ec9-b6c2-94af92a8735d]
+
+Started POST /register for :: ::ffff:127.0.0.1 at Sat Apr 20 2024 12:14:04 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {"first_name":"a","last_name":"a","email":"test4@gmail.com","password":"123"}
+Completed: 400 message:  Time response: 2 ms Request ID: [7465e2dc-1bf3-4f8f-891c-2f11088d8aef]
+
+Started GET /register for :: ::ffff:127.0.0.1 at Sat Apr 20 2024 12:14:33 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {}
+Completed: 404 message:  Time response: 4 ms Request ID: [dcb4c73a-baf3-417c-b7c9-97273ec26b1c]
+
+Started GET /favicon.ico for :: ::ffff:127.0.0.1 at Sat Apr 20 2024 12:14:34 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {}
+Completed: 404 message:  Time response: 3 ms Request ID: [2044ba00-b2b8-470a-9f9b-88e69530f43c]
+
+Started POST /register for :: ::ffff:127.0.0.1 at Sat Apr 20 2024 12:20:22 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {"first_name":"a","last_name":"a","email":"test4@gmail.com","password":"123"}
+Completed: 400 message:  Time response: 6 ms Request ID: [1dd04487-e1cf-43ed-ba70-a5d2fa159abc]
+
+Started POST /register for :: ::ffff:127.0.0.1 at Sat Apr 20 2024 12:20:39 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {"first_name":"a","last_name":"a","email":"test4@gmail.com","password":"123"}
+Completed: 400 message:  Time response: 7 ms Request ID: [6f919e6d-aad9-4686-a76c-da0d2a26268a]
+
+Started GET / for :: ::ffff:127.0.0.1 at Sat Apr 20 2024 12:21:25 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {}
+Completed: 304 message:  Time response: 4 ms Request ID: [003d4ae0-d9de-4b43-a4db-66fa2526e074]
+
+Started GET /favicon.ico for :: ::ffff:127.0.0.1 at Sat Apr 20 2024 12:21:25 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {}
+Completed: 404 message:  Time response: 4 ms Request ID: [140f91e8-a908-452e-a6e3-c3bbbc068f05]
+
+Started POST /register for :: ::ffff:127.0.0.1 at Sat Apr 20 2024 12:24:09 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {"first_name":"a","last_name":"a","email":"test4@gmail.com","password":"123"}
+Completed: 400 message:  Time response: 6 ms Request ID: [4312aef3-de73-40c5-9b8a-4894e15d64f8]

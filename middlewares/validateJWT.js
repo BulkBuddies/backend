@@ -8,7 +8,7 @@ const verifyJWT = async (req, res, next) => {
     validateHeaders(req, res);
     const token = req.header("Authorization").split(" ")[1];
     const tokenData = await validateToken(token, JWT_SECRET);
-    req.id = tokenData;
+    req.token = tokenData;
     next();
   } catch (error) {
     next(error);
@@ -28,11 +28,6 @@ const validateHeaders = (req) => {
   if (!req.header("Authorization")) {
     throw createNewError("auth_03");
   }
-};
-
-const validateRefreshToken = async (req, res, next) => {
-  try {
-  } catch (error) {}
 };
 
 const validateUsername = async (req, res, next) => {

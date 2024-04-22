@@ -7,7 +7,7 @@ const generateToken = (id) => {
   const time = 60;
   try {
     const token = jwt.sign({ id }, JWT_SECRET, { expiresIn: time });
-    return { token, time };
+    return token;
   } catch (error) {
     throw createNewError("", 400, error.message);
   }
@@ -19,7 +19,6 @@ const generateRefreshToken = (id, res) => {
     const refreshToken = jwt.sign({ id }, REFRESH_SECRET, {
       expiresIn: time,
     });
-    /*  await addRefreshToken(token, id); */
     res.cookie("jwt", refreshToken, {
       maxAge: 24 * 60 * 60 * 1000,
       httpOnly: true,
@@ -29,4 +28,10 @@ const generateRefreshToken = (id, res) => {
   }
 };
 
-export { generateToken, generateRefreshToken };
+const generateTokens = async (res, id) => {
+  const token = generateToken(id);
+  generateRefreshToken(id, res);
+  return token;
+};
+
+export { generateToken, generateRefreshToken, generateTokens };
