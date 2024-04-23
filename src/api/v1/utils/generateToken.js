@@ -5,7 +5,6 @@ import {
   REFRESH_SECRET,
 } from "../../../../config/constants.js";
 import { createNewError } from "../helpers/requestError.js";
-import { updateRefreshToken } from "../models/userModel.js";
 
 const generateToken = (id) => {
   const time = 60;

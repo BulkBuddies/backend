@@ -9,9 +9,8 @@ passport.use(
       clientSecret: process.env.CLIENT_SECRET,
       callbackURL: process.env.GOOGLE_LOGIN_REDIRECT_URL,
       scope: ["profile", "email"],
-      passReqToCallback: true,
     },
-    function (req, accessToken, refreshToken, profile, callback) {
+    function (accessToken, refreshToken, profile, callback) {
       callback(null, profile);
     }
   )
@@ -37,7 +36,6 @@ passport.serializeUser((user, done) => {
 });
 
 passport.deserializeUser((user, done) => {
-  console.log(user);
   done(null, user);
 });
 

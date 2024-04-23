@@ -8,34 +8,46 @@ import userRoutes from "./routes/userRoutes.js";
 import productRoutes from "./routes/productRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
 import cookieParser from "cookie-parser";
-import { verifyJWT } from "./middlewares/validateJWT.js";
 import corsOptions from "./config/cors.js";
 import { logger } from "logger-express";
 import { notFoundHandler } from "./middlewares/notFoundHandler.js";
 import session from "express-session";
-import cookieSession from "cookie-session";
-import { JWT_SECRET, TEST_ENV } from "./config/constants.js";
+import { JWT_SECRET, PRODUCTION_ENV, TEST_ENV } from "./config/constants.js";
+import redis from "redis";
+import RedisStore from "connect-redis";
+import { MemoryStore } from "express-session";
 const PORT = process.env.PORT;
 const app = express();
 app.use(cors(corsOptions));
 app.use(express.json());
 /* app.use(logger()); */
 
-/ */;
+const client = redis.createClient({
+  password: process.env.REDIS_PASSWORD,
+  socket: {
+    host: process.env.REDIS_HOST,
+    port: process.env.REDIS_PORT,
+  },
+});
+
+await client.connect();
+
+client.on("error", (err) => {
+  console.log("Redis error: ", err);
+});
+
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-/* app.use(
-  cookieSession({
+app.use(
+  session({
     secret: JWT_SECRET,
     resave: false,
     saveUninitialized: false,
+    store: PRODUCTION_ENV ? new RedisStore({ client: client }) : new MemoryStore()
   })
-); */
+);
 app.use(passport.initialize());
-app.use(function (req, res, next) {
-  req.session = null;
-  next();
-});
+app.use(passport.session());
 swaggerDocs(app, PORT);
 
 app.get("/", async (req, res) => {
