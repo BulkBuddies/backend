@@ -1,5 +1,5 @@
 import {
-  findUserByEmail,
+  findUserBy,
   verifyUser,
   createUser,
 } from "../models/userModel.js";
@@ -67,7 +67,7 @@ const googleAuthController = async (req, res, next) => {
     const type = req.user.provider;
 
     await deleteSessionCookie(req, res);
-    const foundUser = await findUserByEmail(user.email);
+    const foundUser = await findUserBy("email", user.email);
     if (!foundUser) {
       const newUser = await createUser({
         first_name: user.name,
