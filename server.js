@@ -13,7 +13,7 @@ import { logger } from "logger-express";
 import { notFoundHandler } from "./middlewares/notFoundHandler.js";
 import session from "express-session";
 import { JWT_SECRET, PRODUCTION_ENV, TEST_ENV } from "./config/constants.js";
-import redis from "redis";
+import * as redis from "redis";
 import RedisStore from "connect-redis";
 import { MemoryStore } from "express-session";
 const PORT = process.env.PORT;
@@ -21,6 +21,9 @@ const app = express();
 app.use(cors(corsOptions));
 app.use(express.json());
 /* app.use(logger()); */
+
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
 
 const client = redis.createClient({
   password: process.env.REDIS_PASSWORD,
@@ -30,22 +33,23 @@ const client = redis.createClient({
   },
 });
 
-await client.connect();
+client.connect();
 
 client.on("error", (err) => {
   console.log("Redis error: ", err);
 });
 
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
 app.use(
   session({
     secret: JWT_SECRET,
     resave: false,
     saveUninitialized: false,
-    store: PRODUCTION_ENV ? new RedisStore({ client: client }) : new MemoryStore()
+    store: PRODUCTION_ENV
+      ? new RedisStore({ client: client })
+      : new MemoryStore(),
   })
 );
+
 app.use(passport.initialize());
 app.use(passport.session());
 swaggerDocs(app, PORT);
@@ -64,3 +68,5 @@ if (!TEST_ENV) {
     console.log(`LISTENING ON ${PORT}`);
   });
 }
+
+export { app, client };

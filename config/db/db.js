@@ -13,11 +13,14 @@ const pool = new Pool({
 });
 
 //console.log(process.env.USER);
+//
 
-pool.query("SELECT NOW()", (err, res) => {
-  res
-    ? console.log("DB-Connected", chalk.cyan(res.rows[0].now.toString()))
-    : console.log({ err });
-});
+async () => {
+  await pool.query("SELECT NOW()", (err, res) => {
+    res
+      ? console.log("DB-Connected", chalk.cyan(res.rows[0].now.toString()))
+      : console.log({ err });
+  });
+};
 
 export default pool;

@@ -53,15 +53,11 @@ const verifyUser = async (email, password) => {
 };
 
 const getAll = async () => {
-  try {
-    const sqlQuery = {
-      text: "SELECT id, first_name, last_name, email, username FROM usuario",
-    };
-    const users = await pool.query(sqlQuery);
-    return users.rows;
-  } catch (error) {
-    console.log(error);
-  }
+  const sqlQuery = {
+    text: "SELECT id, first_name, last_name, email, username FROM usuario",
+  };
+  const users = await pool.query(sqlQuery);
+  return users.rows;
 };
 
 const findUserBy = async (identifier, newValue) => {
@@ -72,7 +68,6 @@ const findUserBy = async (identifier, newValue) => {
     ),
     values: [newValue],
   };
-  console.log(sqlQuery);
   const { rows } = await pool.query(sqlQuery);
   const user = rows[0];
   return user;
