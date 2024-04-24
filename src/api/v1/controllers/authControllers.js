@@ -20,6 +20,8 @@ const loginUser = async (req, res, next) => {
   }
 };
 
+
+
 const logoutController = async (req, res, next) => {
   try {
     const cookie = req.cookies;
@@ -59,6 +61,8 @@ const refreshTokenController = async (req, res, next) => {
  * locale:         string;
  *}
  **/
+
+ 
 
 // Inicia el login con google
 const googleAuthController = async (req, res, next) => {

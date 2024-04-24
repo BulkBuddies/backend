@@ -54,12 +54,12 @@ app.use(passport.initialize());
 app.use(passport.session());
 swaggerDocs(app, PORT);
 
-app.get("/", async (req, res) => {
+app.get("/api/v1", async (req, res) => {
   res.status(200).json({ message: "Welcome" });
 });
-app.use("/", productRoutes);
-app.use("/", authRoutes);
-app.use("/", userRoutes);
+app.use("/api/v1", productRoutes);
+app.use("/api/v1", authRoutes);
+app.use("/api/v1", userRoutes);
 app.get("*", notFoundHandler);
 app.use(errorHandler);
 

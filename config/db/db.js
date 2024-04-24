@@ -4,6 +4,8 @@ const { Pool } = pg;
 import chalk from "chalk";
 import { TEST_ENV } from "../constants.js";
 
+
+
 // Crear un nuevo grupo de conexiones (pool) para interactuar con la base de datos
 const pool = new Pool({
   host: TEST_ENV ? process.env.DB_TEST_HOST : process.env.HOST,

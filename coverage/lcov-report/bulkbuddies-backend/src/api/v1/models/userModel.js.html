@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">31.7% </span>
+                <span class="strong">48.78% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>13/41</span>
+                <span class='fraction'>20/41</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">12.5% </span>
+                <span class="strong">25% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>1/8</span>
+                <span class='fraction'>2/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">33.33% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/6</span>
+                <span class='fraction'>3/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">30% </span>
+                <span class="strong">47.5% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>12/40</span>
+                <span class='fraction'>19/40</span>
             </div>
         
             
@@ -178,20 +178,20 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -285,21 +285,21 @@ import { createNewError } from "../helpers/requestError.js";
 import { text } from "express";
 import crypto from "node:crypto";
 import format from "pg-format";
-const createUser = <span class="fstat-no" title="function not covered" >as</span>ync (user) =&gt; {
-<span class="cstat-no" title="statement not covered" >  try {</span>
-    let { first_name, last_name, email, username, password, type } = <span class="cstat-no" title="statement not covered" >user;</span>
+const createUser = async (user) =&gt; {
+  try {
+    let { first_name, last_name, email, username, password, type } = user;
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    if (type === "google") {</span>
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (type === "google") {
 <span class="cstat-no" title="statement not covered" >      password = crypto.randomUUID().split("-").join("").slice(-10);</span>
     }
 &nbsp;
-    const hashedPass = <span class="cstat-no" title="statement not covered" >await bcrypt.hash(password, 10);</span>
-    const sqlQuery = <span class="cstat-no" title="statement not covered" >{</span>
+    const hashedPass = await bcrypt.hash(password, 10);
+    const sqlQuery = {
       text: "INSERT INTO usuario (first_name, last_name, email, username, password, type) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
       values: [first_name, last_name, email, username, hashedPass, type],
     };
-    const response = <span class="cstat-no" title="statement not covered" >await pool.query(sqlQuery);</span>
-<span class="cstat-no" title="statement not covered" >    return response.rows[0];</span>
+    const response = await pool.query(sqlQuery);
+    return response.rows[0];
   } catch (error) {
 <span class="cstat-no" title="statement not covered" >    console.log(error);</span>
 <span class="cstat-no" title="statement not covered" >    throw createNewError(error.code);</span>
@@ -394,7 +394,7 @@ export {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-04-24T00:01:47.472Z
+                at 2024-04-24T01:56:31.906Z
             </div>
         <script src="../../../../../prettify.js"></script>
         <script>
