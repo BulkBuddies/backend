@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
 import { createNewError } from "../src/api/v1/helpers/requestError.js";
 import { JWT_SECRET, REFRESH_SECRET } from "../config/constants.js";
-import { usernameRegex } from "../src/api/v1/utils/regex.js"
+import { usernameRegex } from "../src/api/v1/utils/regex.js";
 
 const verifyJWT = async (req, res, next) => {
   try {
@@ -9,6 +9,16 @@ const verifyJWT = async (req, res, next) => {
     const token = req.header("Authorization").split(" ")[1];
     const tokenData = await validateToken(token, JWT_SECRET);
     req.token = tokenData;
+    const userIdFromEndpoint = req.params.id;
+    const userIdFromToken = req.token.id;
+    if (!userIdFromEndpoint) {
+      return next();
+    }
+    if (userIdFromToken !== userIdFromEndpoint) {
+      return res.status(403).json({
+        messsage: " No estás autorizado para acceder a este recurso.",
+      });
+    }
     next();
   } catch (error) {
     next(error);
