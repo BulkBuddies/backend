@@ -3,9 +3,10 @@ import { getProductOrderLimit, getProductId, getProductCategoryId, getProductsBy
 
 const router = express.Router();
 
+router.get('/product/filters', getProductsByFilter)
 router.get('/product',  getProductOrderLimit)
 router.get('/product/:id', getProductId)
 router.get('/product/category/:id', getProductCategoryId)
-router.get('/product/filters', getProductsByFilter)
+
 
 export default router;

@@ -7,6 +7,8 @@ import errorHandler from "./middlewares/error.handler.js";
 import userRoutes from "./routes/userRoutes.js";
 import productRoutes from "./routes/productRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
+import profileRoutes from "./routes/profileRoutes.js";
+import regionRoutes from "./routes/regionRoutes.js";
 import cookieParser from "cookie-parser";
 import corsOptions from "./config/cors.js";
 import { logger } from "logger-express";
@@ -60,6 +62,9 @@ app.get("/api/v1", async (req, res) => {
 app.use("/api/v1", productRoutes);
 app.use("/api/v1", authRoutes);
 app.use("/api/v1", userRoutes);
+app.use("/api/v1", profileRoutes);
+app.use("/api/v1", regionRoutes);
+
 app.get("*", notFoundHandler);
 app.use(errorHandler);
 
