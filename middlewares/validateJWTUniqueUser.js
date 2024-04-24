@@ -11,6 +11,14 @@ const verifyJWTbyUser = async (req, res, next) => {
     req.token = tokenData;
     const userIdFromToken = req.token.id;
     const userIdFromEndpoint = req.params.id;
+    //vamos a ver si existe id en params, si no, que vaya a body y tome ese valor.
+    if (!userIdFromEndpoint && req.body && req.body.id) {
+      userIdFromEndpoint = req.body.id;
+    }    
+
+    if (!userIdFromEndpoint) {
+      return res.status(400).json({ message: 'Se requiere un ID de usuario.' });
+    }   
   
   if (userIdFromToken !== userIdFromEndpoint) {
       return res.status(403).json({ message: 'No estás autorizado para acceder a este recurso.' });
