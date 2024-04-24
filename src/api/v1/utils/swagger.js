@@ -1,5 +1,7 @@
+import chalk from "chalk";
 import swaggerJSDoc from "swagger-jsdoc";
 import swaggerUi from "swagger-ui-express";
+import { PRODUCTION_ENV } from "../../../../config/constants.js";
 
 const options = {
   definition: {
@@ -39,7 +41,7 @@ const swaggerDoc = swaggerJSDoc(options);
 
 function swaggerDocs(app, port) {
   //Swagger page
-  app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDoc));
+  app.use("/api/v1/docs", swaggerUi.serve, swaggerUi.setup(swaggerDoc));
 
   //Docs in JSON format
   app.get("/docs.json", (req, res) => {
@@ -47,7 +49,13 @@ function swaggerDocs(app, port) {
     res.send(swaggerDoc);
   });
 
-  console.log(`Docs available on http://localhost:${port}/docs`);
+  console.log(
+    chalk.magentaBright(
+      `Docs available on ${
+        PRODUCTION_ENV ? process.env.ORIGIN : "http://localhost:3000"
+      }/api/v1/docs \n`
+    )
+  );
 }
 
 export default swaggerDocs;
