@@ -1,3 +1,4 @@
+import chalk from "chalk";
 import swaggerJSDoc from "swagger-jsdoc";
 import swaggerUi from "swagger-ui-express";
 
@@ -39,7 +40,7 @@ const swaggerDoc = swaggerJSDoc(options);
 
 function swaggerDocs(app, port) {
   //Swagger page
-  app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDoc));
+  app.use("/api/v1/docs", swaggerUi.serve, swaggerUi.setup(swaggerDoc));
 
   //Docs in JSON format
   app.get("/docs.json", (req, res) => {
@@ -47,7 +48,11 @@ function swaggerDocs(app, port) {
     res.send(swaggerDoc);
   });
 
-  console.log(`Docs available on http://localhost:${port}/docs`);
+  console.log(
+    chalk.magentaBright(
+      `Docs available on http://localhost:${port}/api/v1/docs \n`
+    )
+  );
 }
 
 export default swaggerDocs;

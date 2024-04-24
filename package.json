@@ -57,7 +57,8 @@
       "/src/api/v1/docs",
       "/src/api/v1/passport",
       "/coverage/",
-      "/config/db"
+      "/config/db",
+      "node_modules/(?!logger-express)/"
     ],
     "coverageThreshold": {
       "global": {
