@@ -31,7 +31,7 @@ const generateRefreshToken = (id, res) => {
 const generateTokens = async (res, id) => {
   const token = generateToken(id);
   generateRefreshToken(id, res);
-  console.log(token)
+  //console.log(token)
   return token;
 };
 
