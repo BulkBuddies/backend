@@ -1,5 +1,4 @@
 import pool from "../../../../config/db/db.js";
-import format from "pg-format";
 import { createNewError } from "../helpers/requestError.js";
 
 const getProfileByUserId = async (id) => {
@@ -36,7 +35,7 @@ const updateProfileByUserId = async (userId, newData) => {
     };
 
     const { rows } = await pool.query(sqlQuery);
-    return rows[0]; // Retorna el perfil actualizado
+    return rows[0];
   } catch (error) {
     throw createNewError(error.code);
   }

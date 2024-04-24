@@ -18,3 +18,7 @@ EXECUTE FUNCTION insert_profile_after_user_insert();
 
 ALTER TABLE "profile"
 ADD CONSTRAINT fk_user_id FOREIGN KEY ("fk_user") REFERENCES "usuario"("id") ON DELETE CASCADE;
+
+drop table comuna CASCADE;
+
+create table comunas (id int PRIMARY KEY, comuna varchar(64), region_id int);

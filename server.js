@@ -8,6 +8,7 @@ import userRoutes from "./routes/userRoutes.js";
 import productRoutes from "./routes/productRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
 import profileRoutes from "./routes/profileRoutes.js";
+import regionRoutes from "./routes/regionRoutes.js";
 import cookieParser from "cookie-parser";
 import { verifyJWT } from "./middlewares/validateJWT.js";
 import corsOptions from "./config/cors.js";
@@ -33,13 +34,14 @@ app.use(passport.initialize());
 app.use(passport.session());
 swaggerDocs(app, PORT);
 
-app.get("/", async (req, res) => {
+app.get("/api/v1", async (req, res) => {
   res.status(200).json({ message: "Welcome" });
 });
-app.use("/", productRoutes);
-app.use("/", authRoutes);
-app.use("/", userRoutes);
-app.use("/", profileRoutes);
+app.use("/api/v1", productRoutes);
+app.use("/api/v1", authRoutes);
+app.use("/api/v1", userRoutes);
+app.use("/api/v1", profileRoutes);
+app.use("/api/v1", regionRoutes);
 app.get("*", notFoundHandler);
 app.use(errorHandler);
 
