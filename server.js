@@ -15,7 +15,7 @@ import { logger } from "logger-express";
 import { notFoundHandler } from "./middlewares/notFoundHandler.js";
 import session from "express-session";
 import { JWT_SECRET, PRODUCTION_ENV, TEST_ENV } from "./config/constants.js";
-import * as redis from "redis";
+import { client } from "./config/redis.js";
 import RedisStore from "connect-redis";
 import { MemoryStore } from "express-session";
 import chalk from "chalk";
@@ -27,14 +27,6 @@ PRODUCTION_ENV && app.use(logger());
 
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-
-const client = redis.createClient({
-  password: process.env.REDIS_PASSWORD,
-  socket: {
-    host: process.env.REDIS_HOST,
-    port: process.env.REDIS_PORT,
-  },
-});
 
 client.connect();
 

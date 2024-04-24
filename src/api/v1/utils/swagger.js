@@ -1,6 +1,7 @@
 import chalk from "chalk";
 import swaggerJSDoc from "swagger-jsdoc";
 import swaggerUi from "swagger-ui-express";
+import { PRODUCTION_ENV } from "../../../../config/constants.js";
 
 const options = {
   definition: {
@@ -50,7 +51,9 @@ function swaggerDocs(app, port) {
 
   console.log(
     chalk.magentaBright(
-      `Docs available on http://localhost:${port}/api/v1/docs \n`
+      `Docs available on ${
+        PRODUCTION_ENV ? process.env.ORIGIN : "http://localhost:3000"
+      }/api/v1/docs \n`
     )
   );
 }
