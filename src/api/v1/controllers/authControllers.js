@@ -37,7 +37,8 @@ const refreshTokenController = async (req, res, next) => {
     if (!cookie.jwt) throw createNewError("auth_07");
     const refreshToken = cookie.jwt;
     const { id } = await validateToken(refreshToken, REFRESH_SECRET);
-    const { token } = generateToken(id);
+    const token = await generateToken(id);
+    // Check if it will only send the token or both the token and the user info
     return res.status(200).send({ token });
   } catch (error) {
     next(error);
