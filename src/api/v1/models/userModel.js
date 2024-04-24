@@ -54,7 +54,7 @@ const verifyUser = async (email, password) => {
 
 const getAll = async () => {
   const sqlQuery = {
-    text: "SELECT id, first_name, last_name, email, username FROM usuario",
+    text: "SELECT id, first_name, last_name, email, username, type FROM usuario",
   };
   const users = await pool.query(sqlQuery);
   return users.rows;

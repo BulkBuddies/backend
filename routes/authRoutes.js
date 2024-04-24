@@ -12,6 +12,7 @@ import {
   signUpValidator,
 } from "../middlewares/dataValidatorHandler.js";
 import {
+  FAILURE_REDIRECT_CLIENT_URL,
   LOGIN_REDIRECT_CLIENT_URL,
   REGISTER_REDIRECT_CLIENT_URL,
 } from "../config/constants.js";
@@ -32,7 +33,7 @@ router.get(
   "/auth/google/redirect",
   passport.authenticate("google-signin", {
     successRedirect: LOGIN_REDIRECT_CLIENT_URL || "/api/v1/auth/success",
-    failureRedirect: "http://localhost:5173/auth/login",
+    failureRedirect: FAILURE_REDIRECT_CLIENT_URL || "/api/v1/",
   })
 );
 // Reedirecciona al front
@@ -40,7 +41,7 @@ router.get(
   "/auth/google/register/redirect",
   passport.authenticate("google-signup", {
     successRedirect: REGISTER_REDIRECT_CLIENT_URL || "/api/v1/auth/success",
-    failureRedirect: "/api/v1/login",
+    failureRedirect: FAILURE_REDIRECT_CLIENT_URL || "/api/v1/",
   })
 );
 
@@ -48,6 +49,5 @@ router.post("/login", signInValidator, loginUser);
 router.get("/auth/success", googleAuthController);
 router.get("/logout", logoutController);
 router.post("/register", signUpValidator, createNewUser);
-router.get("/register/success");
 router.get("/refresh", refreshTokenController);
 export default router;
