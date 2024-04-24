@@ -5,8 +5,6 @@ const REFRESH_SECRET = process.env.REFRESH_TOKEN_KEY;
 const LOGIN_REDIRECT_CLIENT_URL = process.env.LOGIN_REDIRECT_CLIENT_URL;
 const REGISTER_REDIRECT_CLIENT_URL = process.env.REGISTER_REDIRECT_CLIENT_URL;
 
-
-
 const PRODUCTION_ENV = process.env.NODE_ENV === "production";
 const TEST_ENV = process.env.NODE_ENV === "test";
 const DEV_ENV = process.env.NODE_ENV === "development";

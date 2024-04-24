@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "cross-env NODE_ENV=test jest --transformIgnorePatterns 'node_modules/(?!my-library-dir)/' --detectOpenHandles --watch",
+    "test": "cross-env NODE_ENV=test jest --transformIgnorePatterns 'node_modules/(?!my-library-dir)/' --detectOpenHandles --watchAll",
     "dev": "cross-env NODE_ENV=development node --watch server.js",
     "start": "cross-env NODE_ENV=production node server.js"
   },
