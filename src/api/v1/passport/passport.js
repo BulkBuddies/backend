@@ -1,5 +1,6 @@
 import { Strategy as GoogleStrategy } from "passport-google-oauth20";
 import passport from "passport";
+import "dotenv/config";
 
 passport.use(
   "google-signin",
@@ -22,7 +23,7 @@ passport.use(
     {
       clientID: process.env.CLIENT_ID,
       clientSecret: process.env.CLIENT_SECRET,
-      callbackURL: process.env.GOOGLE_REGISTER_REDIRECT_UR,
+      callbackURL: process.env.GOOGLE_REGISTER_REDIRECT_URL,
       scope: ["profile", "email"],
     },
     function (accessToken, refreshToken, profile, callback) {

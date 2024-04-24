@@ -10,26 +10,48 @@ import authRoutes from "./routes/authRoutes.js";
 import profileRoutes from "./routes/profileRoutes.js";
 import regionRoutes from "./routes/regionRoutes.js";
 import cookieParser from "cookie-parser";
-import { verifyJWT } from "./middlewares/validateJWT.js";
 import corsOptions from "./config/cors.js";
 import { logger } from "logger-express";
 import { notFoundHandler } from "./middlewares/notFoundHandler.js";
 import session from "express-session";
-import { JWT_SECRET } from "./config/constants.js";
+import { JWT_SECRET, PRODUCTION_ENV, TEST_ENV } from "./config/constants.js";
+import * as redis from "redis";
+import RedisStore from "connect-redis";
+import { MemoryStore } from "express-session";
 const PORT = process.env.PORT;
 const app = express();
 app.use(cors(corsOptions));
 app.use(express.json());
 /* app.use(logger()); */
+
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+const client = redis.createClient({
+  password: process.env.REDIS_PASSWORD,
+  socket: {
+    host: process.env.REDIS_HOST,
+    port: process.env.REDIS_PORT,
+  },
+});
+
+client.connect();
+
+client.on("error", (err) => {
+  console.log("Redis error: ", err);
+});
+
 app.use(
   session({
     secret: JWT_SECRET,
     resave: false,
     saveUninitialized: false,
+    store: PRODUCTION_ENV
+      ? new RedisStore({ client: client })
+      : new MemoryStore(),
   })
 );
+
 app.use(passport.initialize());
 app.use(passport.session());
 swaggerDocs(app, PORT);
@@ -42,9 +64,14 @@ app.use("/api/v1", authRoutes);
 app.use("/api/v1", userRoutes);
 app.use("/api/v1", profileRoutes);
 app.use("/api/v1", regionRoutes);
+
 app.get("*", notFoundHandler);
 app.use(errorHandler);
 
-app.listen(PORT, () => {
-  console.log(`LISTENING ON ${PORT}`);
-});
+if (!TEST_ENV) {
+  app.listen(PORT, () => {
+    console.log(`LISTENING ON ${PORT}`);
+  });
+}
+
+export { app, client };

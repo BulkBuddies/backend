@@ -23,7 +23,7 @@ const signUpValidator = [
   body("first_name", "No puede estar vacio").trim().notEmpty(),
   body("last_name", "El apellido no puede estar vacío").trim().notEmpty(),
   body("email", "Debes ingresar un email válido").trim().notEmpty().isEmail(),
-  body("username", "El username debe estar").trim().notEmpty(),
+  body("username", "Ingresa un username").trim().notEmpty(),
   body("password", "Debes ingresar una contraseña").trim().notEmpty(),
   validatorCheckHandler,
 ];
