@@ -4,7 +4,7 @@ import { createNewError } from "../helpers/requestError.js";
 import { updateRefreshToken } from "../models/userModel.js";
 
 const generateToken = (id) => {
-  const time = 60;
+  const time = 600;
   try {
     const token = jwt.sign({ id }, JWT_SECRET, { expiresIn: time });
     return token;
@@ -31,6 +31,7 @@ const generateRefreshToken = (id, res) => {
 const generateTokens = async (res, id) => {
   const token = generateToken(id);
   generateRefreshToken(id, res);
+  console.log(token)
   return token;
 };
 

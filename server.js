@@ -7,6 +7,7 @@ import errorHandler from "./middlewares/error.handler.js";
 import userRoutes from "./routes/userRoutes.js";
 import productRoutes from "./routes/productRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
+import profileRoutes from "./routes/profileRoutes.js";
 import cookieParser from "cookie-parser";
 import { verifyJWT } from "./middlewares/validateJWT.js";
 import corsOptions from "./config/cors.js";
@@ -38,6 +39,7 @@ app.get("/", async (req, res) => {
 app.use("/", productRoutes);
 app.use("/", authRoutes);
 app.use("/", userRoutes);
+app.use("/", profileRoutes);
 app.get("*", notFoundHandler);
 app.use(errorHandler);
 

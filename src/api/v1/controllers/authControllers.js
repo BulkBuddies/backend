@@ -15,7 +15,7 @@ const loginUser = async (req, res, next) => {
   try {
     const { email, password } = req.body;
     const foundUser = await verifyUser(email, password);
-    const token = generateTokens(res, foundUser.email);
+    const token = generateTokens(res, foundUser.id);
     return res.status(200).send({ token, ...foundUser });
   } catch (error) {
     next(error);
