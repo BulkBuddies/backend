@@ -1,6 +1,8 @@
+import { createNewError } from "../helpers/requestError.js";
 import {
   createUser,
-  findUserByEmail,
+  deleteUserById,
+  findUserBy,
   getAll,
   uniqueUsername,
 } from "../models/userModel.js";
@@ -9,7 +11,6 @@ const createNewUser = async (req, res, next) => {
   try {
     const user = req.body;
     console.log(user);
-    // RAMON
     await createUser(user);
     res.status(200).send({ message: "Usuario registrado con éxito" });
   } catch (error) {
@@ -23,6 +24,7 @@ const getAllUser = async (req, res, next) => {
     if (!users) return res.status(404).json({ message: "No users found" });
     return res.status(200).json(users);
   } catch (error) {
+    console.log(error);
     next(error);
   }
 };
@@ -40,12 +42,22 @@ const validateUsernameController = async (req, res) => {
   }
 };
 
-const checkEmailEquality = async (req, res, next) => {
+const getUserById = async (req, res, next) => {
   try {
-    const { email } = req.body;
-    const { rowCount } = await findUserByEmail(email);
-    console.log(email);
-    res.status(200).send({ res: email, ...rows });
+    const { id } = req.params;
+    const user = await findUserBy("id", id);
+    if (!user) throw createNewError("auth_01");
+    res.status(200).send({ ...user });
+  } catch (error) {
+    next(error);
+  }
+};
+
+const deleteUser = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    await deleteUserById(id);
+    res.sendStatus(204);
   } catch (error) {
     next(error);
   }
@@ -55,5 +67,6 @@ export {
   createNewUser,
   getAllUser,
   validateUsernameController,
-  checkEmailEquality,
+  getUserById,
+  deleteUser,
 };

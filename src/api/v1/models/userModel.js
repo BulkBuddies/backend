@@ -3,7 +3,7 @@ import bcrypt from "bcrypt";
 import { createNewError } from "../helpers/requestError.js";
 import { text } from "express";
 import crypto from "node:crypto";
-
+import format from "pg-format";
 const createUser = async (user) => {
   try {
     let { first_name, last_name, email, username, password, type } = user;
@@ -53,28 +53,37 @@ const verifyUser = async (email, password) => {
 };
 
 const getAll = async () => {
-  try {
-    const sqlQuery = {
-      text: "SELECT first_name, last_name, email, username FROM usuario",
-    };
-    const users = await pool.query(sqlQuery);
-    return users.rows;
-  } catch (error) {
-    console.log(error);
-  }
+  const sqlQuery = {
+    text: "SELECT id, first_name, last_name, email, username FROM usuario",
+  };
+  const users = await pool.query(sqlQuery);
+  return users.rows;
 };
 
-const findUserByEmail = async (newEmail) => {
+const findUserBy = async (identifier, newValue) => {
   const sqlQuery = {
-    text: "SELECT id, first_name, last_name, email, username, type from usuario WHERE email = $1",
-    values: [newEmail],
+    text: format(
+      "SELECT id, first_name, last_name, email, username, type from usuario WHERE %I = $1",
+      identifier
+    ),
+    values: [newValue],
+  };
+  const { rows } = await pool.query(sqlQuery);
+  const user = rows[0];
+  return user;
+};
+
+const deleteUserById = async (id) => {
+  const sqlQuery = {
+    text: "DELETE FROM usuario WHERE id = $1 RETURNING *",
+    values: [id],
   };
   const { rowCount, rows } = await pool.query(sqlQuery);
-  if (rowCount === 1) {
-    return rows[0];
-  }
+  if (rowCount === 0) throw createNewError("auth_01");
+  return rows[0];
 };
 
+/* 
 const updateRefreshToken = async (refreshToken, id) => {
   try {
     const hashedRefreshToken = await bcrypt.hash(refreshToken, 10);
@@ -87,13 +96,13 @@ const updateRefreshToken = async (refreshToken, id) => {
   } catch (error) {
     throw createNewError(error.code);
   }
-};
+}; */
 
 export {
   createUser,
   verifyUser,
   getAll,
-  updateRefreshToken,
   uniqueUsername,
-  findUserByEmail,
+  findUserBy,
+  deleteUserById,
 };
