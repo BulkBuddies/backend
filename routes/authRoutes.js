@@ -31,7 +31,7 @@ router.get(
 router.get(
   "/auth/google/redirect",
   passport.authenticate("google-signin", {
-    successRedirect: LOGIN_REDIRECT_CLIENT_URL || "/auth/success",
+    successRedirect: LOGIN_REDIRECT_CLIENT_URL || "/api/v1/auth/success",
     failureRedirect: "http://localhost:5173/auth/login",
   })
 );
@@ -39,8 +39,8 @@ router.get(
 router.get(
   "/auth/google/register/redirect",
   passport.authenticate("google-signup", {
-    successRedirect: REGISTER_REDIRECT_CLIENT_URL || "/auth/success",
-    failureRedirect: "/login",
+    successRedirect: REGISTER_REDIRECT_CLIENT_URL || "/api/v1/auth/success",
+    failureRedirect: "/api/v1/login",
   })
 );
 

@@ -1,26 +1,21 @@
-import {
-  findUserBy,
-  verifyUser,
-  createUser,
-} from "../models/userModel.js";
+import { findUserBy, verifyUser, createUser } from "../models/userModel.js";
 import { createNewError } from "../helpers/requestError.js";
 import { generateToken, generateTokens } from "../utils/generateToken.js";
 import { validateToken } from "../../../../middlewares/validateJWT.js";
-import { REFRESH_SECRET } from "../../../../config/constants.js";
-
+import {
+  PRODUCTION_ENV,
+  REFRESH_SECRET,
+} from "../../../../config/constants.js";
 const loginUser = async (req, res, next) => {
   try {
     const { email, password } = req.body;
     const foundUser = await verifyUser(email, password);
     const token = await generateTokens(res, foundUser.id);
-    console.log(token);
     return res.status(200).send({ token, ...foundUser });
   } catch (error) {
     next(error);
   }
 };
-
-
 
 const logoutController = async (req, res, next) => {
   try {
@@ -61,8 +56,6 @@ const refreshTokenController = async (req, res, next) => {
  * locale:         string;
  *}
  **/
-
- 
 
 // Inicia el login con google
 const googleAuthController = async (req, res, next) => {
