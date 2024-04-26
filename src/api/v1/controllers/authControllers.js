@@ -106,6 +106,16 @@ const deleteSessionCookie = (req, res) => {
   return;
 };
 
+
+const resetPasswordController = (req, res, next) => {
+  try {
+
+  }
+  catch (error) {
+    
+  }
+}
+
 export {
   loginUser,
   refreshTokenController,

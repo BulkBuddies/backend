@@ -19,10 +19,15 @@ const validatorCheckHandler = async (req, res, next) => {
   }
 };
 
+const isEmailChain = body("email", "Debes ingresar un email válido")
+  .trim()
+  .notEmpty()
+  .isEmail();
+
 const signUpValidator = [
   body("first_name", "No puede estar vacio").trim().notEmpty(),
   body("last_name", "El apellido no puede estar vacío").trim().notEmpty(),
-  body("email", "Debes ingresar un email válido").trim().notEmpty().isEmail(),
+  isEmailChain,
   body("username", "Ingresa un username").trim().notEmpty(),
   body("password", "Debes ingresar una contraseña").trim().notEmpty(),
   validatorCheckHandler,
@@ -34,7 +39,14 @@ const signInValidator = [
   validatorCheckHandler,
 ];
 
+const isEmailValidator = [isEmailChain, validatorCheckHandler];
+
 /* Validaciones para posts */
 /* Validaciones para profile */
 
-export { signInValidator, signUpValidator, validatorCheckHandler };
+export {
+  signInValidator,
+  signUpValidator,
+  validatorCheckHandler,
+  isEmailValidator,
+};

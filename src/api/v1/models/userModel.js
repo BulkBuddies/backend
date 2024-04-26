@@ -70,6 +70,7 @@ const findUserBy = async (identifier, newValue) => {
   };
   const { rows } = await pool.query(sqlQuery);
   const user = rows[0];
+  console.log(user);
   return user;
 };
 
@@ -93,7 +94,6 @@ const updatePassword = async (userId, newPassword) => {
   if (rowCount === 0) throw createNewError("auth_01");
 };
 
-
 export {
   createUser,
   verifyUser,
@@ -101,5 +101,5 @@ export {
   uniqueUsername,
   findUserBy,
   deleteUserById,
-  updatePassword
+  updatePassword,
 };
