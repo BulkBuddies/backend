@@ -69,7 +69,6 @@ const findUserBy = async (identifier, newValue) => {
   };
   const { rows } = await pool.query(sqlQuery);
   const user = rows[0];
-  console.log(user);
   return user;
 };
 

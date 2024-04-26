@@ -20,6 +20,9 @@ const PRODUCTION_ENV = process.env.NODE_ENV === "production";
 const TEST_ENV = process.env.NODE_ENV === "test";
 const DEV_ENV = process.env.NODE_ENV === "development";
 
+// Credentials for Nodemailer
+const EMAIL = process.env.EMAIL;
+const APP_PASSWORD = process.env.APP_PASSWORD;
 export {
   JWT_SECRET,
   REFRESH_SECRET,
@@ -32,4 +35,6 @@ export {
   PRODUCTION_ENV,
   TEST_ENV,
   DEV_ENV,
+  EMAIL,
+  APP_PASSWORD,
 };

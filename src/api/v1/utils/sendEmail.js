@@ -1,25 +1,33 @@
 import * as nodemailer from "nodemailer";
+import { APP_PASSWORD, EMAIL } from "../../../../config/constants.js";
+
+const transporter = nodemailer.createTransport({
+  service: "Gmail",
+  host: "smtp.Gmail.com",
+  port: 465,
+  secure: true,
+  auth: {
+    user: EMAIL,
+    pass: APP_PASSWORD,
+  },
+});
 
 const sendEmail = async (recipient, token) => {
-  let testAccount = await nodemailer.createTestAccount();
-
-  let transporter = nodemailer.createTransport("SMTP", {
-    host: "smtp.ethereal.email",
-    port: 587,
-    auth: {
-      user: "alanis.feeney95@ethereal.email",
-      pass: "cgnWXD5fdvUYjxwk99",
-    },
-  });
-
-  let info = await transporter.sendMail({
+  let message = "email enviado";
+  const emailOptions = {
     from: "bulkbuddies@bb.cl",
     to: recipient,
-    subject: "I need you",
-    text: `Click on the following link localhost:3000/password-reset/${token}`,
+    subject: "Recuperación de contraseña",
+    text: `Click on the following link http://localhost:3000/api/v1/password-reset/${token}`,
+  };
+  await transporter.sendMail(emailOptions, (err, info) => {
+    if (err) {
+      console.log("Error sending email", err);
+    } else {
+      console.log("Email sent", info.response);
+      return info.response;
+    }
   });
-
-  res.status(200).json(info);
 };
 
 export default sendEmail;
