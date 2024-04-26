@@ -6,8 +6,7 @@ import {
 } from "../../../../config/constants.js";
 import { createNewError } from "../helpers/requestError.js";
 
-const generateToken = (id) => {
-  const time = 60;
+const generateToken = (id, time) => {
   try {
     const token = jwt.sign({ id }, JWT_SECRET, { expiresIn: time });
     return token;
@@ -32,8 +31,8 @@ const generateRefreshToken = (id, res) => {
   }
 };
 
-const generateTokens = async (res, id) => {
-  const token = generateToken(id);
+const generateTokens = async (res, id, time) => {
+  const token = generateToken(id, time);
   generateRefreshToken(id, res);
   return token;
 };

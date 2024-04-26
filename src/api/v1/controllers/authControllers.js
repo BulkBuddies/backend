@@ -10,7 +10,7 @@ const loginUser = async (req, res, next) => {
   try {
     const { email, password } = req.body;
     const foundUser = await verifyUser(email, password);
-    const token = await generateTokens(res, foundUser.id);
+    const token = await generateTokens(res, foundUser.id, 60);
     return res.status(200).send({ token, ...foundUser });
   } catch (error) {
     next(error);
@@ -37,7 +37,7 @@ const refreshTokenController = async (req, res, next) => {
     if (!cookie.jwt) throw createNewError("auth_07");
     const refreshToken = cookie.jwt;
     const { id } = await validateToken(refreshToken, REFRESH_SECRET);
-    const token = generateToken(id);
+    const token = generateToken(id, 60);
     // Check if it will only send the token or both the token and the user info
     return res.status(200).send({ token });
   } catch (error) {
@@ -76,7 +76,7 @@ const googleAuthController = async (req, res, next) => {
         password: "",
         type,
       });
-      const token = await generateTokens(res, newUser.id);
+      const token = await generateTokens(res, newUser.id, 60);
       const { password: pwd, ...newUserData } = newUser;
       return res.status(200).json({
         data: {
@@ -85,7 +85,7 @@ const googleAuthController = async (req, res, next) => {
         },
       });
     }
-    const token = await generateTokens(res, foundUser.id);
+    const token = await generateTokens(res, foundUser.id, 60);
 
     return res.status(200).json({
       data: {
@@ -106,15 +106,10 @@ const deleteSessionCookie = (req, res) => {
   return;
 };
 
-
 const resetPasswordController = (req, res, next) => {
   try {
-
-  }
-  catch (error) {
-    
-  }
-}
+  } catch (error) {}
+};
 
 export {
   loginUser,
