@@ -53,4 +53,5 @@ router.get("/logout", logoutController);
 router.post("/register", signUpValidator, createNewUser);
 router.get("/refresh", refreshTokenController);
 router.post("/password-request", isEmailValidator, checkEmailHandler);
+router.post("/password-reset");
 export default router;

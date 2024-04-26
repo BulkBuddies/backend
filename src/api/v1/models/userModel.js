@@ -20,7 +20,6 @@ const createUser = async (user) => {
     const response = await pool.query(sqlQuery);
     return response.rows[0];
   } catch (error) {
-    console.log(error);
     throw createNewError(error.code);
   }
 };
