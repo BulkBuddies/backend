@@ -1,7 +1,7 @@
 import pool from '../../../../config/db/db.js';
 
 const getPostModel = async () => { 
-    const query = await pool.query('SELECT id , title, description, status, product_id FROM POST WHERE visible = true')
+    const query = await pool.query('SELECT id , title, created_by, description, status, expiration_date, unit_price, url, img_url, category_id, required_stock, min_contribution, user_stock FROM POST WHERE visible = true')
     return query.rows;
 }
 

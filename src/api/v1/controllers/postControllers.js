@@ -1,7 +1,7 @@
 import { getPostModel, 
     createPostModel } from '../models/postModel.js';
   
-  const getPostController = async (_, res, next) => {
+  const getAllPost = async (_, res, next) => {
     try {
       const posts = await getPostModel();
       if (!posts) {
@@ -28,4 +28,4 @@ import { getPostModel,
   };
   
   
-  export {getPostController, createPostController};
+  export {getAllPost, createPostController};
