@@ -9,7 +9,7 @@ import { verifyJWT, validateUsername } from "../middlewares/validateJWT.js";
 
 const router = express.Router();
 
-router.get("/user", verifyJWT,  getAllUser);
+router.get("/user", getAllUser);
 router.get("/user/validate", validateUsername, validateUsernameController);
 router.get("/user/:id", getUserById);
 router.delete("/user/:id", deleteUser);
