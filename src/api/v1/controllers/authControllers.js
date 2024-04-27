@@ -114,8 +114,8 @@ const deleteSessionCookie = (req, res) => {
 
 const resetPasswordController = async (req, res, next) => {
   try {
-    const { id } = req.token;
-    await updatePassword(id, req.body.password);
+    const { id, password } = req.body;
+    await updatePassword(id, password);
     res.status(200).json({ message: "Contraseña cambiada" });
   } catch (error) {
     next(error);

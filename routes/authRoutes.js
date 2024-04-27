@@ -1,5 +1,6 @@
 import express from "express";
 import passport from "passport";
+
 import {
   loginUser,
   refreshTokenController,
@@ -55,5 +56,6 @@ router.get("/logout", logoutController);
 router.post("/register", signUpValidator, createNewUser);
 router.get("/refresh", refreshTokenController);
 router.post("/password-request", isEmailValidator, checkEmailHandler);
-router.post("/password-reset/:token", validateTokenFromParams, resetPasswordController);
+router.post("/password-reset", resetPasswordController);
+router.post("/password-reset/:token", validateTokenFromParams);
 export default router;

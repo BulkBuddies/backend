@@ -38,8 +38,9 @@ const validateTokenFromParams = async (req, res, next) => {
   try {
     const { token } = req.params;
     const decoded = await validateToken(token, JWT_SECRET);
-    req.token = decoded;
-    next();
+    if (decoded) {
+      return res.status(200).send({message: "Token verificado", userId:decoded.id   })
+    }
   } catch (error) {
     next(error);
   }

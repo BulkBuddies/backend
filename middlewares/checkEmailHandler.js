@@ -11,7 +11,7 @@ const checkEmailHandler = async (req, res, next) => {
       throw createNewError("", 404, "Este email no se encuentra registrado");
     const { first_name, id } = user;
     const token = generateToken(id, 3600);
-    const response = await sendEmail(first_name, email, token);
+    await sendEmail(first_name, email, token);
     res.status(200).send({ message: `correo enviado a ${email}` });
   } catch (error) {
     next(error);
