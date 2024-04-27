@@ -1,8 +1,14 @@
-import { findUserBy, verifyUser, createUser } from "../models/userModel.js";
+import {
+  findUserBy,
+  verifyUser,
+  createUser,
+  updatePassword,
+} from "../models/userModel.js";
 import { createNewError } from "../helpers/requestError.js";
 import { generateToken, generateTokens } from "../utils/generateToken.js";
 import { validateToken } from "../../../../middlewares/validateJWT.js";
 import {
+  JWT_SECRET,
   PRODUCTION_ENV,
   REFRESH_SECRET,
 } from "../../../../config/constants.js";
@@ -36,8 +42,8 @@ const refreshTokenController = async (req, res, next) => {
     const cookie = req.cookies;
     if (!cookie.jwt) throw createNewError("auth_07");
     const refreshToken = cookie.jwt;
-    const { id } = await validateToken(refreshToken, REFRESH_SECRET);
-    const token = generateToken(id, 60);
+    const decoded = await validateToken(refreshToken, REFRESH_SECRET);
+    const token = generateToken(decoded.id, 60);
     // Check if it will only send the token or both the token and the user info
     return res.status(200).send({ token });
   } catch (error) {
@@ -106,11 +112,14 @@ const deleteSessionCookie = (req, res) => {
   return;
 };
 
-const resetPasswordController = (req, res, next) => {
+const resetPasswordController = async (req, res, next) => {
   try {
-    const { token } = req.params;
-    
-  } catch (error) {}
+    const { id } = req.token;
+    await updatePassword(id, req.body.password);
+    res.status(200).json({ message: "Contraseña cambiada" });
+  } catch (error) {
+    next(error);
+  }
 };
 
 export {
@@ -118,4 +127,5 @@ export {
   refreshTokenController,
   logoutController,
   googleAuthController,
+  resetPasswordController,
 };

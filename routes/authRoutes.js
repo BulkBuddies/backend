@@ -5,6 +5,7 @@ import {
   refreshTokenController,
   logoutController,
   googleAuthController,
+  resetPasswordController,
 } from "../src/api/v1/controllers/authControllers.js";
 import { createNewUser } from "../src/api/v1/controllers/usersController.js";
 import {
@@ -18,6 +19,7 @@ import {
   REGISTER_REDIRECT_CLIENT_URL,
 } from "../config/constants.js";
 import { checkEmailHandler } from "../middlewares/checkEmailHandler.js";
+import { validateTokenFromParams } from "../middlewares/validateJWT.js";
 const router = express.Router();
 
 router.get(
@@ -53,5 +55,5 @@ router.get("/logout", logoutController);
 router.post("/register", signUpValidator, createNewUser);
 router.get("/refresh", refreshTokenController);
 router.post("/password-request", isEmailValidator, checkEmailHandler);
-router.post("/password-reset");
+router.post("/password-reset/:token", validateTokenFromParams, resetPasswordController);
 export default router;

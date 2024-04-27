@@ -6,8 +6,8 @@ import { text } from "express";
 const transporter = nodemailer.createTransport({
   service: "Gmail",
   host: "smtp.Gmail.com",
-  port: 465,
-  secure: true,
+  port: 587,
+  secure: false,
   auth: {
     user: EMAIL,
     pass: APP_PASSWORD,
