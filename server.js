@@ -7,6 +7,7 @@ import errorHandler from "./middlewares/error.handler.js";
 import userRoutes from "./routes/userRoutes.js";
 import productRoutes from "./routes/productRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
+import postRoutes from "./routes/postRoutes.js";
 import profileRoutes from "./routes/profileRoutes.js";
 import regionRoutes from "./routes/regionRoutes.js";
 import cookieParser from "cookie-parser";
@@ -66,5 +67,9 @@ if (!TEST_ENV) {
     console.log(chalk.greenBright(`LISTENING ON ${PORT}`));
   });
 }
+
+// Cambio - Felipe C
+
+
 
 export { app, client };
