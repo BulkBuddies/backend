@@ -1,7 +1,7 @@
 import { getPostModel, 
     createPostModel } from '../models/postModel.js';
   
-  const getPostController = async (_, res) => {
+  const getPostController = async (_, res, next) => {
     try {
       const posts = await getPostModel();
       if (!posts) {
@@ -9,21 +9,21 @@ import { getPostModel,
     }
       return res.status(200).json(posts);
     } catch (error) {
-      return res.status(500).json({ message: error.message });
+      next(error);
     }
   };
   
-  const createPostController = async (req, res) => {
+  const createPostController = async (req, res, next) => {
     try {
-      const { title, description, status, product_id } = req.body;
-      if (!title || !description || !status || !product_id) {
+      const { title, created_by, description, status, expiration_date, unit_price, url, img_url, category_id, required_stock, min_contribution, user_stock, visible } = req.body;
+      if (!title || !created_by || !description || !status || !expiration_date || !unit_price || !url || !img_url || !category_id || !required_stock || !min_contribution || !user_stock || !visible) {
         return res.status(400).json({ message: "You should enter all the fields" });
     }else{    
-      const newPost = await createPostModel(title, description, status, product_id);
+      const newPost = await createPostModel(title, created_by, description, status, expiration_date, unit_price, url, img_url, category_id, required_stock, min_contribution, user_stock, visible);
       return res.status(200).json(newPost);
     }
     } catch (error) { 
-      return res.status(500).json({ message: error.message });
+      next(error);
      }
   };
   

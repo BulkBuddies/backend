@@ -11,7 +11,9 @@ const pool = new Pool({
   password: TEST_ENV ? process.env.DB_TEST_PASSWORD : process.env.PASSWORD,
   database: TEST_ENV ? process.env.TEST_DATABASE : process.env.DATABASE,
   allowExitOnIdle: true,
-  ssl: !PRODUCTION_ENV,
+  ssl: {
+    rejectUnauthorized: false,
+  },
 });
 
 //console.log(process.env.USER);
