@@ -1,7 +1,12 @@
 import pool from '../../../../config/db/db.js';
 
-const getPostModel = async () => { 
+const getAllPostModel = async () => { 
     const query = await pool.query('SELECT id , title, created_by, description, status, expiration_date, unit_price, url, img_url, category_id, required_stock, min_contribution, user_stock FROM POST WHERE visible = true')
+    return query.rows;
+}
+
+const getUserPostModel = async () => { 
+    const query = await pool.query('SELECT id, title, created_by, description, status, expiration_date, unit_price, url, img_url, category_id, required_stock, min_contribution, user_stock, visible FROM post WHERE created_by = id')
     return query.rows;
 }
 
@@ -12,4 +17,4 @@ const createPostModel = async (title, created_by, description, status, expiratio
     return query.rows;
 }
 
-export {getPostModel, createPostModel};
+export {getAllPostModel, getUserPostModel, createPostModel};

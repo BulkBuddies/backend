@@ -1,9 +1,22 @@
-import { getPostModel, 
+import { getAllPostModel, 
+  getUserPostModel,
     createPostModel } from '../models/postModel.js';
   
   const getAllPost = async (_, res, next) => {
     try {
-      const posts = await getPostModel();
+      const posts = await getAllPostModel();
+      if (!posts) {
+        return res.status(404).send({ message: "This entity does not exist" });
+    }
+      return res.status(200).json(posts);
+    } catch (error) {
+      next(error);
+    }
+  };
+
+  const getUserPost = async (_, res, next) => {
+    try {
+      const posts = await getUserPostModel();
       if (!posts) {
         return res.status(404).send({ message: "This entity does not exist" });
     }
@@ -28,4 +41,4 @@ import { getPostModel,
   };
   
   
-  export {getAllPost, createPostController};
+  export {getAllPost, getUserPost, createPostController};
