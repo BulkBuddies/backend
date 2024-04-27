@@ -58,6 +58,7 @@ app.use("/api/v1", authRoutes);
 app.use("/api/v1", userRoutes);
 app.use("/api/v1", profileRoutes);
 app.use("/api/v1", regionRoutes);
+app.use("/api/v1", postRoutes);
 
 app.get("*", notFoundHandler);
 app.use(errorHandler);
