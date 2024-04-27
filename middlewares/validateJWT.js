@@ -27,10 +27,23 @@ const verifyJWT = async (req, res, next) => {
 
 const validateToken = async (token, secretKey) => {
   try {
-    const { id, exp } = jwt.verify(token, secretKey);
-    return { id, exp };
+    const decoded = jwt.verify(token, secretKey);
+
+    return decoded;
   } catch (err) {
     throw createNewError(err.message);
+  }
+};
+
+const validateTokenFromParams = async (req, res, next) => {
+  try {
+    const { token } = req.params;
+    const decoded = await validateToken(token, JWT_SECRET);
+    if (decoded) {
+      return res.status(200).send({message: "Token verificado", userId:decoded.id   })
+    }
+  } catch (error) {
+    next(error);
   }
 };
 
@@ -51,4 +64,4 @@ const validateUsername = async (req, res, next) => {
   next();
 };
 
-export { verifyJWT, validateToken, validateUsername };
+export { verifyJWT, validateToken, validateUsername, validateTokenFromParams };

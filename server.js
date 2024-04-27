@@ -5,7 +5,6 @@ import passport from "./src/api/v1/passport/passport.js";
 import swaggerDocs from "./src/api/v1/utils/swagger.js";
 import errorHandler from "./middlewares/error.handler.js";
 import userRoutes from "./routes/userRoutes.js";
-import productRoutes from "./routes/productRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
 import postRoutes from "./routes/postRoutes.js";
 import profileRoutes from "./routes/profileRoutes.js";
@@ -53,7 +52,6 @@ swaggerDocs(app, PORT);
 app.get("/api/v1", async (req, res) => {
   res.status(200).json({ message: "Welcome" });
 });
-app.use("/api/v1", productRoutes);
 app.use("/api/v1", authRoutes);
 app.use("/api/v1", userRoutes);
 app.use("/api/v1", profileRoutes);

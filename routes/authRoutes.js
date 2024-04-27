@@ -1,13 +1,16 @@
 import express from "express";
 import passport from "passport";
+
 import {
   loginUser,
   refreshTokenController,
   logoutController,
   googleAuthController,
+  resetPasswordController,
 } from "../src/api/v1/controllers/authControllers.js";
 import { createNewUser } from "../src/api/v1/controllers/usersController.js";
 import {
+  isEmailValidator,
   signInValidator,
   signUpValidator,
 } from "../middlewares/dataValidatorHandler.js";
@@ -16,6 +19,8 @@ import {
   LOGIN_REDIRECT_CLIENT_URL,
   REGISTER_REDIRECT_CLIENT_URL,
 } from "../config/constants.js";
+import { checkEmailHandler } from "../middlewares/checkEmailHandler.js";
+import { validateTokenFromParams } from "../middlewares/validateJWT.js";
 const router = express.Router();
 
 router.get(
@@ -50,4 +55,7 @@ router.get("/auth/success", googleAuthController);
 router.get("/logout", logoutController);
 router.post("/register", signUpValidator, createNewUser);
 router.get("/refresh", refreshTokenController);
+router.post("/password-request", isEmailValidator, checkEmailHandler);
+router.post("/password-reset", resetPasswordController);
+router.post("/password-reset/:token", validateTokenFromParams);
 export default router;

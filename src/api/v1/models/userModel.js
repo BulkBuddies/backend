@@ -20,7 +20,6 @@ const createUser = async (user) => {
     const response = await pool.query(sqlQuery);
     return response.rows[0];
   } catch (error) {
-    console.log(error);
     throw createNewError(error.code);
   }
 };
@@ -83,20 +82,15 @@ const deleteUserById = async (id) => {
   return rows[0];
 };
 
-/* 
-const updateRefreshToken = async (refreshToken, id) => {
-  try {
-    const hashedRefreshToken = await bcrypt.hash(refreshToken, 10);
-    const sqlQuery = {
-      text: "UPDATE usuario SET refresh_token = $1 WHERE id = $2",
-      values: [hashedRefreshToken, id],
-    };
-
-    await pool.query(sqlQuery);
-  } catch (error) {
-    throw createNewError(error.code);
-  }
-}; */
+const updatePassword = async (userId, newPassword) => {
+  const hashedPassword = await bcrypt.hash(newPassword, 10);
+  const sqlQuery = {
+    text: "UPDATE usuario SET password = $1 WHERE id = $2 RETURNING *",
+    values: [hashedPassword, userId],
+  };
+  const { rowCount } = await pool.query(sqlQuery);
+  if (rowCount === 0) throw createNewError("auth_01");
+};
 
 export {
   createUser,
@@ -105,4 +99,5 @@ export {
   uniqueUsername,
   findUserBy,
   deleteUserById,
+  updatePassword,
 };
