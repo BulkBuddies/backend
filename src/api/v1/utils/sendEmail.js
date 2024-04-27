@@ -2,7 +2,6 @@ import * as nodemailer from "nodemailer";
 import { APP_PASSWORD, EMAIL } from "../../../../config/constants.js";
 import Handlebars from "handlebars";
 import fs from "fs";
-import { text } from "express";
 const transporter = nodemailer.createTransport({
   service: "Gmail",
   host: "smtp.Gmail.com",
@@ -25,7 +24,6 @@ const sendEmail = async (name, recipient, token) => {
     token: token,
   };
   const htmlToSend = template(replacement);
-  let message = "email enviado";
   const emailOptions = {
     from: {
       name: "BulkBuddies",
