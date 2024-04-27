@@ -1,7 +1,10 @@
 import jwt from "jsonwebtoken";
-import { JWT_SECRET, REFRESH_SECRET } from "../../../../config/constants.js";
+import {
+  JWT_SECRET,
+  PRODUCTION_ENV,
+  REFRESH_SECRET,
+} from "../../../../config/constants.js";
 import { createNewError } from "../helpers/requestError.js";
-import { updateRefreshToken } from "../models/userModel.js";
 
 const generateToken = (id) => {
   const time = 60;
@@ -22,6 +25,7 @@ const generateRefreshToken = (id, res) => {
     res.cookie("jwt", refreshToken, {
       maxAge: 24 * 60 * 60 * 1000,
       httpOnly: true,
+      secure: PRODUCTION_ENV,
     });
   } catch (error) {
     throw createNewError("", 400, error.message);
