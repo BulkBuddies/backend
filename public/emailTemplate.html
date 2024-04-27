@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recuperación de contraseña</title>
+    <style>
+      .button {
+        display: inline-block;
+        border-radius: 20px;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        text-decoration: none;
+      }
+
+      .button:hover {
+        background-color: #0056b3;
+      }
+
+      a {
+        color: white !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="text-align: center">
+      <p>
+        Hola <span style="font-weight: bold">{{firstName}}</span>, para poder
+        recuperar tu contraseña haz click en el botón.
+      </p>
+      <a
+        href="http://localhost:3000/password-reset/{{token}}"
+        class="button"
+        style="color: white"
+        >Recuperar contraseña</a
+      >
+      <p>Esta solicitud tendrá validez por una hora.</p>
+    </div>
+  </body>
+</html>
