@@ -12,7 +12,7 @@ const createNewUser = async (req, res, next) => {
     const user = req.body;
     user.type = "local";
     await createUser(user);
-    res.status(200).send({ message: "Usuario registrado con éxito" });
+    res.status(201).send({ message: "Usuario registrado con éxito" });
   } catch (error) {
     next(error);
   }

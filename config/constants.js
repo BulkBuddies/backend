@@ -23,6 +23,9 @@ const DEV_ENV = process.env.NODE_ENV === "development";
 // Credentials for Nodemailer
 const EMAIL = process.env.EMAIL;
 const APP_PASSWORD = process.env.APP_PASSWORD;
+
+// Testing
+const APP_MOCK = "https://reqres.in";
 export {
   JWT_SECRET,
   REFRESH_SECRET,
@@ -37,4 +40,5 @@ export {
   DEV_ENV,
   EMAIL,
   APP_PASSWORD,
+  APP_MOCK
 };
