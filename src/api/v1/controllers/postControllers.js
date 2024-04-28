@@ -1,8 +1,8 @@
 import { getAllPostModel, 
   getUserPostModel,
     createPostModel, 
-    updatePostModel,
-    deletePostModel } from '../models/postModel.js';
+    updatePostModel, 
+    softDeletePostModel} from '../models/postModel.js';
   
   const getAllPost = async (_, res, next) => {
     try {
@@ -16,9 +16,10 @@ import { getAllPostModel,
     }
   };
 
-  const getUserPost = async (_, res, next) => {
+  const getUserPost = async (req, res, next) => {
     try {
-      const posts = await getUserPostModel();
+      const { userId } = req.params;
+      const posts = await getUserPostModel(userId);
       if (!posts) {
         return res.status(404).send({ message: "This entity does not exist" });
     }
@@ -56,17 +57,17 @@ import { getAllPostModel,
   }
   
 
-  const deletePostController = async (req, res) => {
+  const softDeletePostController = async (req, res) => {
     try {
       const {id} = req.params;
       if (!id) {
         return res.status(400).json({ message: "Post not found" });
     }
-      const deletePost = await deletePostModel(id);
+      const deletePost = await softDeletePostModel(id);
       return res.status(204).json({ message: "Post deleted" })
     } catch (error) {
       next(error);
     }
   }
   
-  export {getAllPost, getUserPost, createPostController, updatePostController, deletePostController};
+  export {getAllPost, getUserPost, createPostController, updatePostController, softDeletePostController};
