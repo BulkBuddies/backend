@@ -6,8 +6,8 @@ CREATE TABLE usuario (
     id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
     first_name VARCHAR(255),
     last_name VARCHAR(255),
-    email VARCHAR(255) NOT NULL,
-    username VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    username VARCHAR(255) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
     type VARCHAR(255) DEFAULT 'local'
 );
@@ -49,7 +49,7 @@ CREATE TABLE post (
   title varchar(200),
   created_by uuid,
   description text,
-  status text,
+  status text DEFAULT "activo",
   expiration_date timestamp,
   created_at timestamp DEFAULT CURRENT_TIMESTAMP,
   updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -89,7 +89,7 @@ ALTER TABLE "post" ADD FOREIGN KEY ("category_id") REFERENCES "category" ("id");
 
 CREATE TABLE regiones (
     id INT PRIMARY KEY,
-    region VARCHAR(255),
+    region VARCHAR(255) ,
     abreviatura VARCHAR(3),
     capital VARCHAR(255)
 );
