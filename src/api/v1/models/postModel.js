@@ -24,10 +24,10 @@ const updatePostModel = async (id, title, description, status, expiration_date, 
     return query.rows;
 }
 
-const deletePostModel = async (id) => {
-    const query = await pool.query('DELETE FROM posts WHERE visible = false AND id = $1 RETURNING *',
+const softDeletePostModel = async (id) => {
+    const query = await pool.query("UPDATE post SET visible = false WHERE created_by = $1 RETURNING *",
   [id])
-  return query.rows;
+  return query.rows[0];
 };
 
-export {getAllPostModel, getUserPostModel, createPostModel, updatePostModel, deletePostModel};
+export {getAllPostModel, getUserPostModel, createPostModel, updatePostModel, softDeletePostModel};
