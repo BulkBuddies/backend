@@ -28,9 +28,9 @@ PRODUCTION_ENV && app.use(logger());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-client.connect();
+PRODUCTION_ENV && client.connect();
 
-client.on("error", (err) => {
+PRODUCTION_ENV && client.on("error", (err) => {
   console.log("Redis error: ", err);
 });
 
@@ -69,6 +69,4 @@ if (!TEST_ENV) {
 
 // Cambio - Felipe C
 
-
-
-export { app, client };
+export { app };

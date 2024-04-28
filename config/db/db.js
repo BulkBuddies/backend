@@ -10,12 +10,12 @@ const pool = new Pool({
   user: TEST_ENV ? process.env.DB_TEST_USER : process.env.DBUSER,
   password: TEST_ENV ? process.env.DB_TEST_PASSWORD : process.env.PASSWORD,
   database: TEST_ENV ? process.env.TEST_DATABASE : process.env.DATABASE,
+  port: !TEST_ENV && process.env.DB_PORT,
   allowExitOnIdle: true,
   ssl: {
     rejectUnauthorized: false,
   },
 });
-
 
 pool.query("SELECT NOW()", (err, res) => {
   res
