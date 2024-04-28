@@ -12,9 +12,7 @@ const pool = new Pool({
   database: TEST_ENV ? process.env.TEST_DATABASE : process.env.DATABASE,
   port: !TEST_ENV ? process.env.DB_PORT : process.env.DB_TEST_PORT,
   allowExitOnIdle: true,
-  ssl: {
-    rejectUnauthorized: false,
-  },
+  ssl: process.env.DB_PORT === "5432" ? false : { rejectUnauthorized: false },
 });
 
 pool.query("SELECT NOW()", (err, res) => {
