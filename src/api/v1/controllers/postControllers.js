@@ -1,6 +1,8 @@
 import { getAllPostModel, 
   getUserPostModel,
-    createPostModel } from '../models/postModel.js';
+    createPostModel, 
+    updatePostModel,
+    deletePostModel } from '../models/postModel.js';
   
   const getAllPost = async (_, res, next) => {
     try {
@@ -39,6 +41,32 @@ import { getAllPostModel,
       next(error);
      }
   };
+
+  const updatePostController = async (req, res, next) => {
+    try {
+      const {id} = req.params;
+      if (!id) {
+        return res.status(400).json({ message: "Post not found" });
+    }
+      const updatePost = await updatePostModel(id);
+      return res.status(201).json(updatePost);
+    } catch (error) {
+      next(error);
+    }
+  }
   
+
+  const deletePostController = async (req, res) => {
+    try {
+      const {id} = req.params;
+      if (!id) {
+        return res.status(400).json({ message: "Post not found" });
+    }
+      const deletePost = await deletePostModel(id);
+      return res.status(204).json({ message: "Post deleted" })
+    } catch (error) {
+      next(error);
+    }
+  }
   
-  export {getAllPost, getUserPost, createPostController};
+  export {getAllPost, getUserPost, createPostController, updatePostController, deletePostController};
