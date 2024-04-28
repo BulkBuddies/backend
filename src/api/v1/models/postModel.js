@@ -5,8 +5,9 @@ const getAllPostModel = async () => {
     return query.rows;
 }
 
-const getUserPostModel = async () => { 
-    const query = await pool.query('SELECT id, title, created_by, description, status, expiration_date, unit_price, url, img_url, category_id, required_stock, min_contribution, user_stock, visible FROM post WHERE created_by = id')
+const getUserPostModel = async (created_by) => { 
+    const query = await pool.query('SELECT id, title, created_by, description, status, expiration_date, unit_price, url, img_url, category_id, required_stock, min_contribution, user_stock, visible FROM post WHERE created_by = $1'
+    [created_by])
     return query.rows;
 }
 
@@ -17,4 +18,16 @@ const createPostModel = async (title, created_by, description, status, expiratio
     return query.rows;
 }
 
-export {getAllPostModel, getUserPostModel, createPostModel};
+const updatePostModel = async (id, title, description, status, expiration_date, unit_price, url, img_url, category_id, required_stock, min_contribution, user_stock, visible) => {
+    const query = await pool.query('UPDATE post SET title = $2, description = $3, status = $4, expiration_date = $5, unit_price = $6, url = $7, img_url = $8, category_id = $9, required_stock = $10, min_contribution = $11, user_stock = $12, visible = $13 WHERE id = $1 RETURNING *',
+    [id, title, description, status, expiration_date, unit_price, url, img_url, category_id, required_stock, min_contribution, user_stock, visible])
+    return query.rows;
+}
+
+const deletePostModel = async (id) => {
+    const query = await pool.query('DELETE FROM posts WHERE visible = false AND id = $1 RETURNING *',
+  [id])
+  return query.rows;
+};
+
+export {getAllPostModel, getUserPostModel, createPostModel, updatePostModel, deletePostModel};
