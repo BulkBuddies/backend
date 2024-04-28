@@ -78,18 +78,20 @@ PORT=
 
 #### Conexión a la base de datos
 
-- Una vez creada la base de datos de manera local con el archivo script.sql, deben agregarse estas variables: 
-
+- Una vez creada la base de datos de manera local con el archivo [script.sql](./config/db/script.sql), deben agregarse estas variables: 
+ 
 ```
-HOST="localhost"
+HOST=localhost
 DBUSER=
 DB_PORT=5432
 PASSWORD=
-DATABASE="bulkbuddies"
+DATABASE=bulkbuddies
 ```
 - En DBUSER se agrega el nombre del usuario que accede a la base de datos.
 
-- En En password se agrega la contraseña del usuario que accede a la base de datos.
+- En password se agrega la contraseña del usuario que accede a la base de datos.
+
+- Los demás valores no se modifican.
 
 #### Creación de la base de datos de manera remota
 
