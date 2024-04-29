@@ -5,6 +5,7 @@ import {
   createPostController,
   updatePostController,
   softDeletePostController,
+  updateUserStockController
 } from "../src/api/v1/controllers/postControllers.js";
 
 const router = Router();
@@ -12,7 +13,8 @@ const router = Router();
 router.get("/post", getAllPost);
 router.get("/post/:userId", getUserPost);
 router.post("/post", createPostController);
-router.put("/post/:userId", updatePostController);
-router.delete("/post/:userId", softDeletePostController);
+router.patch("/post/:id", updatePostController);
+router.patch("/post/stock/:id", updateUserStockController);
+router.delete("/post/:id", softDeletePostController);
 
 export default router;

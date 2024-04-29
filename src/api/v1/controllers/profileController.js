@@ -15,7 +15,7 @@ const getProfileById = async (req, res, next) => {
       const { id } = req.params;
       const newData = req.body;
       const updatedProfile = await updateProfileByUserId(id, newData);
-      res.status(200).json({ message: 'Perfil actualizado correctamente', profile: updatedProfile });
+      res.status(201).json({ message: 'Perfil actualizado correctamente', profile: updatedProfile });
     } catch (error) {
       next(error);
     }

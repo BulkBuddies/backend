@@ -9,6 +9,7 @@ import authRoutes from "./routes/authRoutes.js";
 import postRoutes from "./routes/postRoutes.js";
 import profileRoutes from "./routes/profileRoutes.js";
 import regionRoutes from "./routes/regionRoutes.js";
+import categoryRoutes from "./routes/categoryRoutes.js";
 import cookieParser from "cookie-parser";
 import corsOptions from "./config/cors.js";
 import { logger } from "logger-express";
@@ -58,6 +59,7 @@ app.use("/api/v1", userRoutes);
 app.use("/api/v1", profileRoutes);
 app.use("/api/v1", regionRoutes);
 app.use("/api/v1", postRoutes);
+app.use("/api/v1", categoryRoutes);
 
 app.get("*", notFoundHandler);
 app.use(errorHandler);
