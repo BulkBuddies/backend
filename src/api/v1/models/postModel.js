@@ -34,13 +34,95 @@ const getRequiredStockPostId = async (id) => {
   }
 };
 
-const getUserPostModel = async (created_by) => {
-  const query = await pool.query(
-    "SELECT id, title, created_by, description, status, expiration_date, unit_price, url, img_url, category_id, required_stock, min_contribution, user_stock, visible FROM post WHERE created_by = $1 AND visible = true",
-    [created_by]
-  );
-  console.log(query);
-  return query.rows;
+const getUserPostModel = async (id) => {
+  try {
+    const sqlQuery = {
+      text: "SELECT * FROM post WHERE created_by = $1 AND visible = true",
+      values: [id],
+    };
+    const { rows } = await pool.query(sqlQuery);
+    return rows[0];
+  } catch (error) {
+    throw createNewError(error.code);
+  }
+};
+
+
+const getItemDataFromPostById = async (id) => {
+  try {
+    const sqlQuery = {
+      text: "SELECT id, title, description FROM post WHERE id = $1",
+      values: [id],
+    };
+    const { rows } = await pool.query(sqlQuery);
+    return rows[0];
+  } catch (error) {
+    throw createNewError(error.code);
+  }
+};
+
+const getUserDataById = async (id) => {
+  try {
+    const sqlQuery = {
+      text: "SELECT id,email,username  FROM usuario WHERE id = $1",
+      values: [id],
+    };
+    const { rows } = await pool.query(sqlQuery);
+    return rows[0];
+  } catch (error) {
+    throw createNewError(error.code);
+  }
+};
+
+const getLogByPostId = async (id) => {
+  try {
+    const sqlQuery = {
+      text: `
+      select c.id post_id,
+      b.username,
+      b.id user_id,
+      a.role,
+      a.item_by_this_user,
+      a.date
+      from log_post a left join usuario b on a.user_id = b.id 
+                       left join post c on a.post_id = c.id
+      where a.post_id = $1
+      order by a.date asc;      
+      `,
+      values: [id],
+    };
+    const { rows } = await pool.query(sqlQuery);
+    return rows;
+  } catch (error) {
+    throw createNewError(error.code);
+  }
+
+};
+
+const getLogByUsertId = async (id) => {
+  try {
+    const sqlQuery = {
+      text: `
+      select  a.email,
+      a.username,
+      b.post_id,
+      c.title,
+      b.role,
+      b.date,
+      b.item_by_this_user
+      from usuario a left join log_post b on a.id = b.user_id
+             left join post c on b.post_id = c.id
+      where a.id = $1
+      order by b.date asc;
+      `,
+      values: [id],
+    };
+    const { rows } = await pool.query(sqlQuery);
+    return rows;
+  } catch (error) {
+    throw createNewError(error.code);
+  }
+
 };
 
 const createPostModel = async (
@@ -177,9 +259,13 @@ export {
   getAllPostModel,
   getPostById,
   getUserPostModel,
+  getLogByPostId,
+  getLogByUsertId,
   createPostModel,
   updatePostModel,
   softDeletePostModel,
   getRequiredStockPostId,
-  updateUserStockById
+  updateUserStockById, 
+  getItemDataFromPostById,
+  getUserDataById
 };
