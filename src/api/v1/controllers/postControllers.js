@@ -2,7 +2,11 @@ import {
   getAllPostModel,
   getUserPostModel,
   createPostModel,
+  getItemDataFromPostById,
+  getUserDataById,
   updatePostModel,
+  getLogByPostId,
+  getLogByUsertId,
   softDeletePostModel,
   getPostById,
   getRequiredStockPostId,
@@ -22,15 +26,63 @@ const getAllPost = async (_, res, next) => {
   }
 };
 
-
 const getUserPost = async (req, res, next) => {
   try {
-    const { userId } = req.params;
-    const posts = await getUserPostModel(userId);
+    const { id } = req.params;
+    const posts = await getUserPostModel(id);
     if (!posts) {
       return res.status(404).send({ message: "This entity does not exist" });
     }
     return res.status(200).json(posts);
+  } catch (error) {
+    next(error);
+  }
+};
+
+const getPostByIdController = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const posts = await getPostById(id);
+    if (!posts) {
+      return res.status(404).send({ message: "This entity does not exist" });
+    }
+    return res.status(200).json(posts);
+  } catch (error) {
+    next(error);
+  }
+};
+
+const getLogByPostIdController = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const logs = await getLogByPostId(id);
+    if (!logs) {
+      return res.status(404).send({ message: "This entity does not exist" });
+    }
+    const itemData = await getItemDataFromPostById(id);
+    const post_id = itemData.id;
+    const title = itemData.title;
+    const description = itemData.description;
+
+    return res.status(200).json({ itemData: { post_id, title, description }, logs: logs });
+  } catch (error) {
+    next(error);
+  }
+};
+
+const getLogByUserIdController = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const logs = await getLogByUsertId(id);
+    if (!logs) {
+      return res.status(404).send({ message: "This entity does not exist" });
+    }
+    const userData = await getUserDataById(id);
+    const user_id = userData.id;
+    const email = userData.email;
+    const username = userData.username;
+
+    return res.status(200).json({ userData: { user_id, email, username }, logs: logs });
   } catch (error) {
     next(error);
   }
@@ -174,6 +226,9 @@ export {
   getUserPost,
   createPostController,
   updatePostController,
+  getPostByIdController,
+  getLogByUserIdController,
   softDeletePostController,
+  getLogByPostIdController,
   updateUserStockController
 };
