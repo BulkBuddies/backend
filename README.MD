@@ -233,7 +233,7 @@ npm test
 
 ### Documentación
 
-[Aquí](https://bulkbuddies.onrender.com/api/v1/) puedes ver la documentación de la API.
+[Aquí](https://bulkbuddies.onrender.com/api/v1/docs) puedes ver la documentación de la API.
 
 Nota: La documentación sigue en construcción.
 
