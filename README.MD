@@ -233,7 +233,7 @@ npm test
 
 ### Documentación
 
-[Aquí](https://bulkbuddies.onrender.com/api/v1/) puedes ver la documentación de la API.
+[Aquí](https://bulkbuddies.onrender.com/api/v1/docs) puedes ver la documentación de la API.
 
 Nota: La documentación sigue en construcción.
 
@@ -246,3 +246,10 @@ Nota: La documentación sigue en construcción.
 
 ### Colaboradores
 
+- [Felipe Castillo](https://github.com/felipec583)
+- [Fabián Leiva](https://github.com/fabianleiva)
+- [Felipe Poblete](https://github.com/fpobleteinfo)
+- [Gabriel Larez](https://github.com/SrGJLN)
+- [Ramón Martínez](https://github.com/RaimonxDev)
+
+### Licencia

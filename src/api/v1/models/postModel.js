@@ -39,6 +39,7 @@ const getUserPostModel = async (created_by) => {
     "SELECT id, title, created_by, description, status, expiration_date, unit_price, url, img_url, category_id, required_stock, min_contribution, user_stock, visible FROM post WHERE created_by = $1 AND visible = true",
     [created_by]
   );
+  console.log(query);
   return query.rows;
 };
 
@@ -46,7 +47,6 @@ const createPostModel = async (
   title,
   created_by,
   description,
-  status,
   expiration_date,
   unit_price,
   url,
@@ -62,7 +62,6 @@ const createPostModel = async (
       title,
       created_by,
       description,
-      status,
       expiration_date,
       unit_price,
       url,

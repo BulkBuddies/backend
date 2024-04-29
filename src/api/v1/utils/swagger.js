@@ -29,7 +29,7 @@ const options = {
         description: "Development server",
       },
       {
-        url: "",
+        url: "https://bulkbuddies.onrender.com/api/v1",
         description: "Production server",
       },
     ],
