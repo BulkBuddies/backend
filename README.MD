@@ -246,3 +246,10 @@ Nota: La documentación sigue en construcción.
 
 ### Colaboradores
 
+- [Felipe Castillo](https://github.com/felipec583)
+- [Fabián Leiva](https://github.com/fabianleiva)
+- [Felipe Poblete](https://github.com/fpobleteinfo)
+- [Gabriel Larez](https://github.com/SrGJLN)
+- [Ramón Martínez](https://github.com/RaimonxDev)
+
+### Licencia
