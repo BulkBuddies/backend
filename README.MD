@@ -210,11 +210,20 @@ npm test
 | Verbos HTTP | Endpoints | Acción |
 | --- | --- | --- |
 | GET | /api/v1/post | Ver todos los posts. |
-| GET | /api/v1/post/:userId | Ver los posts creados por por usuario con su id. |
+| GET | /api/v1/post/user/:id | Ver los posts creados por usuario con su id. |
+| GET | /api/v1/post/user/log/:id | Ver logs de movimientos en los post según su id de usuario. |
+| GET | /api/v1/post/:id | Muestra el post según su id. |
+| GET | /api/v1/post/log/:id | Ver logs de movimientos en los post según su id de post. |
 | POST | /api/v1/post | Crear post nuevo. |
-| PUT | /api/v1/post/:userId | Modificar post con el id del usuario que la creó. |
-| DELETE | /api/v1/post/:userId | Se realiza un *soft delete* del post con el id del usuario. |
+| PATCH | /api/v1/post/:id | Modificar post con el id del post. |
+| PATCH | /api/v1/post/stock/:id | Modifica la cantidad de items que usuario aportará en cierto post. |
+| DELETE | /api/v1/post/:id | Se realiza un *soft delete* del post con el id del post. |
 
+### Categorías
+
+| Verbos HTTP | Endpoints | Acción |
+| --- | --- | --- |
+| GET | /api/v1/category | Lista de categorías para creación del post. |
 
 ### Profile
 
