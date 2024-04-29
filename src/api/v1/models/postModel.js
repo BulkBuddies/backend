@@ -7,12 +7,12 @@ const getAllPostModel = async () => {
   return query.rows;
 };
 
-const getUserPostModel = async (created_by) => {
+const getUserPostModel = async (userId) => {
   const query = await pool.query(
-    "SELECT id, title, created_by, description, status, expiration_date, unit_price, url, img_url, category_id, required_stock, min_contribution, user_stock, visible FROM post WHERE created_by = $1 AND visible = true"[
-      created_by
-    ]
+    "SELECT id, title, created_by, description, status, expiration_date, unit_price, url, img_url, category_id, required_stock, min_contribution, user_stock, visible FROM post WHERE created_by = $1 AND visible = true",
+    [userId]
   );
+  console.log(query);
   return query.rows;
 };
 
@@ -20,7 +20,6 @@ const createPostModel = async (
   title,
   created_by,
   description,
-  status,
   expiration_date,
   unit_price,
   url,
@@ -28,16 +27,14 @@ const createPostModel = async (
   category_id,
   required_stock,
   min_contribution,
-  user_stock,
-  visible
+  user_stock
 ) => {
   const query = await pool.query(
-    "INSERT INTO POST (title, created_by, description, status, expiration_date, unit_price, url, img_url, category_id, required_stock, min_contribution, user_stock, visible) VALUES ($1, (SELECT id FROM usuario WHERE id = $2), $3, $4, $5, $6, $7, $8, (SELECT id FROM category WHERE id = $9), $10, $11, $12, $13) RETURNING *",
+    "INSERT INTO POST (title, created_by, description, expiration_date, unit_price, url, img_url, category_id, required_stock, min_contribution, user_stock) VALUES ($1, (SELECT id FROM usuario WHERE id = $2), $3, $4, $5, $6, $7, (SELECT id FROM category WHERE id = $8), $9, $10, $11) RETURNING *",
     [
       title,
       created_by,
       description,
-      status,
       expiration_date,
       unit_price,
       url,
@@ -46,7 +43,6 @@ const createPostModel = async (
       required_stock,
       min_contribution,
       user_stock,
-      visible,
     ]
   );
   console.log(query.rows);
@@ -54,7 +50,7 @@ const createPostModel = async (
 };
 
 const updatePostModel = async (
-  id,
+  userId,
   title,
   description,
   status,
@@ -65,13 +61,12 @@ const updatePostModel = async (
   category_id,
   required_stock,
   min_contribution,
-  user_stock,
-  visible
+  user_stock
 ) => {
   const query = await pool.query(
-    "UPDATE post SET title = $2, description = $3, status = $4, expiration_date = $5, unit_price = $6, url = $7, img_url = $8, category_id = $9, required_stock = $10, min_contribution = $11, user_stock = $12, visible = $13 WHERE id = $1 RETURNING *",
+    "UPDATE post SET title = $2, description = $3, status = $4, expiration_date = $5, unit_price = $6, url = $7, img_url = $8, category_id = $9, required_stock = $10, min_contribution = $11, user_stock = $12 WHERE created_by = $1 RETURNING *",
     [
-      id,
+      userId,
       title,
       description,
       status,
@@ -83,7 +78,6 @@ const updatePostModel = async (
       required_stock,
       min_contribution,
       user_stock,
-      visible,
     ]
   );
   return query.rows;
