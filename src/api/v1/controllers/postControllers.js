@@ -85,9 +85,9 @@ const createPostController = async (req, res, next) => {
 
 const updatePostController = async (req, res, next) => {
   try {
-    const { id } = req.params;
-    if (!id) {
-      return res.status(400).json({ message: "Post not found" });
+    const { userId } = req.params;
+    if (!userId) {
+      return res.status(400).json({ message: "You have to provide a userId" });
     }
     const updatePost = await updatePostModel(id);
     return res.status(201).json(updatePost);

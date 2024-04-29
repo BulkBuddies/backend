@@ -61,8 +61,7 @@ const updatePostModel = async (
   category_id,
   required_stock,
   min_contribution,
-  user_stock,
-  visible
+  user_stock
 ) => {
   const query = await pool.query(
     "UPDATE post SET title = $2, description = $3, status = $4, expiration_date = $5, unit_price = $6, url = $7, img_url = $8, category_id = $9, required_stock = $10, min_contribution = $11, user_stock = $12 WHERE created_by = $1 RETURNING *",
