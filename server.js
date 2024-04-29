@@ -30,9 +30,10 @@ app.use(cookieParser());
 
 PRODUCTION_ENV && client.connect();
 
-PRODUCTION_ENV && client.on("error", (err) => {
-  console.log("Redis error: ", err);
-});
+PRODUCTION_ENV &&
+  client.on("error", (err) => {
+    console.log("Redis error: ", err);
+  });
 
 app.use(
   session({
@@ -66,6 +67,5 @@ if (!TEST_ENV) {
     console.log(chalk.greenBright(`LISTENING ON ${PORT}`));
   });
 }
-
 
 export { app };
