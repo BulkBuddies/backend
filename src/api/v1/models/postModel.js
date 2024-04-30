@@ -41,7 +41,7 @@ const getUserPostModel = async (userId) => {
       values: [userId],
     };
     const { rows } = await pool.query(sqlQuery);
-    return rows[0];
+    return rows;
   } catch (error) {
     throw createNewError(error.code);
   }
@@ -103,17 +103,16 @@ const getLogByUsertId = async (id) => {
   try {
     const sqlQuery = {
       text: `
-      select  a.email,
-      a.username,
+      select  
       b.post_id,
       c.title,
       b.role,
       b.date,
       b.item_by_this_user
-      from usuario a left join log_post b on a.id = b.user_id
-             left join post c on b.post_id = c.id
-      where a.id = $1
-      order by b.date asc;
+      from log_post b  left join post c on b.post_id = c.id
+      where b.user_id =  $1
+      order by b.date asc
+;
       `,
       values: [id],
     };

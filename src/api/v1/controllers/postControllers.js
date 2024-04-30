@@ -29,10 +29,18 @@ const getUserPost = async (req, res, next) => {
   try {
     const { id } = req.params;
     const posts = await getUserPostModel(id);
-    if (!posts) {
+    if (posts.length === 0) {
       return res.status(404).send({ message: "This entity does not exist" });
     }
-    return res.status(200).json(posts);
+
+    const userData = await getUserDataById(id);
+    const user_id = userData.id;
+    const email = userData.email;
+    const username = userData.username;
+
+    return res
+      .status(200)
+      .json({ userData: { user_id, email, username }, posts: posts });
   } catch (error) {
     next(error);
   }
@@ -55,7 +63,8 @@ const getLogByPostIdController = async (req, res, next) => {
   try {
     const { id } = req.params;
     const logs = await getLogByPostId(id);
-    if (!logs) {
+
+    if (logs.length === 0) {
       return res.status(404).send({ message: "This entity does not exist" });
     }
     const itemData = await getItemDataFromPostById(id);
@@ -75,8 +84,8 @@ const getLogByUserIdController = async (req, res, next) => {
   try {
     const { id } = req.params;
     const logs = await getLogByUsertId(id);
-    if (!logs) {
-      return res.status(404).send({ message: "This entity does not exist" });
+    if (logs.length === 0) {
+      return res.status(404).send({ message: "This user don't register any log." });
     }
     const userData = await getUserDataById(id);
     const user_id = userData.id;
@@ -131,7 +140,7 @@ const updatePostController = async (req, res, next) => {
   try {
     const { id } = req.params;
     const post = await getPostById(id);
-    if (!post) {
+    if (post.length === 0) {
       return res.status(404).send({ message: "This Post Id does not exists." });
     }
     const newData = req.body;
@@ -159,10 +168,6 @@ const updateUserStockController = async (req, res, next) => {
     const min_contribution = stocks.min_contribution;
     const user_stock = stocks.user_stock;
     const goal_stock = stocks.required_stock - user_stock;
-
-    //console.log(required_stock)
-    //console.log(min_contribution)
-    //console.log(goal_stock)
 
     if (user_contribution_parse > required_stock) {
       return res.status(400).send({
@@ -201,7 +206,7 @@ const softDeletePostController = async (req, res, next) => {
   try {
     const { id } = req.params;
     const post = await getPostById(id);
-    if (!post) {
+    if (post.length === 0) {
       return res.status(404).send({ message: "This Post Id does not exists." });
     }
     const userId = req.token.id;
