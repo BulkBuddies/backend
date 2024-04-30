@@ -121,6 +121,17 @@ const postValidator = [
 ];
 /* Validaciones para profile */
 
+
+const profileValidator = [
+  body("rut").trim().notEmpty(),
+  body("phone").trim().notEmpty(),
+  body("address").trim().notEmpty(),
+  body("comuna_id").trim().notEmpty(),
+  body("postal_code").trim().notEmpty(),
+  body("picture").trim().notEmpty(),
+  validatorCheckHandler
+]
+
 export {
   signInValidator,
   signUpValidator,
@@ -129,4 +140,5 @@ export {
   idValidator,
   uuidValidator,
   postValidator,
+  profileValidator
 };
