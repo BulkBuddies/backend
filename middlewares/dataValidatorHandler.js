@@ -33,7 +33,10 @@ const signUpValidator = [
   body("last_name", "El apellido no puede estar vacío").trim().notEmpty(),
   isEmailChain,
   body("username", "Ingresa un username").trim().notEmpty(),
-  body("password", "Debes ingresar una contraseña").trim().notEmpty().matches,
+  body("password", "Debes ingresar una contraseña")
+    .trim()
+    .notEmpty()
+    .isLength({ min: 8, max: 12 }),
   validatorCheckHandler,
 ];
 
