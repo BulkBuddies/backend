@@ -22,10 +22,10 @@ router.get("/post", getAllPost);
 router.get("/post/user/:id", uuidValidator, getUserPost);
 router.get("/post/user/log/:id", uuidValidator, getLogByUserIdController);
 router.get("/post/:id", getPostByIdController);
-router.get("/post/log/:id", getLogByPostIdController);
+router.get("/post/log/:id", uuidValidator, getLogByPostIdController);
 router.post("/post", verifyJWT, postValidator, createPostController);
-router.patch("/post/:id", verifyJWT,  updatePostController);
+router.patch("/post/:id", verifyJWT, uuidValidator, updatePostController);
 router.patch("/post/stock/:id", verifyJWT, updateUserStockController);
-router.delete("/post/:id", verifyJWT, softDeletePostController);
+router.delete("/post/:id", verifyJWT, uuidValidator, softDeletePostController);
 
 export default router;
