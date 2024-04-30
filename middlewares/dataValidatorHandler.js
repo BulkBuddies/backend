@@ -1,4 +1,4 @@
-import { body, param, validationResult } from "express-validator";
+import { body, param, validationResult, check } from "express-validator";
 import { createNewError } from "../src/api/v1/helpers/requestError.js";
 
 const validatorCheckHandler = async (req, res, next) => {
@@ -54,10 +54,25 @@ const isEmailValidator = [isEmailChain, validatorCheckHandler];
 
 /* Validaciones para posts */
 
+const currentDate = new Date();
+const limitDate = new Date(
+  currentDate.getFullYear(),
+  currentDate.getMonth() + 3,
+  currentDate.getDate()
+);
+
 const postValidator = [
   body("title", "No puede estar vacio").trim().notEmpty(),
   body("description", "No puede estar vacio").trim().notEmpty(),
-  body("expiration_date").trim().notEmpty().isISO8601(),
+  body("expiration_date")
+    .trim()
+    .notEmpty()
+    .isISO8601()
+    .isAfter(currentDate.toString())
+    .withMessage("No puede ser antes de ayer"),
+  check("expiration_date")
+    .isBefore(limitDate.toString())
+    .withMessage("No puede ser mayor a 3 meses"),
   body("unit_price")
     .trim()
     .notEmpty()
@@ -79,17 +94,43 @@ const postValidator = [
     .isInt({
       min: 1,
     })
-    .withMessage("La contribución debe ser mayor a 0"),
+    .withMessage("La contribución debe ser mayor a 0")
+    .custom((value, { req }) => {
+      return +value < +req.body.required_stock;
+    })
+    .withMessage(
+      "La contribución no puede ser mayor o igual al stock del producto"
+    ),
   body("user_stock", "No puede estar vacio")
     .trim()
     .notEmpty()
     .isInt({
       min: 1,
     })
-    .withMessage("La contribución del usuario debe ser mayor a 0"),
+    .withMessage("La contribución del usuario debe ser mayor a 0")
+    .custom((value, { req }) => {
+      return (
+        +value >= +req.body.min_contribution &&
+        +value < +req.body.required_stock
+      );
+    })
+    .withMessage(
+      "La contribución del usuario debe ser mayor o igual al minimo y no debe ser mayor que el stock del producto"
+    ),
   validatorCheckHandler,
 ];
 /* Validaciones para profile */
+
+
+const profileValidator = [
+  body("rut").trim().notEmpty(),
+  body("phone").trim().notEmpty(),
+  body("address").trim().notEmpty(),
+  body("comuna_id").trim().notEmpty(),
+  body("postal_code").trim().notEmpty(),
+  body("picture").trim().notEmpty(),
+  validatorCheckHandler
+]
 
 export {
   signInValidator,
@@ -99,4 +140,5 @@ export {
   idValidator,
   uuidValidator,
   postValidator,
+  profileValidator
 };
