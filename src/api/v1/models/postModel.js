@@ -34,11 +34,11 @@ const getRequiredStockPostId = async (id) => {
   }
 };
 
-const getUserPostModel = async (id) => {
+const getUserPostModel = async (userId) => {
   try {
     const sqlQuery = {
       text: "SELECT * FROM post WHERE created_by = $1 AND visible = true",
-      values: [id],
+      values: [userId],
     };
     const { rows } = await pool.query(sqlQuery);
     return rows[0];
@@ -139,7 +139,7 @@ const createPostModel = async (
   user_stock
 ) => {
   const query = await pool.query(
-    "INSERT INTO POST (title, created_by, description, status, expiration_date, unit_price, url, img_url, category_id, required_stock, min_contribution, user_stock, visible) VALUES ($1, (SELECT id FROM usuario WHERE id = $2), $3, $4, $5, $6, $7, $8, (SELECT id FROM category WHERE id = $9), $10, $11, $12, true) RETURNING *",
+    "INSERT INTO POST (title, created_by, description, expiration_date, unit_price, url, img_url, category_id, required_stock, min_contribution, user_stock) VALUES ($1, (SELECT id FROM usuario WHERE id = $2), $3, $4, $5, $6, $7, (SELECT id FROM category WHERE id = $8), $9, $10, $11) RETURNING *",
     [
       title,
       created_by,
@@ -163,7 +163,6 @@ const updatePostModel = async (postId, newData) => {
     const {
       title,
       description,
-      status,
       expiration_date,
       unit_price,
       url,
@@ -175,13 +174,12 @@ const updatePostModel = async (postId, newData) => {
       text: `
       UPDATE post 
       SET title = $2, 
-      description = $3, 
-      status = $4, 
-      expiration_date = $5, 
-      unit_price = $6, 
-      url = $7, 
-      img_url = $8, 
-      category_id = $9
+      description = $3, , 
+      expiration_date = $4, 
+      unit_price = $5, 
+      url = $6, 
+      img_url = $7, 
+      category_id = $8
       WHERE id = $1 
       RETURNING *
       `,
@@ -189,7 +187,6 @@ const updatePostModel = async (postId, newData) => {
         postId,
         title,
         description,
-        status,
         expiration_date,
         unit_price,
         url,
@@ -237,16 +234,16 @@ const updateUserStockById = async (postId, userContribution, userId) => {
 };
 
 
-const softDeletePostModel = async (id) => {
+const softDeletePostModel = async (userId, postId) => {
   try {
     const sqlQuery = {
       text: `
     UPDATE post 
     SET  visible = FALSE
-    WHERE id = $1 
+    WHERE created_by = $1 AND id = $2
     RETURNING *
     `,
-      values: [id],
+      values: [userId, postId],
     };
     const { rows } = await pool.query(sqlQuery);
     return rows[0];

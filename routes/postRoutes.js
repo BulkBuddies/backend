@@ -8,19 +8,24 @@ import {
   updateUserStockController,
   getPostByIdController,
   getLogByPostIdController,
-  getLogByUserIdController
+  getLogByUserIdController,
 } from "../src/api/v1/controllers/postControllers.js";
+import {
+  postValidator,
+  uuidValidator,
+} from "../middlewares/dataValidatorHandler.js";
+import { verifyJWT } from "../middlewares/validateJWT.js";
 
 const router = Router();
 
 router.get("/post", getAllPost);
-router.get("/post/user/:id", getUserPost);
-router.get("/post/user/log/:id", getLogByUserIdController);
+router.get("/post/user/:id", uuidValidator, getUserPost);
+router.get("/post/user/log/:id", uuidValidator, getLogByUserIdController);
 router.get("/post/:id", getPostByIdController);
 router.get("/post/log/:id", getLogByPostIdController);
-router.post("/post", createPostController);
-router.patch("/post/:id", updatePostController);
-router.patch("/post/stock/:id", updateUserStockController);
-router.delete("/post/:id", softDeletePostController);
+router.post("/post", verifyJWT, postValidator, createPostController);
+router.patch("/post/:id", verifyJWT,  updatePostController);
+router.patch("/post/stock/:id", verifyJWT, updateUserStockController);
+router.delete("/post/:id", verifyJWT, softDeletePostController);
 
 export default router;
