@@ -9,16 +9,7 @@ const verifyJWT = async (req, res, next) => {
     const token = req.header("Authorization").split(" ")[1];
     const tokenData = await validateToken(token, JWT_SECRET);
     req.token = tokenData;
-    const userIdFromEndpoint = req.params.id;
-    const userIdFromToken = req.token.id;
-    if (!userIdFromEndpoint) {
-      return next();
-    }
-    if (userIdFromToken !== userIdFromEndpoint) {
-      return res.status(403).json({
-        messsage: " No estás autorizado para acceder a este recurso.",
-      });
-    }
+
     next();
   } catch (error) {
     next(error);
@@ -40,7 +31,9 @@ const validateTokenFromParams = async (req, res, next) => {
     const { token } = req.params;
     const decoded = await validateToken(token, JWT_SECRET);
     if (decoded) {
-      return res.status(200).send({message: "Token verificado", userId:decoded.id   })
+      return res
+        .status(200)
+        .send({ message: "Token verificado", userId: decoded.id });
     }
   } catch (error) {
     next(error);
