@@ -8,6 +8,7 @@ import {
   updateUserStockController,
   getPostByIdController,
   getLogByPostIdController,
+  getAllPostByCategoryId,
   getLogByUserIdController,
 } from "../src/api/v1/controllers/postControllers.js";
 import {
@@ -24,6 +25,7 @@ router.get("/post", getAllPost);
 router.get("/post/user/:id", uuidValidator, getUserPost);
 router.get("/post/user/log/:id", uuidValidator, getLogByUserIdController);
 router.get("/post/:id", getPostByIdController);
+router.get("/post/category/:id", uuidValidator, getAllPostByCategoryId);
 router.get("/post/log/:id", uuidValidator, getLogByPostIdController);
 router.post("/post", verifyJWT, postValidator, createPostController);
 router.patch("/post/:id", verifyJWT, uuidValidator, updatePostValidator,  updatePostController);

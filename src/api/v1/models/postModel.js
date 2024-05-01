@@ -3,7 +3,7 @@ import { createNewError } from "../helpers/requestError.js";
 
 const getAllPostModel = async () => {
   const query = await pool.query(
-    "SELECT id , title, created_by, description, status, expiration_date, unit_price, url, img_url, category_id, required_stock, min_contribution, user_stock FROM POST"
+    "SELECT id , title, created_by, description, status, expiration_date, unit_price, url, img_url, category_id, required_stock, min_contribution, user_stock FROM POST ORDER BY created_at desc"
   );
   return query.rows;
 };
@@ -37,7 +37,7 @@ const getRequiredStockPostId = async (id) => {
 const getUserPostModel = async (userId) => {
   try {
     const sqlQuery = {
-      text: "SELECT * FROM post WHERE created_by = $1 AND visible = true",
+      text: "SELECT * FROM post WHERE created_by = $1 AND visible = true order by created_at desc",
       values: [userId],
     };
     const { rows } = await pool.query(sqlQuery);
@@ -74,6 +74,19 @@ const getUserDataById = async (id) => {
   }
 };
 
+const getCategoryNameById = async (id) => {
+  try {
+    const sqlQuery = {
+      text: "SELECT id,name FROM category WHERE id = $1",
+      values: [id],
+    };
+    const { rows } = await pool.query(sqlQuery);
+    return rows[0];
+  } catch (error) {
+    throw createNewError(error.code);
+  }
+};
+
 const getLogByPostId = async (id) => {
   try {
     const sqlQuery = {
@@ -87,7 +100,7 @@ const getLogByPostId = async (id) => {
       from log_post a left join usuario b on a.user_id = b.id 
                        left join post c on a.post_id = c.id
       where a.post_id = $1
-      order by a.date asc;      
+      order by a.date desc;      
       `,
       values: [id],
     };
@@ -111,7 +124,7 @@ const getLogByUsertId = async (id) => {
       b.item_by_this_user
       from log_post b  left join post c on b.post_id = c.id
       where b.user_id =  $1
-      order by b.date asc
+      order by b.date desc
 ;
       `,
       values: [id],
@@ -245,6 +258,20 @@ const softDeletePostModel = async (userId, postId) => {
   }
 };
 
+
+const getPostCategoryId = async (id) => {
+  try {
+    const sqlQuery = {
+      text: "SELECT * FROM post WHERE category_id = $1",
+      values: [id],
+    };
+    const { rows } = await pool.query(sqlQuery);
+    return rows;
+  } catch (error) {
+    throw createNewError(error.code);
+  }
+};
+
 export {
   getAllPostModel,
   getPostById,
@@ -257,5 +284,7 @@ export {
   getRequiredStockPostId,
   updateUserStockById, 
   getItemDataFromPostById,
+  getCategoryNameById,
+  getPostCategoryId,
   getUserDataById
 };
