@@ -1,24 +1,45 @@
-import { getProfileByUserId, updateProfileByUserId } from "../models/profileModel.js";
+import { updateProfileByUserId } from "../models/profileModel.js";
+import { updateUserById } from "../models/userModel.js";
 
-const getProfileById = async (req, res, next) => {
-    try {
-      const { id } = req.params;
-      const profile = await getProfileByUserId(id);
-      res.status(200).json({ profile: profile });
-    } catch (error) {
-      next(error);
-    }
-  };
+const updateProfileById = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const {
+      first_name,
+      last_name,
+      username,
+      rut,
+      phone,
+      address,
+      comuna_id,
+      postal_code,
+      picture,
+    } = req.body;
 
-  const updateProfileById = async (req, res, next) => {
-    try {
-      const { id } = req.params;
-      const newData = req.body;
-      const updatedProfile = await updateProfileByUserId(id, newData);
-      res.status(201).json({ message: 'Perfil actualizado correctamente', profile: updatedProfile });
-    } catch (error) {
-      next(error);
-    }
-  }; 
+    const updatedProfile = await updateProfileByUserId(id, {
+      rut,
+      phone,
+      address,
+      comuna_id,
+      postal_code,
+      picture,
+    });
+    const updateUser = await updateUserById(id, {
+      first_name,
+      last_name,
+      username,
+    });
+    const updatedData = {
+      ...updatedProfile,
+      ...updateUser,
+    };
+    res.status(201).json({
+      message: "Perfil actualizado correctamente",
+      profile: updatedData,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
 
-  export { getProfileById, updateProfileById }
+export { updateProfileById };

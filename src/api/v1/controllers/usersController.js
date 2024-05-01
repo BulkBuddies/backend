@@ -5,6 +5,7 @@ import {
   findUserBy,
   getAll,
 } from "../models/userModel.js";
+import { getProfileByUserId } from "../models/profileModel.js";
 
 const createNewUser = async (req, res, next) => {
   try {
@@ -32,8 +33,9 @@ const getUserById = async (req, res, next) => {
   try {
     const { id } = req.params;
     const user = await findUserBy("id", id);
+    const profile = await getProfileByUserId(id);
     if (!user) throw createNewError("auth_01");
-    res.status(200).send({ ...user });
+    res.status(200).send({ ...user, ...profile });
   } catch (error) {
     next(error);
   }
@@ -49,9 +51,4 @@ const deleteUser = async (req, res, next) => {
   }
 };
 
-export {
-  createNewUser,
-  getAllUser,
-  getUserById,
-  deleteUser,
-};
+export { createNewUser, getAllUser, getUserById, deleteUser };

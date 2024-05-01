@@ -1,3 +1,4 @@
+import { createNewError } from "../helpers/requestError.js";
 import {
   getAllPostModel,
   getUserPostModel,
@@ -12,6 +13,7 @@ import {
   getRequiredStockPostId,
   updateUserStockById,
 } from "../models/postModel.js";
+import { findUserBy } from "../models/userModel.js";
 
 const getAllPost = async (_, res, next) => {
   try {
@@ -28,19 +30,15 @@ const getAllPost = async (_, res, next) => {
 const getUserPost = async (req, res, next) => {
   try {
     const { id } = req.params;
-    const posts = await getUserPostModel(id);
-    if (posts.length === 0) {
-      return res.status(404).send({ message: "This entity does not exist" });
+    const user = await findUserBy("id", id);
+    if (!user) {
+      throw createNewError("auth_01");
     }
-
-    const userData = await getUserDataById(id);
-    const user_id = userData.id;
-    const email = userData.email;
-    const username = userData.username;
-
+    const posts = await getUserPostModel(id);
+    const { id: userId, email, username } = user;
     return res
       .status(200)
-      .json({ userData: { user_id, email, username }, posts: posts });
+      .json({ userData: { userId, email, username }, posts: posts });
   } catch (error) {
     next(error);
   }
@@ -51,7 +49,7 @@ const getPostByIdController = async (req, res, next) => {
     const { id } = req.params;
     const posts = await getPostById(id);
     if (!posts) {
-      return res.status(404).send({ message: "This entity does not exist" });
+      throw createNewError("post_1");
     }
     return res.status(200).json(posts);
   } catch (error) {
@@ -143,7 +141,7 @@ const updatePostController = async (req, res, next) => {
     const { id } = req.params;
     const post = await getPostById(id);
     if (!post) {
-      return res.status(404).send({ message: "This Post Id does not exists." });
+      throw createNewError("post_1");
     }
     const newData = req.body;
     const updatePost = await updatePostModel(id, newData);
@@ -193,7 +191,7 @@ const softDeletePostController = async (req, res, next) => {
     const { id } = req.params;
     const post = await getPostById(id);
     if (!post) {
-      return res.status(404).send({ message: "This Post Id does not exists." });
+      throw createNewError("", 404, "Este post no existe");
     }
     const userId = req.token.id;
     const deletePost = await softDeletePostModel(userId, id);

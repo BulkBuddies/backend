@@ -31,7 +31,7 @@ const logoutController = async (req, res, next) => {
       httpOnly: true,
       secure: PRODUCTION_ENV,
     });
-    res.status(200).send("Logged out");
+    res.status(200).json({ message: "Logged out" });
   } catch (error) {
     next(error);
   }
@@ -51,20 +51,6 @@ const refreshTokenController = async (req, res, next) => {
   }
 };
 
-/**
- * @return
- * user{
- * sub:            string;
- * name:           string;
- * given_name:     string;
- * picture:        string;
- * email:          string;
- * email_verified: boolean;
- * locale:         string;
- *}
- **/
-
-// Inicia el login con google
 const googleAuthController = async (req, res, next) => {
   try {
     if (!req.user) throw createNewError("auth_04");
@@ -86,8 +72,8 @@ const googleAuthController = async (req, res, next) => {
       const { password: pwd, ...newUserData } = newUser;
       return res.status(200).json({
         data: {
-          ...newUserData,
           token,
+          ...newUserData,
         },
       });
     }
@@ -95,8 +81,8 @@ const googleAuthController = async (req, res, next) => {
 
     return res.status(200).json({
       data: {
-        ...foundUser,
         token,
+        ...foundUser,
       },
     });
   } catch (error) {
