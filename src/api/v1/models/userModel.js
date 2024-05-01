@@ -1,7 +1,6 @@
 import pool from "../../../../config/db/db.js";
 import bcrypt from "bcrypt";
 import { createNewError } from "../helpers/requestError.js";
-import { text } from "express";
 import crypto from "node:crypto";
 import format from "pg-format";
 const createUser = async (user) => {
@@ -22,15 +21,6 @@ const createUser = async (user) => {
   } catch (error) {
     throw createNewError(error.code);
   }
-};
-
-const uniqueUsername = async (username) => {
-  const sqlQuery = {
-    text: "SELECT id FROM usuario WHERE username = $1",
-    values: [username],
-  };
-  const { rowCount } = await pool.query(sqlQuery);
-  return rowCount;
 };
 
 const verifyUser = async (email, password) => {
@@ -92,12 +82,28 @@ const updatePassword = async (userId, newPassword) => {
   if (rowCount === 0) throw createNewError("auth_01");
 };
 
+const updateUserById = async (id, user) => {
+  try {
+    const { first_name, last_name, username } = user;
+    const sqlQuery = {
+      text: "UPDATE usuario SET first_name = $1, last_name = $2, username = $3  WHERE id = $4 RETURNING *",
+      values: [first_name, last_name, username, id],
+    };
+
+    const { rowCount } = await pool.query(sqlQuery);
+    if (rowCount === 0) throw createNewError("auth_01");
+    return user;
+  } catch (error) {
+    throw createNewError("", 400, error.message);
+  }
+};
+
 export {
   createUser,
   verifyUser,
   getAll,
-  uniqueUsername,
   findUserBy,
   deleteUserById,
   updatePassword,
+  updateUserById,
 };

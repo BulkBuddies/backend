@@ -1,5 +1,11 @@
 import { body, param, validationResult, check } from "express-validator";
 import { createNewError } from "../src/api/v1/helpers/requestError.js";
+import {
+  postalCodeRegex,
+  rutRegex,
+  phoneRegex,
+  usernameRegex,
+} from "../src/api/v1/utils/regex.js";
 
 const validatorCheckHandler = async (req, res, next) => {
   try {
@@ -32,7 +38,13 @@ const signUpValidator = [
   body("first_name", "No puede estar vacio").trim().notEmpty(),
   body("last_name", "El apellido no puede estar vacío").trim().notEmpty(),
   isEmailChain,
-  body("username", "Ingresa un username").trim().notEmpty(),
+  body("username", "Ingresa un username")
+    .trim()
+    .notEmpty()
+    .matches(usernameRegex)
+    .withMessage(
+      "El username debe ser al menos de 6 carácteres y no mayor a 12"
+    ),
   body("password", "Debes ingresar una contraseña")
     .trim()
     .notEmpty()
@@ -85,7 +97,7 @@ const postValidator = [
     .trim()
     .notEmpty()
     .isInt({
-      min: 1,
+      min: 100,
     })
     .withMessage("El stock debe ser mayor a 0"),
   body("min_contribution", "No puede estar vacio")
@@ -119,18 +131,63 @@ const postValidator = [
     ),
   validatorCheckHandler,
 ];
-/* Validaciones para profile */
 
+const updatePostValidator = [
+  body("title", "No puede estar vacio").trim().notEmpty(),
+  body("description", "No puede estar vacio").trim().notEmpty(),
+  body("url", "No puede estar vacio").trim().notEmpty().isURL(),
+  body("img_url", "No puede estar vacio").trim().notEmpty().isURL(),
+  body("category_id", "No puede estar vacio").trim().notEmpty().isUUID(),
+  validatorCheckHandler,
+];
+
+const updateUserStockValidator = [
+  body("user_contribution")
+    .trim()
+    .notEmpty()
+    .custom((value, { req }) => {
+      return +value > 0 && +value < 100000;
+    })
+    .withMessage(
+      "La contribución del usuario debe ser mayor a 0 y menor 10000"
+    ),
+  validatorCheckHandler,
+];
 
 const profileValidator = [
-  body("rut").trim().notEmpty(),
-  body("phone").trim().notEmpty(),
+  body("first_name").trim().notEmpty().withMessage("Ingresa un nombre"),
+  body("last_name").trim().notEmpty().withMessage("Ingresa un apellido"),
+  body("username")
+    .trim()
+    .notEmpty()
+    .matches(usernameRegex)
+    .withMessage(
+      "El username debe ser al menos de 6 carácteres y no mayor a 12"
+    ),
+  body("rut")
+    .trim()
+    .notEmpty()
+    .matches(rutRegex)
+    .withMessage("Ingresa un rut valido"),
+  body("phone")
+    .trim()
+    .notEmpty()
+    .matches(phoneRegex)
+    .withMessage("Ingresa un telefono valido"),
   body("address").trim().notEmpty(),
   body("comuna_id").trim().notEmpty(),
-  body("postal_code").trim().notEmpty(),
-  body("picture").trim().notEmpty(),
-  validatorCheckHandler
-]
+  body("postal_code")
+    .trim()
+    .notEmpty()
+    .matches(postalCodeRegex)
+    .withMessage("Ingresa un Código Postal valido"),
+  body("picture")
+    .trim()
+    .default(
+      "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png"
+    ),
+  validatorCheckHandler,
+];
 
 export {
   signInValidator,
@@ -140,5 +197,7 @@ export {
   idValidator,
   uuidValidator,
   postValidator,
-  profileValidator
+  profileValidator,
+  updatePostValidator,
+  updateUserStockValidator,
 };
