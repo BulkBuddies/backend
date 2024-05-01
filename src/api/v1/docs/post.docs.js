@@ -11,45 +11,87 @@
  *   schemas:
  *     post:
  *       type: object
- *       required:
- *         - title
- *         - description
- *         - expiration_date
  *       properties:
  *         id:
  *           type: string
- *           description: The unique identifier for the post
  *         title:
  *           type: string
- *           description: The title of the post
+ *         created_by:
+ *           type: string
  *         description:
  *           type: string
- *           description: The description of the post
  *         status:
  *           type: string
- *           default: "pending"
- *           description: The status of the post
- *         product_id:
- *           type: string
- *           description: The ID of the associated product
  *         expiration_date:
  *           type: string
- *           description: The expiration date of the post
  *         created_at:
  *           type: string
- *           description: The timestamp when the post was created
  *         updated_at:
- *           type: null
- *           description: The timestamp when the post was last updated
+ *           type: string
+ *         unit_price:
+ *           type: number
+ *         url:
+ *           type: string
+ *         img_url:
+ *           type: string
+ *         category_id:
+ *           type: string
+ *         required_stock:
+ *           type: number
+ *         min_contribution:
+ *           type: number
+ *         user_stock:
+ *           type: number
+ *         visible:
+ *           type: boolean
+ *       required:
+ *         - title
+ *         - created_by
+ *         - description
+ *         - expiration_date
+ *         - unit_price
+ *         - url
+ *         - img_url
+ *         - category_id
+ *         - required_stock
+ *         - min_contribution
+ *         - user_stock
  *       example:
- *         id: "1"
- *         title: "Sample Post"
- *         description: "This is a sample post"
- *         status: "pending"
- *         product_id: "12345"
- *         expiration_date: "2022-12-31"
- *         created_at: "2022-01-01 10:00:00"
- *         updated_at: null
+ *         id: 5f0f5f0f-5f0f-5f0f-5f0f-5f0f5f0f5f0f
+ *         title: post title
+ *         created_by: 5f0f5f0f-5f0f-5f0f-5f0f-5f0f5f0f5f0f
+ *         description: post description
+ *         status: activo
+ *         expiration_date: 2020-01-01T00:00:00.000Z
+ *         unit_price: 100
+ *         url: https://example.com
+ *         img_url: https://example.com
+ *         category_id: 5f0f5f0f-5f0f-5f0f-5f0f-5f0f5f0f5f0f
+ *         required_stock: 10000
+ *         min_contribution: 100
+ *         user_stock: 100
+ */
+
+/**
+ * @openapi
+ * components:
+ *   schemas:
+ *     logPost:
+ *       type: object
+ *       properties:
+ *         id:
+ *           type: number
+ *         user_id:
+ *           type: string
+ *         post_id:
+ *           type: string
+ *         role:
+ *           type: string
+ *         date:
+ *           type: string
+ *         item_by_this_user:
+ *           type: number
+ *
  */
 
 /**
@@ -99,21 +141,197 @@
 /**
  * @openapi
  * paths:
- *   /post/{postId}:
- *     put:
- *       summary: Update post to add new users
+ *   /post/{id}:
+ *     get:
+ *       summary: Get post by id
  *       tags:
  *         - Post
  *       parameters:
  *         - in: path
- *           name: postId
+ *           name: id
  *           required: true
  *           schema:
  *             type: string
  *           description: The post id
  *       responses:
  *         '200':
- *           description: The user has been added to the post
- *         '400':
- *           description: Bad request
+ *           description: OK
+ *           content:
+ *             application/json:
+ *               schema:
+ *                 $ref: '#/components/schemas/post'
+ *         '404':
+ *           description: Post not found
+ *           content:
+ *             application/json:
+ *               schema:
+ *                 type: object
+ *                 properties:
+ *                   status:
+ *                     type: number
+ *                     example: 404
+ *                   message:
+ *                     type: string
+ *                     example: Post not found
+ */
+
+/**
+ * @openapi
+ * paths:
+ *   /post/{id}:
+ *     patch:
+ *       summary: Update post by id
+ *       tags:
+ *         - Post
+ *       parameters:
+ *         - in: path
+ *           name: id
+ *           required: true
+ *           schema:
+ *             type: string
+ *           description: The post id
+ *       requestBody:
+ *         required: true
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 title:
+ *                   type: string
+ *                 description:
+ *                   type: string
+ *                 url:
+ *                   type: string
+ *                 img_url:
+ *                   type: string
+ *                 category_id:
+ *                   type: string
+ *               required:
+ *                 - title
+ *                 - description
+ *                 - url
+ *                 - img_url
+ *                 - category_id
+ *       responses:
+ *         '200':
+ *           description: OK
+ *           content:
+ *             application/json:
+ *               schema:
+ *                 type: object
+ *                 properties:
+ *                   message:
+ *                     type: string
+ *                     example: Post actualizado correctamente
+ *                   post:
+ *                     $ref: '#/components/schemas/post'
+ *         '404':
+ *           description: Post not found
+ *           content:
+ *             application/json:
+ *               schema:
+ *                 type: object
+ *                 properties:
+ *                   status:
+ *                     type: number
+ *                     example: 404
+ *                   message:
+ *                     type: string
+ *                     example: Post not found
+ */
+
+/**
+ * @openapi
+ * paths:
+ *   /post/{id}:
+ *     delete:
+ *       summary: Soft delete post by id
+ *       tags:
+ *         - Post
+ *       parameters:
+ *         - in: path
+ *           name: id
+ *           required: true
+ *           schema:
+ *             type: string
+ *           description: The post id
+ *       responses:
+ *         '200':
+ *           description: OK
+ *           content:
+ *             application/json:
+ *               schema:
+ *                 type: object
+ *                 properties:
+ *                   status:
+ *                     type: number
+ *                     example: 200
+ *                   post:
+ *                     $ref: '#/components/schemas/post'
+ *         '404':
+ *           description: Post not found
+ *           content:
+ *             application/json:
+ *               schema:
+ *                 type: object
+ *                 properties:
+ *                   status:
+ *                     type: number
+ *                     example: 404
+ *                   message:
+ *                     type: string
+ *                     example: Este post no existe
+ *
+ */
+
+/**
+ * @openapi
+ *  paths:
+ *   /post/user/{id}:
+ *     get:
+ *       summary: Get posts by user id
+ *       tags:
+ *         - Post
+ *       parameters:
+ *         - in: path
+ *           name: id
+ *           required: true
+ *           schema:
+ *             type: string
+ *           description: The user id
+ *       responses:
+ *         '200':
+ *           description: OK
+ *           content:
+ *             application/json:
+ *               schema:
+ *                 type: object
+ *                 properties:
+ *                   userData:
+ *                     type: object
+ *                     properties:
+ *                       userId:
+ *                         type: string
+ *                       username:
+ *                         type: string
+ *                       email:
+ *                         type: string
+ *                   posts:
+ *                     type: array
+ *                     items:
+ *                       $ref: '#/components/schemas/post'
+ *         '404':
+ *           description: Post not found
+ *           content:
+ *             application/json:
+ *               schema:
+ *                 type: object
+ *                 properties:
+ *                   status:
+ *                     type: number
+ *                     example: 404
+ *                   message:
+ *                     type: string
+ *                     example: Post not found
  */
