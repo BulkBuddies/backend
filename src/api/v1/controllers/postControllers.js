@@ -85,7 +85,9 @@ const getLogByUserIdController = async (req, res, next) => {
     const { id } = req.params;
     const logs = await getLogByUsertId(id);
     if (logs.length === 0) {
-      return res.status(404).send({ message: "This user don't register any log." });
+      return res
+        .status(404)
+        .send({ message: "This user don't register any log." });
     }
     const userData = await getUserDataById(id);
     const user_id = userData.id;
@@ -140,7 +142,7 @@ const updatePostController = async (req, res, next) => {
   try {
     const { id } = req.params;
     const post = await getPostById(id);
-    if (post.length === 0) {
+    if (!post) {
       return res.status(404).send({ message: "This Post Id does not exists." });
     }
     const newData = req.body;
@@ -164,27 +166,11 @@ const updateUserStockController = async (req, res, next) => {
       return res.status(404).send({ message: "This Post Id does not exists." });
     }
     const stocks = await getRequiredStockPostId(id);
-    const required_stock = stocks.required_stock;
     const min_contribution = stocks.min_contribution;
-    const user_stock = stocks.user_stock;
-    const goal_stock = stocks.required_stock - user_stock;
-
-    if (user_contribution_parse > required_stock) {
-      return res.status(400).send({
-        message: "user_contribution cannot be greater than the required_stock",
-      });
-    }
 
     if (user_contribution_parse < min_contribution) {
       return res.status(400).send({
         message: "user_contribution cannot be less than the min_contribution",
-      });
-    }
-
-    if (user_contribution_parse > goal_stock) {
-      return res.status(400).send({
-        message: "user_contribution cannot be greater than the goal_stock",
-        goal_stock: goal_stock,
       });
     }
 
@@ -206,7 +192,7 @@ const softDeletePostController = async (req, res, next) => {
   try {
     const { id } = req.params;
     const post = await getPostById(id);
-    if (post.length === 0) {
+    if (!post) {
       return res.status(404).send({ message: "This Post Id does not exists." });
     }
     const userId = req.token.id;

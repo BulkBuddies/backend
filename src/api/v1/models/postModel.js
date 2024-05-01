@@ -162,8 +162,6 @@ const updatePostModel = async (postId, newData) => {
     const {
       title,
       description,
-      expiration_date,
-      unit_price,
       url,
       img_url,
       category_id
@@ -173,12 +171,10 @@ const updatePostModel = async (postId, newData) => {
       text: `
       UPDATE post 
       SET title = $2, 
-      description = $3, , 
-      expiration_date = $4, 
-      unit_price = $5, 
-      url = $6, 
-      img_url = $7, 
-      category_id = $8
+      description = $3, 
+      url = $4, 
+      img_url = $5, 
+      category_id = $6
       WHERE id = $1 
       RETURNING *
       `,
@@ -186,8 +182,6 @@ const updatePostModel = async (postId, newData) => {
         postId,
         title,
         description,
-        expiration_date,
-        unit_price,
         url,
         img_url,
         category_id

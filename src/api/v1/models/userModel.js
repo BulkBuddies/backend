@@ -1,7 +1,6 @@
 import pool from "../../../../config/db/db.js";
 import bcrypt from "bcrypt";
 import { createNewError } from "../helpers/requestError.js";
-import { text } from "express";
 import crypto from "node:crypto";
 import format from "pg-format";
 const createUser = async (user) => {
@@ -24,14 +23,6 @@ const createUser = async (user) => {
   }
 };
 
-const uniqueUsername = async (username) => {
-  const sqlQuery = {
-    text: "SELECT id FROM usuario WHERE username = $1",
-    values: [username],
-  };
-  const { rowCount } = await pool.query(sqlQuery);
-  return rowCount;
-};
 
 const verifyUser = async (email, password) => {
   const sqlQuery = {
@@ -96,7 +87,6 @@ export {
   createUser,
   verifyUser,
   getAll,
-  uniqueUsername,
   findUserBy,
   deleteUserById,
   updatePassword,

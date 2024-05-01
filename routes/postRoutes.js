@@ -12,6 +12,8 @@ import {
 } from "../src/api/v1/controllers/postControllers.js";
 import {
   postValidator,
+  updatePostValidator,
+  updateUserStockValidator,
   uuidValidator,
 } from "../middlewares/dataValidatorHandler.js";
 import { verifyJWT } from "../middlewares/validateJWT.js";
@@ -24,8 +26,8 @@ router.get("/post/user/log/:id", uuidValidator, getLogByUserIdController);
 router.get("/post/:id", getPostByIdController);
 router.get("/post/log/:id", uuidValidator, getLogByPostIdController);
 router.post("/post", verifyJWT, postValidator, createPostController);
-router.patch("/post/:id", verifyJWT, uuidValidator, updatePostController);
-router.patch("/post/stock/:id", verifyJWT, updateUserStockController);
+router.patch("/post/:id", verifyJWT, uuidValidator, updatePostValidator,  updatePostController);
+router.patch("/post/stock/:id", verifyJWT, updateUserStockValidator,  updateUserStockController);
 router.delete("/post/:id", verifyJWT, uuidValidator, softDeletePostController);
 
 export default router;

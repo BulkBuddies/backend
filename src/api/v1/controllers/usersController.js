@@ -4,7 +4,6 @@ import {
   deleteUserById,
   findUserBy,
   getAll,
-  uniqueUsername,
 } from "../models/userModel.js";
 
 const createNewUser = async (req, res, next) => {
@@ -26,19 +25,6 @@ const getAllUser = async (req, res, next) => {
   } catch (error) {
     console.log(error);
     next(error);
-  }
-};
-
-const validateUsernameController = async (req, res) => {
-  try {
-    const { username } = req.query;
-    const result = await uniqueUsername(username);
-    if (result === 0) {
-      return res.status(200).json({ message: true });
-    }
-    return res.status(400).json({ message: false });
-  } catch (error) {
-    return res.status(500).json({ message: error.message });
   }
 };
 
@@ -66,7 +52,6 @@ const deleteUser = async (req, res, next) => {
 export {
   createNewUser,
   getAllUser,
-  validateUsernameController,
   getUserById,
   deleteUser,
 };
