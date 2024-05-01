@@ -10,6 +10,8 @@ import {
   getLogByUsertId,
   softDeletePostModel,
   getPostById,
+  getCategoryNameById,
+  getPostCategoryId,
   getRequiredStockPostId,
   updateUserStockById,
 } from "../models/postModel.js";
@@ -99,6 +101,26 @@ const getLogByUserIdController = async (req, res, next) => {
     next(error);
   }
 };
+
+const getAllPostByCategoryId = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const posts = await getPostCategoryId(id);
+
+    if (posts.length === 0) {
+      return res.status(404).send({ message: "Theres no post in this category" });
+    }
+    const categoryData = await getCategoryNameById(id);    
+    const category = categoryData.name;
+
+    return res
+      .status(200)
+      .json({ categoryData: { category }, posts: posts });
+  } catch (error) {
+    next(error);
+  }
+};
+
 
 const createPostController = async (req, res, next) => {
   try {
@@ -212,5 +234,6 @@ export {
   getLogByUserIdController,
   softDeletePostController,
   getLogByPostIdController,
+  getAllPostByCategoryId,
   updateUserStockController,
 };
