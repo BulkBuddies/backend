@@ -153,9 +153,17 @@ const updateUserStockValidator = [
     ),
   validatorCheckHandler,
 ];
-/* Validaciones para profile */
 
 const profileValidator = [
+  body("first_name").trim().notEmpty().withMessage("Ingresa un nombre"),
+  body("last_name").trim().notEmpty().withMessage("Ingresa un apellido"),
+  body("username")
+    .trim()
+    .notEmpty()
+    .matches(usernameRegex)
+    .withMessage(
+      "El username debe ser al menos de 6 carácteres y no mayor a 12"
+    ),
   body("rut")
     .trim()
     .notEmpty()
@@ -173,7 +181,11 @@ const profileValidator = [
     .notEmpty()
     .matches(postalCodeRegex)
     .withMessage("Ingresa un Código Postal valido"),
-  body("picture").trim().notEmpty(),
+  body("picture")
+    .trim()
+    .default(
+      "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png"
+    ),
   validatorCheckHandler,
 ];
 
