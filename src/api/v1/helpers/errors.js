@@ -9,11 +9,11 @@ const ERRORS = new Map([
   ["42601", { status: 400, message: "error de sintaxis en la consulta" }],
   ["2201W", { status: 400, message: "Valor del LIMIT no puede ser negativo" }],
   ["auth_01", { status: 400, message: "el usuario no existe" }],
-  ["auth_02", { status: 400, message: "contraseña invalida" }],
+  ["auth_02", { status: 400, message: "contraseña o username incorrecto" }],
   ["auth_03", { status: 401, message: "el token debe estar presente" }],
   ["auth_04", { status: 401, message: "Sin autorización" }],
   ["auth_05", { status: 400, message: "Faltan email o password" }],
-  ["auth_06", { status: 204, message: "Sin cookie" }],
+  ["auth_06", { status: 401, message: "No hay JWT en la cookie" }],
   ["auth_07", { status: 401, message: "Sin credenciales en la cookie" }],
   ["jwt expired", { status: 403, message: "el token expiró" }],
   ["invalid token", { status: 401, message: "el token no es valido" }],
@@ -24,6 +24,7 @@ const ERRORS = new Map([
     { status: 401, message: "La firma del JWT no es válida" },
   ],
   ["signup", { status: 400, message: "Debe llenar todos los campos" }],
+  ["post_1", { status: 404, message: "Este post no existe" }],
 ]);
 
 export default ERRORS;
