@@ -23,7 +23,6 @@ const createUser = async (user) => {
   }
 };
 
-
 const verifyUser = async (email, password) => {
   const sqlQuery = {
     text: "SELECT * FROM usuario where email = $1",
@@ -83,6 +82,22 @@ const updatePassword = async (userId, newPassword) => {
   if (rowCount === 0) throw createNewError("auth_01");
 };
 
+const updateUserById = async (id, user) => {
+  try {
+    const { first_name, last_name, username } = user;
+    const sqlQuery = {
+      text: "UPDATE usuario SET first_name = $1, last_name = $2, username = $3  WHERE id = $4 RETURNING *",
+      values: [first_name, last_name, username, id],
+    };
+
+    const { rowCount } = await pool.query(sqlQuery);
+    if (rowCount === 0) throw createNewError("auth_01");
+    return user;
+  } catch (error) {
+    throw createNewError("", 400, error.message);
+  }
+};
+
 export {
   createUser,
   verifyUser,
@@ -90,4 +105,5 @@ export {
   findUserBy,
   deleteUserById,
   updatePassword,
+  updateUserById,
 };
