@@ -525,3 +525,50 @@
  *                     example: Este post no existe
  *
  */
+
+/**
+ * @openapi
+ *  paths:
+ *   /post/category/{id}:
+ *     get:
+ *       summary: Get posts by category id
+ *       tags:
+ *         - Post
+ *       parameters:
+ *         - in: path
+ *           name: id
+ *           required: true
+ *           schema:
+ *             type: string
+ *           description: The category id
+ *       responses:
+ *         '200':
+ *           description: OK
+ *           content:
+ *             application/json:
+ *               schema:
+ *                 type: object
+ *                 properties:
+ *                   categoryData:
+ *                     type: object
+ *                     properties:
+ *                       category:
+ *                         type: string
+ *                   posts:
+ *                     type: array
+ *                     items:
+ *                       $ref: '#/components/schemas/post'
+ *         '404':
+ *           description: Categoría no existe
+ *           content:
+ *             application/json:
+ *               schema:
+ *                 type: object
+ *                 properties:
+ *                   status:
+ *                     type: number
+ *                     example: 404
+ *                   message:
+ *                     type: string
+ *                     example: Categoría no existe
+ */
