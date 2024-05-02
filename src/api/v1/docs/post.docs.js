@@ -91,7 +91,18 @@
  *           type: string
  *         item_by_this_user:
  *           type: number
- *
+ *       example:
+ *         id: 10
+ *         user_id: 22f305df-ab1d-46ff-9717-9a6b864583d7
+ *         post_id: 58a5b134-47a5-4b41-975a-6c8ea86f087b
+ *         role: Owner
+ *         date: 2020-01-01T00:00:00.000Z
+ *         item_by_this_user: 100
+ *       required:
+ *         - user_id
+ *         - post_id
+ *         - role
+ *         - item_by_this_user
  */
 
 /**
@@ -173,6 +184,77 @@
  *                   message:
  *                     type: string
  *                     example: Post not found
+ */
+
+/**
+ * @openapi
+ *  paths:
+ *   /post/log/{id}:
+ *     get:
+ *       summary: Get posts logs by post id
+ *       tags:
+ *         - Post
+ *       parameters:
+ *         - in: path
+ *           name: id
+ *           required: true
+ *           schema:
+ *             type: string
+ *           description: The post id
+ *       responses:
+ *         '200':
+ *           description: OK
+ *           content:
+ *             application/json:
+ *               schema:
+ *                 type: object
+ *                 properties:
+ *                   itemData:
+ *                     type: object
+ *                     properties:
+ *                       post_id:
+ *                         type: string
+ *                       title:
+ *                         type: string
+ *                       description:
+ *                         type: string
+ *                   logs:
+ *                     type: array
+ *                     items:
+ *                       type: object
+ *                       properties:
+ *                         post_id:
+ *                           type: string
+ *                         username:
+ *                           type: string
+ *                         user_id:
+ *                           type: string
+ *                         role:
+ *                           type: string
+ *                         item_by_this_user:
+ *                           type: number
+ *                         date:
+ *                           type: string
+ *         '404':
+ *           description: Post not found
+ *           content:
+ *             application/json:
+ *               schema:
+ *                 type: object
+ *                 properties:
+ *                   status:
+ *                     type: number
+ *                     example: 404
+ *                   message:
+ *                     type: string
+ *                     example: Este post no existe
+ */
+
+/**
+ * @openapi
+ * paths:
+ *   /post/stock/{id}:
+
  */
 
 /**
@@ -334,4 +416,55 @@
  *                   message:
  *                     type: string
  *                     example: Post not found
+ */
+
+/**
+ * @openapi
+ *  paths:
+ *   /post/user/log/{id}:
+ *     get:
+ *       summary: Get posts logs by user id
+ *       tags:
+ *         - Post
+ *       parameters:
+ *         - in: path
+ *           name: id
+ *           required: true
+ *           schema:
+ *             type: string
+ *           description: The user id
+ *       responses:
+ *         '200':
+ *           description: OK
+ *           content:
+ *             application/json:
+ *               schema:
+ *                 type: object
+ *                 properties:
+ *                   userData:
+ *                     type: object
+ *                     properties:
+ *                       userId:
+ *                         type: string
+ *                       username:
+ *                         type: string
+ *                       email:
+ *                         type: string
+ *                   logs:
+ *                     type: array
+ *                     items:
+ *                       $ref: '#/components/schemas/logPost'
+ *         '400':
+ *           description: Bad request
+ *           content:
+ *             application/json:
+ *               schema:
+ *                 type: object
+ *                 properties:
+ *                   status:
+ *                     type: number
+ *                     example: 400
+ *                   message:
+ *                     type: string
+ *                     example: El usuario no existe
  */
