@@ -8,7 +8,7 @@ const ERRORS = new Map([
   ["22P02", { status: 400, message: "bad request" }],
   ["42601", { status: 400, message: "error de sintaxis en la consulta" }],
   ["2201W", { status: 400, message: "Valor del LIMIT no puede ser negativo" }],
-  ["auth_01", { status: 400, message: "el usuario no existe" }],
+  ["auth_01", { status: 404, message: "el usuario no existe" }],
   ["auth_02", { status: 400, message: "contraseña o username incorrecto" }],
   ["auth_03", { status: 401, message: "el token debe estar presente" }],
   ["auth_04", { status: 401, message: "Sin autorización" }],

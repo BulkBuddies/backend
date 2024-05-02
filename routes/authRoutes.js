@@ -13,6 +13,7 @@ import {
   isEmailValidator,
   signInValidator,
   signUpValidator,
+  passwordChangeValidator,
 } from "../middlewares/dataValidatorHandler.js";
 import {
   FAILURE_REDIRECT_CLIENT_URL,
@@ -56,6 +57,10 @@ router.get("/logout", logoutController);
 router.post("/register", signUpValidator, createNewUser);
 router.get("/refresh", refreshTokenController);
 router.post("/password-request", isEmailValidator, checkEmailHandler);
-router.post("/password-reset", resetPasswordController);
+router.post(
+  "/password-reset",
+  passwordChangeValidator,
+  resetPasswordController
+);
 router.post("/password-reset/:token", validateTokenFromParams);
 export default router;

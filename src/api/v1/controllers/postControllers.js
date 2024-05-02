@@ -191,10 +191,10 @@ const softDeletePostController = async (req, res, next) => {
       throw createNewError("", 404, "Este post no existe");
     }
     const userId = req.token.id;
-    const deletePost = await softDeletePostModel(userId, id);
+    const deletedPost = await softDeletePostModel(userId, id);
     res
       .status(204)
-      .json({ message: "Post soft deleted correctamente", post: deletePost });
+      .json({ message: "Post soft deleted correctamente", deleted: deletedPost });
   } catch (error) {
     next(error);
   }

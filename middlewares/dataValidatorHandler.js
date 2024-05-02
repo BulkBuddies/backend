@@ -48,7 +48,8 @@ const signUpValidator = [
   body("password", "Debes ingresar una contraseña")
     .trim()
     .notEmpty()
-    .isLength({ min: 8, max: 12 }),
+    .isLength({ min: 8, max: 12 })
+    .withMessage("La contraseña debe ser de 8 a 12 caracteres"),
   validatorCheckHandler,
 ];
 
@@ -57,6 +58,16 @@ const signInValidator = [
   body("password", "Ingresa una contraseña").trim().notEmpty(),
   validatorCheckHandler,
 ];
+
+
+const passwordChangeValidator = [
+  body("id").trim().notEmpty().isUUID(),
+  body("password", "Debes ingresar una contraseña")
+  .trim()
+  .notEmpty()
+  .isLength({ min: 8, max: 12 })
+  .withMessage("La contraseña debe ser de 8 a 12 caracteres"),
+]
 
 const idValidator = [isThereAnIdChain, validatorCheckHandler];
 
@@ -174,7 +185,7 @@ const profileValidator = [
     .trim()
     .notEmpty()
     .matches(phoneRegex)
-    .withMessage("Ingresa un telefono valido"),
+    .withMessage("Ingresa un telefono valido. Ej: +56912345678"),
   body("address").trim().notEmpty(),
   body("comuna_id").trim().notEmpty(),
   body("postal_code")
@@ -201,4 +212,5 @@ export {
   profileValidator,
   updatePostValidator,
   updateUserStockValidator,
+  passwordChangeValidator
 };
