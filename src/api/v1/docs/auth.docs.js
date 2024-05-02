@@ -68,11 +68,29 @@
  *             schema:
  *               type: object
  *               properties:
- *                 token:
- *                   type: string
- *                   example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
- *                 user:
- *                   $ref: '#/components/schemas/user'
+ *                 data:
+ *                   type: object
+ *                   properties:
+ *                     token:
+ *                       type: string
+ *                       example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
+ *                     id:
+ *                       type: string
+ *                       example: 123e4567-e89b-12d3-a456-426614174000
+ *                     first_name:
+ *                       type: string
+ *                       example: John
+ *                     last_name:
+ *                       type: string
+ *                       example: Doe
+ *                     email:
+ *                       type: string
+ *                       example: 'jhonH@gmail.com'
+ *                     username:
+ *                       type: string
+ *                       example: 'john.doe'
+ *                     type:
+ *                       type: string
  *       "401":
  *         description: Invalid credentials
  */
@@ -162,9 +180,10 @@
 
 /**
  * @openapi
- * /auth/google:
+ * /auth/success:
  *   get:
- *     summary: Login with Google
+ *     summary: Successful login with Google
+ *     description: Provided that the authentication with Google was succesful, the endpoint can be used to get the user information
  *     tags:
  *       - Authentication
  *     responses:
@@ -174,7 +193,43 @@
  *           application/json:
  *             schema:
  *               type: object
- *               $ref: '#/components/schemas/GoogleUser'
+ *               properties:
+ *                 data:
+ *                   $ref: '#/components/schemas/GoogleUser'
  *       '400':
  *         description: Bad request
+ */
+
+/**
+ * @openapi
+ * paths:
+ *   /password-reset:
+ *     post:
+ *       summary: Change user password
+ *       tags:
+ *         - Authentication
+ *       requestBody:
+ *         required: true
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 id:
+ *                   type: string
+ *                   example: 123e4567-e89b-12d3-a456-426614174000
+ *                 password:
+ *                   type: string
+ *                   example: 'password123'
+ *       responses:
+ *         '200':
+ *           description: User password changed
+ *           content:
+ *             application/json:
+ *               schema:
+ *                 type: object
+ *                 properties:
+ *                   message:
+ *                     type: string
+ *                     example: Contraseña cambiada
  */
