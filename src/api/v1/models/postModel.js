@@ -3,7 +3,7 @@ import { createNewError } from "../helpers/requestError.js";
 
 const getAllPostModel = async () => {
   const query = await pool.query(
-    "SELECT id , title, created_by, description, status, expiration_date, unit_price, url, img_url, category_id, required_stock, min_contribution, user_stock FROM POST ORDER BY created_at desc"
+    "SELECT * from post ORDER BY created_at desc "
   );
   return query.rows;
 };
