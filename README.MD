@@ -199,7 +199,6 @@ npm test
 | GET        | /api/v1/user     | Ver los usuarios registrados                             |
 | GET        | /api/v1/user/:id | Ver información del usuario por id                       |
 | DELETE     | /api/v1/user/:id | Eliminar usuario por id (protegido con JWT)              |
-| GET        | /api/v1/refresh  | Pedir nuevo access token con el refresh token en cookies |
 
 ### Post
 
