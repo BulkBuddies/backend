@@ -142,6 +142,7 @@ const updatePostValidator = [
 ];
 
 const updateUserStockValidator = [
+  body("user_id").trim().notEmpty().isUUID().withMessage("Ingresa un UUID"),
   body("user_contribution")
     .trim()
     .notEmpty()
