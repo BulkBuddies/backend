@@ -25,6 +25,7 @@ const ERRORS = new Map([
   ],
   ["signup", { status: 400, message: "Debe llenar todos los campos" }],
   ["post_1", { status: 404, message: "Este post no existe" }],
+  ["category_01", { status: 404, message: "Esta categoria no existe" }],
 ]);
 
 export default ERRORS;
