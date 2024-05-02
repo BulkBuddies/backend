@@ -223,8 +223,14 @@ const updateUserStockById = async (postId, userContribution, userId) => {
     if (updatedRows && updatedRows.length > 0) {
       const insertQuery = {
         text: `
+
         INSERT INTO log_post (user_id, post_id, date, role, item_by_this_user)
-        VALUES ($1, $2, CURRENT_TIMESTAMP, 'Partner', $3)
+        SELECT $1, $2, CURRENT_TIMESTAMP,
+               CASE
+                   WHEN (SELECT role FROM log_post WHERE user_id = $1 and post_id = $2 ORDER BY date ASC LIMIT 1) = 'Owner' THEN 'Owner'
+                   ELSE 'Partner'
+               END,
+               $3;
         `,
         values: [userId, postId, userContribution],
       };
