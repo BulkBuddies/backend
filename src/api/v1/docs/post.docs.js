@@ -104,7 +104,6 @@
  *         - role
  *         - item_by_this_user
  */
-
 /**
  * @openapi
  * paths:
@@ -467,4 +466,109 @@
  *                   message:
  *                     type: string
  *                     example: El usuario no existe
+ */
+
+/**
+ * @openapi
+ *  paths:
+ *   /post/stock/{id}:
+ *     patch:
+ *       summary: Update post stock
+ *       tags:
+ *         - Post
+ *       description: Update post stock
+ *       security:
+ *         - bearerAuth: []
+ *       parameters:
+ *         - in: path
+ *           name: id
+ *           required: true
+ *           schema:
+ *             type: string
+ *           description: The post id
+ *       requestBody:
+ *         required: true
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 user_id:
+ *                   type: string
+ *                 user_contribution:
+ *                   type: number
+ *       responses:
+ *         '200':
+ *           description: OK
+ *           content:
+ *             application/json:
+ *               schema:
+ *                 type: object
+ *                 properties:
+ *                   message:
+ *                     type: string
+ *                     example: User Stock updated succesfully
+ *                   post:
+ *                     $ref: '#/components/schemas/post'
+ *         '404':
+ *           description: Post not found
+ *           content:
+ *             application/json:
+ *               schema:
+ *                 type: object
+ *                 properties:
+ *                   status:
+ *                     type: number
+ *                     example: 404
+ *                   message:
+ *                     type: string
+ *                     example: Este post no existe
+ *
+ */
+
+/**
+ * @openapi
+ *  paths:
+ *   /post/category/{id}:
+ *     get:
+ *       summary: Get posts by category id
+ *       tags:
+ *         - Post
+ *       parameters:
+ *         - in: path
+ *           name: id
+ *           required: true
+ *           schema:
+ *             type: string
+ *           description: The category id
+ *       responses:
+ *         '200':
+ *           description: OK
+ *           content:
+ *             application/json:
+ *               schema:
+ *                 type: object
+ *                 properties:
+ *                   categoryData:
+ *                     type: object
+ *                     properties:
+ *                       category:
+ *                         type: string
+ *                   posts:
+ *                     type: array
+ *                     items:
+ *                       $ref: '#/components/schemas/post'
+ *         '404':
+ *           description: Categoría no existe
+ *           content:
+ *             application/json:
+ *               schema:
+ *                 type: object
+ *                 properties:
+ *                   status:
+ *                     type: number
+ *                     example: 404
+ *                   message:
+ *                     type: string
+ *                     example: Categoría no existe
  */
