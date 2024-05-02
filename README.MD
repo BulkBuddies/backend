@@ -1,6 +1,6 @@
 # Bulkbuddies
 
-___
+---
 
 ## Indice
 
@@ -29,19 +29,16 @@ ___
 - [Tecnologías utilizadas](#tecnologías-utilizadas)
 - [Colaboradores](#colaboradores)
 
-
 ## Descripción
 
 API Rest de la aplicación web que facilita la gestión de la importación de productos al mayor cuando existe un interés compartido en cierto producto, lo que produce un pago de cierta cantidad del producto en la medida que el interesado pueda pagar por cierta cantidad.
 
 Entre varios interesados se paga por para poder importar un producto en precio al mayor.
 
-
 ## Requisitos
 
 - Node 20
 - VS Code u otro IDE
-
 
 ## Instalación
 
@@ -49,11 +46,9 @@ Entre varios interesados se paga por para poder importar un producto en precio a
 
 En la terminal:
 
-``` 
-npm install  
 ```
-
-
+npm install
+```
 
 - Para el funcionamiento de la API en ambiente de desarrollo, agregar las siguientes variables a un archivo .env:
 
@@ -61,12 +56,11 @@ npm install
 
 En un archivo .env se deben agregar ciertas variables de entorno para el buen funcionamiento de la API.
 
-
- > [!NOTE] 
- > Puedes usar el .env.example como referencia, pero ciertas variables no serán necesarias en el ambiente de desarrolo, mientras que para otras necesitarás crear credenciales como para que puedas usar servicios como:
- >  - Autenticación con Google
- >   <br>
-
+> [!NOTE]
+> Puedes usar el .env.example como referencia, pero ciertas variables no serán necesarias en el ambiente de desarrolo, mientras que para otras necesitarás crear credenciales como para que puedas usar servicios como:
+>
+> - Autenticación con Google
+>   <br>
 
 #### Puerto del servidor
 
@@ -78,8 +72,8 @@ PORT=
 
 #### Conexión a la base de datos
 
-- Una vez creada la base de datos de manera local con el archivo [script.sql](./config/db/script.sql), deben agregarse estas variables: 
- 
+- Una vez creada la base de datos de manera local con el archivo [script.sql](./config/db/script.sql), deben agregarse estas variables:
+
 ```
 HOST=localhost
 DBUSER=
@@ -87,6 +81,7 @@ DB_PORT=5432
 PASSWORD=
 DATABASE=bulkbuddies
 ```
+
 - En DBUSER se agrega el nombre del usuario que accede a la base de datos.
 
 - En password se agrega la contraseña del usuario que accede a la base de datos.
@@ -125,11 +120,12 @@ En el .env.example verás las siguientes variables para que funcione la autentic
 CLIENT_ID=
 CLIENT_SECRET=
 
-# Allowed redirect URIs by Google 
+# Allowed redirect URIs by Google
 GOOGLE_LOGIN_REDIRECT_URL=
 GOOGLE_REGISTER_REDIRECT_URL=
 ```
-- En el apartado de *Google Credentials* debes crear un proyecto nuevo con tu cuenta de Google en el [Google Cloud Console](https://console.cloud.google.com).
+
+- En el apartado de _Google Credentials_ debes crear un proyecto nuevo con tu cuenta de Google en el [Google Cloud Console](https://console.cloud.google.com).
 
 - Una vez creado el proyecto, se pueden crear las credenciales seleccionando **Google OAUTH 2**, seguir los pasos que indican y se les generará una id del cliente y una llave secreta. Ambas credenciales se agregan a las variables de entorno.
 
@@ -144,7 +140,7 @@ npm run dev
 ```
 
 ### Iniciar en ambiente de producción
- 
+
 Si deseas correrlo en un ambiente de producción deberás crearte una cuenta en [Redis](https://redis.io/es/) y agregar las siguientes variables de entorno
 
 ```
@@ -152,6 +148,7 @@ REDIS_PASSWORD=
 REDIS_HOST=
 REDIS_PORT=
 ```
+
 Iniciar:
 
 ```
@@ -172,8 +169,7 @@ DB_TEST_PORT=
 DB_TEST_PASSWORD=
 ```
 
-Puedes utilizar los mismos valores de la misma base de datos que se creó con el *script.sql*. Si deseas probarlo en otra base de datos, creas una nueva y la base de datos principal no se verá afectada.
-
+Puedes utilizar los mismos valores de la misma base de datos que se creó con el _script.sql_. Si deseas probarlo en otra base de datos, creas una nueva y la base de datos principal no se verá afectada.
 
 > [!TIP]
 > También puedes crear la base de datos [de manera remota](#creación-de-la-base-de-datos-de-manera-remota) para el testing
@@ -188,57 +184,56 @@ npm test
 
 ### Autenticación
 
-| HTTP Verbs | Endpoints | Acción |
-| --- | --- | --- |
-| POST | /api/v1/register | Crear de la cuenta |
-| POST | /api/v1/login | Iniciar sesión |
-| POST | /api/v1/logout | Cerrar sesión |
-| GET | /api/v1/refresh | Pedir nuevo access token con el refresh token en cookies |
-| GET | /api/v1/auth/google | Autenticar con Google |
+| HTTP Verbs | Endpoints           | Acción                                                   |
+| ---------- | ------------------- | -------------------------------------------------------- |
+| POST       | /api/v1/register    | Crear de la cuenta                                       |
+| POST       | /api/v1/login       | Iniciar sesión                                           |
+| POST       | /api/v1/logout      | Cerrar sesión                                            |
+| GET        | /api/v1/refresh     | Pedir nuevo access token con el refresh token en cookies |
+| GET        | /api/v1/auth/google | Autenticar con Google                                    |
 
 ### User
 
-| HTTP Verbs | Endpoints | Acción |
-| --- | --- | --- |
-| GET | /api/v1/user | Ver los usuarios registrados |
-| GET | /api/v1/user/:id | Ver información del usuario por id |
-| DELETE | /api/v1/user/:id | Eliminar usuario por id (protegido con JWT) |
-| GET | /api/v1/refresh | Pedir nuevo access token con el refresh token en cookies |
+| HTTP Verbs | Endpoints        | Acción                                                   |
+| ---------- | ---------------- | -------------------------------------------------------- |
+| GET        | /api/v1/user     | Ver los usuarios registrados                             |
+| GET        | /api/v1/user/:id | Ver información del usuario por id                       |
+| DELETE     | /api/v1/user/:id | Eliminar usuario por id (protegido con JWT)              |
+| GET        | /api/v1/refresh  | Pedir nuevo access token con el refresh token en cookies |
 
 ### Post
 
-| Verbos HTTP | Endpoints | Acción |
-| --- | --- | --- |
-| GET | /api/v1/post | Ver todos los posts. |
-| GET | /api/v1/post/user/:id | Ver los posts creados por usuario con su id. |
-| GET | /api/v1/post/user/log/:id | Ver logs de movimientos en los post según su id de usuario. |
-| GET | /api/v1/post/:id | Muestra el post según su id. |
-| GET | /api/v1/post/log/:id | Ver logs de movimientos en los post según su id de post. |
-| POST | /api/v1/post | Crear post nuevo. |
-| PATCH | /api/v1/post/:id | Modificar post con el id del post. |
-| PATCH | /api/v1/post/stock/:id | Modifica la cantidad de items que usuario aportará en cierto post. |
-| DELETE | /api/v1/post/:id | Se realiza un *soft delete* del post con el id del post. |
+| Verbos HTTP | Endpoints                 | Acción                                                             |
+| ----------- | ------------------------- | ------------------------------------------------------------------ |
+| GET         | /api/v1/post              | Ver todos los posts.                                               |
+| GET         | /api/v1/post/user/:id     | Ver los posts creados por usuario con su id.                       |
+| GET         | /api/v1/post/user/log/:id | Ver logs de movimientos en los post según su id de usuario.        |
+| GET         | /api/v1/post/:id          | Muestra el post según su id.                                       |
+| GET         | /api/v1/post/log/:id      | Ver logs de movimientos en los post según su id de post.           |
+| GET         | /api/v1/post/category/:id | Recibir posts por categoría                                        |
+| POST        | /api/v1/post              | Crear post nuevo.                                                  |
+| PATCH       | /api/v1/post/:id          | Modificar post con el id del post.                                 |
+| PATCH       | /api/v1/post/stock/:id    | Modifica la cantidad de items que usuario aportará en cierto post. |
+| DELETE      | /api/v1/post/:id          | Se realiza un _soft delete_ del post con el id del post.           |
 
 ### Categorías
 
-| Verbos HTTP | Endpoints | Acción |
-| --- | --- | --- |
-| GET | /api/v1/category | Lista de categorías para creación del post. |
+| Verbos HTTP | Endpoints        | Acción                                      |
+| ----------- | ---------------- | ------------------------------------------- |
+| GET         | /api/v1/category | Lista de categorías para creación del post. |
 
 ### Profile
 
-| Verbos HTTP | Endpoints | Acción |
-| --- | --- | --- |
-| GET | /api/v1/profile/:id | Recibir mayor información del usuario por su id. |
-| PATCH | /api/v1/profile/:id | Modificar información general del usuario. |
+| Verbos HTTP | Endpoints           | Acción                                     |
+| ----------- | ------------------- | ------------------------------------------ |
+| PUT         | /api/v1/profile/:id | Modificar información general del usuario. |
 
 ### Región
 
-| Verbos HTTP | Endpoints | Acción |
-| --- | --- | --- |
-| GET | /api/v1/region | Lista de las regiones de Chile |
-| GET | /api/v1/region/:id | Lista de las comunas de Chile por la id de la región|
-
+| Verbos HTTP | Endpoints          | Acción                                               |
+| ----------- | ------------------ | ---------------------------------------------------- |
+| GET         | /api/v1/region     | Lista de las regiones de Chile                       |
+| GET         | /api/v1/region/:id | Lista de las comunas de Chile por la id de la región |
 
 ### Documentación
 
@@ -249,9 +244,8 @@ Nota: La documentación sigue en construcción.
 ### Tecnologías utilizadas
 
 - [Express](https://expressjs.com/es/) Web Framework
-- [NodeJS](https://nodejs.org/en) Entorno de ejecución 
+- [NodeJS](https://nodejs.org/en) Entorno de ejecución
 - [Express validator](https://express-validator.github.io/docs) Validador de los datos que se envían a los endpoints tipo POST, PUT o PATCH.
-
 
 ### Colaboradores
 
