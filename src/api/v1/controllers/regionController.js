@@ -14,7 +14,7 @@ const getComunaByRegionId = async (req, res, next) => {
     try {
       const { id } = req.params;
       const comuna = await getComunaByRegion(id);
-      res.status(200).json({ comuna: comuna });
+      res.status(200).json({ comunas: comuna });
     } catch (error) {
       next(error);
     }
