@@ -4,7 +4,6 @@ import {
   getUserPostModel,
   createPostModel,
   getItemDataFromPostById,
-  getUserDataById,
   updatePostModel,
   getLogByPostId,
   getLogByUsertId,
@@ -15,7 +14,6 @@ import {
   getRequiredStockPostId,
   updateUserStockById,
 } from "../models/postModel.js";
-import { findUserBy } from "../models/userModel.js";
 
 const getAllPost = async (_, res, next) => {
   try {
@@ -32,12 +30,8 @@ const getAllPost = async (_, res, next) => {
 const getUserPost = async (req, res, next) => {
   try {
     const { id } = req.params;
-    const user = await findUserBy("id", id);
-    if (!user) {
-      throw createNewError("auth_01");
-    }
     const posts = await getUserPostModel(id);
-    const { id: userId, email, username } = user;
+    const { id: userId, email, username } = req.user;
     return res
       .status(200)
       .json({ userData: { userId, email, username }, posts: posts });
@@ -62,16 +56,14 @@ const getPostByIdController = async (req, res, next) => {
 const getLogByPostIdController = async (req, res, next) => {
   try {
     const { id } = req.params;
-    const logs = await getLogByPostId(id);
-
-    if (logs.length === 0) {
-      return res.status(404).send({ message: "This entity does not exist" });
-    }
     const itemData = await getItemDataFromPostById(id);
+    if (!itemData) {
+      throw createNewError("post_1");
+    }
+    const logs = await getLogByPostId(id);
     const post_id = itemData.id;
     const title = itemData.title;
     const description = itemData.description;
-
     return res
       .status(200)
       .json({ itemData: { post_id, title, description }, logs: logs });
@@ -84,19 +76,11 @@ const getLogByUserIdController = async (req, res, next) => {
   try {
     const { id } = req.params;
     const logs = await getLogByUsertId(id);
-    if (logs.length === 0) {
-      return res
-        .status(404)
-        .send({ message: "This user don't register any log." });
-    }
-    const userData = await getUserDataById(id);
-    const user_id = userData.id;
-    const email = userData.email;
-    const username = userData.username;
-
-    return res
-      .status(200)
-      .json({ userData: { user_id, email, username }, logs: logs });
+    const { id: user_id, email, username } = req.user;
+    return res.status(200).json({
+      userData: { user_id, email, username },
+      logs: logs,
+    });
   } catch (error) {
     next(error);
   }
@@ -106,21 +90,13 @@ const getAllPostByCategoryId = async (req, res, next) => {
   try {
     const { id } = req.params;
     const posts = await getPostCategoryId(id);
-
-    if (posts.length === 0) {
-      return res.status(404).send({ message: "Theres no post in this category" });
-    }
-    const categoryData = await getCategoryNameById(id);    
+    const categoryData = await getCategoryNameById(id);
     const category = categoryData.name;
-
-    return res
-      .status(200)
-      .json({ categoryData: { category }, posts: posts });
+    return res.status(200).json({ categoryData: { category }, posts: posts });
   } catch (error) {
     next(error);
   }
 };
-
 
 const createPostController = async (req, res, next) => {
   try {
@@ -183,11 +159,10 @@ const updateUserStockController = async (req, res, next) => {
 
     const post = await getPostById(id);
     if (!post) {
-      return res.status(404).send({ message: "This Post Id does not exists." });
+      throw createNewError("post_1");
     }
     const stocks = await getRequiredStockPostId(id);
     const min_contribution = stocks.min_contribution;
-
     if (user_contribution_parse < min_contribution) {
       return res.status(400).send({
         message: "user_contribution cannot be less than the min_contribution",
