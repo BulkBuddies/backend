@@ -47,7 +47,6 @@ const getUserPostModel = async (userId) => {
   }
 };
 
-
 const getItemDataFromPostById = async (id) => {
   try {
     const sqlQuery = {
@@ -80,7 +79,8 @@ const getCategoryNameById = async (id) => {
       text: "SELECT id,name FROM category WHERE id = $1",
       values: [id],
     };
-    const { rows } = await pool.query(sqlQuery);
+    const { rows, rowCount } = await pool.query(sqlQuery);
+    if (rowCount === 0) throw createNewError("category_01");
     return rows[0];
   } catch (error) {
     throw createNewError(error.code);
@@ -109,7 +109,6 @@ const getLogByPostId = async (id) => {
   } catch (error) {
     throw createNewError(error.code);
   }
-
 };
 
 const getLogByUsertId = async (id) => {
@@ -134,7 +133,6 @@ const getLogByUsertId = async (id) => {
   } catch (error) {
     throw createNewError(error.code);
   }
-
 };
 
 const createPostModel = async (
@@ -163,7 +161,7 @@ const createPostModel = async (
       category_id,
       required_stock,
       min_contribution,
-      user_stock
+      user_stock,
     ]
   );
   return query.rows;
@@ -171,13 +169,7 @@ const createPostModel = async (
 
 const updatePostModel = async (postId, newData) => {
   try {
-    const {
-      title,
-      description,
-      url,
-      img_url,
-      category_id
-    } = newData;
+    const { title, description, url, img_url, category_id } = newData;
 
     const sqlQuery = {
       text: `
@@ -190,14 +182,7 @@ const updatePostModel = async (postId, newData) => {
       WHERE id = $1 
       RETURNING *
       `,
-      values: [
-        postId,
-        title,
-        description,
-        url,
-        img_url,
-        category_id
-      ],
+      values: [postId, title, description, url, img_url, category_id],
     };
 
     const { rows } = await pool.query(sqlQuery);
@@ -209,9 +194,8 @@ const updatePostModel = async (postId, newData) => {
 
 const updateUserStockById = async (postId, userContribution, userId) => {
   try {
-
     const updateQuery = {
-    text: `
+      text: `
     UPDATE post 
     SET  user_stock = user_stock + $2
     WHERE id = $1 
@@ -236,13 +220,12 @@ const updateUserStockById = async (postId, userContribution, userId) => {
       };
 
       await pool.query(insertQuery);
-      return updatedRows[0];    
+      return updatedRows[0];
     }
   } catch (error) {
     throw createNewError(error.code);
   }
 };
-
 
 const softDeletePostModel = async (userId, postId) => {
   try {
@@ -261,7 +244,6 @@ const softDeletePostModel = async (userId, postId) => {
     throw createNewError(error.code);
   }
 };
-
 
 const getPostCategoryId = async (id) => {
   try {
@@ -286,9 +268,9 @@ export {
   updatePostModel,
   softDeletePostModel,
   getRequiredStockPostId,
-  updateUserStockById, 
+  updateUserStockById,
   getItemDataFromPostById,
   getCategoryNameById,
   getPostCategoryId,
-  getUserDataById
+  getUserDataById,
 };
