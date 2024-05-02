@@ -166,7 +166,6 @@ const createPostModel = async (
       user_stock
     ]
   );
-  console.log(query.rows);
   return query.rows;
 };
 
@@ -234,7 +233,6 @@ const updateUserStockById = async (postId, userContribution, userId) => {
       return updatedRows[0];    
     }
   } catch (error) {
-    console.log(error)
     throw createNewError(error.code);
   }
 };

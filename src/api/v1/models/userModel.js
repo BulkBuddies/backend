@@ -89,7 +89,6 @@ const updateUserById = async (id, user) => {
       text: "UPDATE usuario SET first_name = $1, last_name = $2, username = $3  WHERE id = $4 RETURNING *",
       values: [first_name, last_name, username, id],
     };
-
     const { rowCount } = await pool.query(sqlQuery);
     if (rowCount === 0) throw createNewError("auth_01");
     return user;
