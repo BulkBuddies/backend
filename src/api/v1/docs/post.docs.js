@@ -46,7 +46,6 @@
  *           type: boolean
  *       required:
  *         - title
- *         - created_by
  *         - description
  *         - expiration_date
  *         - unit_price
@@ -70,6 +69,7 @@
  *         required_stock: 10000
  *         min_contribution: 100
  *         user_stock: 100
+ *         visible: true
  */
 
 /**
@@ -117,6 +117,18 @@
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/post'
+ *             example:
+ *                 title: post world
+ *                 description: post description
+ *                 expiration_date: 2020-01-01T00:00:00.000Z
+ *                 unit_price: 100
+ *                 url: https://example.com
+ *                 img_url: https://example.com
+ *                 category_id: 5f0f5f0f-5f0f-5f0f-5f0f-5f0f5f0f5f0f
+ *                 required_stock: 10000
+ *                 min_contribution: 100
+ *                 user_stock: 100
+ *
  *       responses:
  *         '201':
  *           description: Successfully created a new post
@@ -144,6 +156,21 @@
  *                 type: array
  *                 items:
  *                   $ref: '#/components/schemas/post'
+ *                 example:
+ *                   - id: 5f0f5f0f-5f0f-5f0f-5f0f-5f0f5f0f5f0f
+ *                     title: post title
+ *                     created_by: 5f0f5f0f-5f0f-5f0f-5f0f-5f0f5f0f5f0f
+ *                     description: post description
+ *                     status: activo
+ *                     expiration_date: 2020-01-01T00:00:00.000Z
+ *                     unit_price: 100
+ *                     url: https://example.com
+ *                     img_url: https://example.com
+ *                     category_id: 5f0f5f0f-5f0f-5f0f-5f0f-5f0f5f0f5f0f
+ *                     required_stock: 10000
+ *                     min_contribution: 100
+ *                     user_stock: 100
+ *                     visible: true
  *         '400':
  *           description: Bad request
  */
@@ -252,13 +279,6 @@
 /**
  * @openapi
  * paths:
- *   /post/stock/{id}:
-
- */
-
-/**
- * @openapi
- * paths:
  *   /post/{id}:
  *     patch:
  *       summary: Update post by id
@@ -348,7 +368,7 @@
  *                   status:
  *                     type: number
  *                     example: 200
- *                   post:
+ *                   deleted:
  *                     $ref: '#/components/schemas/post'
  *         '404':
  *           description: Post not found
