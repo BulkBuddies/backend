@@ -17,6 +17,9 @@ const options = {
           type: "http",
           scheme: "bearer",
           bearerFormat: "jwt",
+          description: "JWT Authorization header using the Bearer scheme.",
+          name: "Authorization",
+          in: "header",
         },
       },
       security: {
