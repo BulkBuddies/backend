@@ -25,6 +25,7 @@ const generateRefreshToken = (id, res) => {
       maxAge: 24 * 60 * 60 * 1000,
       httpOnly: true,
       secure: PRODUCTION_ENV,
+      sameSite: "None",
     });
   } catch (error) {
     throw createNewError("", 400, error.message);
