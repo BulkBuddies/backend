@@ -30,6 +30,7 @@ const logoutController = async (req, res, next) => {
     res.clearCookie("jwt", {
       httpOnly: true,
       secure: PRODUCTION_ENV,
+      sameSite: "None",
     });
     res.status(200).json({ message: "Logged out" });
   } catch (error) {
