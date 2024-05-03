@@ -16,7 +16,7 @@ const loginUser = async (req, res, next) => {
   try {
     const { email, password } = req.body;
     const foundUser = await verifyUser(email, password);
-    const token = await generateTokens(res, foundUser.id, 60);
+    const token = await generateTokens(res, foundUser.id, "1 hour");
     return res.status(200).send({ data: { token, ...foundUser } });
   } catch (error) {
     next(error);
