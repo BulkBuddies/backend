@@ -16,9 +16,13 @@ import {
   passwordChangeValidator,
 } from "../middlewares/dataValidatorHandler.js";
 import {
+  DEV_ENV,
   FAILURE_REDIRECT_CLIENT_URL,
+  LOGIN_REDIRECT_CLIENT_DEV_URL,
   LOGIN_REDIRECT_CLIENT_URL,
   REGISTER_REDIRECT_CLIENT_URL,
+  REGISTER_REDIRECT_CLIENT_DEV_URL,
+  FAILURE_REDIRECT_CLIENT_DEV_URL
 } from "../config/constants.js";
 import { checkEmailHandler } from "../middlewares/checkEmailHandler.js";
 import { validateTokenFromParams } from "../middlewares/validateJWT.js";
@@ -38,16 +42,24 @@ router.get(
 router.get(
   "/auth/google/redirect",
   passport.authenticate("google-signin", {
-    successRedirect: LOGIN_REDIRECT_CLIENT_URL || "/api/v1/auth/success",
-    failureRedirect: FAILURE_REDIRECT_CLIENT_URL || "/api/v1/",
+    successRedirect: DEV_ENV
+      ? LOGIN_REDIRECT_CLIENT_DEV_URL
+      : LOGIN_REDIRECT_CLIENT_URL || "/api/v1/auth/success",
+    failureRedirect: DEV_ENV
+      ? FAILURE_REDIRECT_CLIENT_DEV_URL
+      : FAILURE_REDIRECT_CLIENT_URL || "/api/v1/",
   })
 );
 // Reedirecciona al front
 router.get(
   "/auth/google/register/redirect",
   passport.authenticate("google-signup", {
-    successRedirect: REGISTER_REDIRECT_CLIENT_URL || "/api/v1/auth/success",
-    failureRedirect: FAILURE_REDIRECT_CLIENT_URL || "/api/v1/",
+    successRedirect: DEV_ENV
+      ? REGISTER_REDIRECT_CLIENT_DEV_URL
+      : REGISTER_REDIRECT_CLIENT_URL || "/api/v1/auth/success",
+    failureRedirect: DEV_ENV
+      ? FAILURE_REDIRECT_CLIENT_DEV_URL
+      : FAILURE_REDIRECT_CLIENT_URL || "/api/v1/",
   })
 );
 
