@@ -120,7 +120,8 @@ const getLogByUsertId = async (id) => {
       c.title,
       b.role,
       b.date,
-      b.item_by_this_user
+      b.item_by_this_user,
+      c.status
       from log_post b  left join post c on b.post_id = c.id
       where b.user_id =  $1
       order by b.date desc

@@ -6,7 +6,7 @@ import {
   getItemDataFromPostById,
   updatePostModel,
   getLogByPostId,
-  getLogByUsertId,
+  getLogByUserId,
   softDeletePostModel,
   getPostById,
   getCategoryNameById,
@@ -75,7 +75,7 @@ const getLogByPostIdController = async (req, res, next) => {
 const getLogByUserIdController = async (req, res, next) => {
   try {
     const { id } = req.params;
-    const logs = await getLogByUsertId(id);
+    const logs = await getLogByUserId(id);
     const { id: user_id, email, username } = req.user;
     return res.status(200).json({
       userData: { user_id, email, username },
@@ -194,7 +194,10 @@ const softDeletePostController = async (req, res, next) => {
     const deletedPost = await softDeletePostModel(userId, id);
     res
       .status(204)
-      .json({ message: "Post soft deleted correctamente", deleted: deletedPost });
+      .json({
+        message: "Post soft deleted correctamente",
+        deleted: deletedPost,
+      });
   } catch (error) {
     next(error);
   }
