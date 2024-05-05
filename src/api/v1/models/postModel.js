@@ -111,7 +111,7 @@ const getLogByPostId = async (id) => {
   }
 };
 
-const getLogByUsertId = async (id) => {
+const getLogByUserId = async (id) => {
   try {
     const sqlQuery = {
       text: `
@@ -121,7 +121,9 @@ const getLogByUsertId = async (id) => {
       b.role,
       b.date,
       b.item_by_this_user,
-      c.status
+      c.status,
+      c.img_url,
+      c.category_id
       from log_post b  left join post c on b.post_id = c.id
       where b.user_id =  $1
       order by b.date desc
@@ -264,7 +266,7 @@ export {
   getPostById,
   getUserPostModel,
   getLogByPostId,
-  getLogByUsertId,
+  getLogByUserId,
   createPostModel,
   updatePostModel,
   softDeletePostModel,
