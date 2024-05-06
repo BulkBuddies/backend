@@ -69,7 +69,7 @@ const googleAuthController = async (req, res, next) => {
         password: "",
         type,
       });
-      const token = await generateTokens(res, newUser.id, 60);
+      const token = await generateTokens(res, newUser.id, "1 hour");
       const { password: pwd, ...newUserData } = newUser;
       return res.status(200).json({
         data: {
@@ -78,7 +78,7 @@ const googleAuthController = async (req, res, next) => {
         },
       });
     }
-    const token = await generateTokens(res, foundUser.id, 60);
+    const token = await generateTokens(res, foundUser.id, "1 hour");
 
     return res.status(200).json({
       data: {
