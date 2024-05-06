@@ -2,7 +2,6 @@ import chalk from "chalk";
 import swaggerJSDoc from "swagger-jsdoc";
 import swaggerUi from "swagger-ui-express";
 import { PRODUCTION_ENV } from "../../../../config/constants.js";
-
 const options = {
   definition: {
     openapi: "3.0.0",
@@ -55,7 +54,9 @@ function swaggerDocs(app, port) {
   console.log(
     chalk.magentaBright(
       `Docs available on ${
-        PRODUCTION_ENV ? process.env.ORIGIN : "http://localhost:3000"
+        PRODUCTION_ENV
+          ? "https://bulkbuddies.onrender.com"
+          : "http://localhost:3000"
       }/api/v1/docs \n`
     )
   );
