@@ -54,14 +54,20 @@ const refreshTokenController = async (req, res, next) => {
 
 const googleAuthController = async (req, res, next) => {
   try {
-    console.log("Check:");
+    console.log("Check req.user and req.isAuthenticated():");
     console.log(req.user);
     console.log(req.isAuthenticated());
-    console.log("---------------------------");
-    if (!req.user) throw createNewError("auth_04");
+    console.log("-----------------------------------------");
+    console.log("-----------------------------------------");
+    console.log("-----------------------------------------");
+    console.log("Check req: \n");
+    console.log(req);
+    console.log("-----------------------------------------");
+    console.log("-----------------------------------------");
+    /*    if (!req.user) throw createNewError("auth_04"); */
     const user = req.user?._json;
     const type = req.user.provider;
-/* 
+    /* 
     await deleteSessionCookie(req, res);  */
     const foundUser = await findUserBy("email", user.email);
     if (!foundUser) {
