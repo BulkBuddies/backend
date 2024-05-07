@@ -54,6 +54,10 @@ const refreshTokenController = async (req, res, next) => {
 
 const googleAuthController = async (req, res, next) => {
   try {
+    console.log("Check:");
+    console.log(req.user);
+    console.log(req.isAuthenticated());
+    console.log("---------------------------");
     if (!req.user) throw createNewError("auth_04");
     const user = req.user?._json;
     const type = req.user.provider;
