@@ -45,8 +45,7 @@ app.use(
       ? new RedisStore({ client: client })
       : new MemoryStore(),
     cookie: {
-      sameSite: PRODUCTION_ENV ? "none" : "lax",
-      secure: PRODUCTION_ENV,
+      maxAge: 7 * 24 * 60 * 60 * 1000,
     },
   })
 );
