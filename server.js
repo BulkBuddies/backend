@@ -15,7 +15,12 @@ import corsOptions from "./config/cors.js";
 import { logger } from "logger-express";
 import { notFoundHandler } from "./middlewares/notFoundHandler.js";
 import session from "express-session";
-import { JWT_SECRET, PRODUCTION_ENV, TEST_ENV } from "./config/constants.js";
+import {
+  DEV_ENV,
+  JWT_SECRET,
+  PRODUCTION_ENV,
+  TEST_ENV,
+} from "./config/constants.js";
 import { client } from "./config/redis.js";
 import RedisStore from "connect-redis";
 import { MemoryStore } from "express-session";
@@ -35,6 +40,10 @@ PRODUCTION_ENV &&
   client.on("error", (err) => {
     console.log("Redis error: ", err);
   });
+
+if (!DEV_ENV) {
+  app.set("trust proxy", 1);
+}
 
 app.use(
   session({
