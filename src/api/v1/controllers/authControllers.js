@@ -61,8 +61,8 @@ const googleAuthController = async (req, res, next) => {
     if (!req.user) throw createNewError("auth_04");
     const user = req.user?._json;
     const type = req.user.provider;
-
-    await deleteSessionCookie(req, res);
+/* 
+    await deleteSessionCookie(req, res);  */
     const foundUser = await findUserBy("email", user.email);
     if (!foundUser) {
       const newUser = await createUser({
