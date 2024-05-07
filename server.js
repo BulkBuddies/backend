@@ -46,6 +46,7 @@ app.use(
       : new MemoryStore(),
     cookie: {
       sameSite: PRODUCTION_ENV ? "none" : "lax",
+      secure: PRODUCTION_ENV,
     },
   })
 );
