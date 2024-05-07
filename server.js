@@ -44,6 +44,9 @@ app.use(
     store: PRODUCTION_ENV
       ? new RedisStore({ client: client })
       : new MemoryStore(),
+    cookie: {
+      secure: PRODUCTION_ENV,
+    },
   })
 );
 
