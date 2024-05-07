@@ -22,7 +22,7 @@ import { MemoryStore } from "express-session";
 import chalk from "chalk";
 const PORT = process.env.PORT || 3000;
 const app = express();
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 PRODUCTION_ENV && app.use(logger());
 
