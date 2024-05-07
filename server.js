@@ -41,10 +41,6 @@ PRODUCTION_ENV &&
     console.log("Redis error: ", err);
   });
 
-if (!DEV_ENV) {
-  app.set("trust proxy", 1);
-}
-
 app.use(
   session({
     secret: JWT_SECRET,
