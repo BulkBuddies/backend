@@ -22,7 +22,8 @@ import {
   LOGIN_REDIRECT_CLIENT_URL,
   REGISTER_REDIRECT_CLIENT_URL,
   REGISTER_REDIRECT_CLIENT_DEV_URL,
-  FAILURE_REDIRECT_CLIENT_DEV_URL
+  FAILURE_REDIRECT_CLIENT_DEV_URL,
+  PRODUCTION_ENV,
 } from "../config/constants.js";
 import { checkEmailHandler } from "../middlewares/checkEmailHandler.js";
 import { validateTokenFromParams } from "../middlewares/validateJWT.js";
@@ -42,14 +43,9 @@ router.get(
 router.get(
   "/auth/google/redirect",
   passport.authenticate("google-signin", {
-    successRedirect: DEV_ENV
-      ? LOGIN_REDIRECT_CLIENT_DEV_URL
-      : LOGIN_REDIRECT_CLIENT_URL || "/api/v1/auth/success",
-    failureRedirect: DEV_ENV
-      ? FAILURE_REDIRECT_CLIENT_DEV_URL
-      : FAILURE_REDIRECT_CLIENT_URL || "/api/v1/",
+    successRedirect: PRODUCTION_ENV && LOGIN_REDIRECT_CLIENT_URL,
+    failureRedirect: PRODUCTION_ENV && FAILURE_REDIRECT_CLIENT_URL,
     failureMessage: true,
-
   })
 );
 // Reedirecciona al front
