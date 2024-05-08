@@ -51,6 +51,7 @@ app.use(
       : new MemoryStore(),
     cookie: {
       maxAge: 7 * 24 * 60 * 60 * 1000,
+      secure: PRODUCTION_ENV ? true : false,
     },
   })
 );
