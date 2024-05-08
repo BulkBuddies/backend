@@ -52,6 +52,7 @@ app.use(
     cookie: {
       maxAge: 7 * 24 * 60 * 60 * 1000,
       secure: PRODUCTION_ENV ? true : false,
+      sameSite: PRODUCTION_ENV ? "none" : "lax",
     },
   })
 );
