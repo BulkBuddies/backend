@@ -186,7 +186,7 @@ const profileValidator = [
     .matches(phoneRegex)
     .withMessage("Ingresa un telefono valido. Ej: +56912345678"),
   body("address").trim().notEmpty(),
-  body("comuna_id").trim().default("0"),
+  body("comuna_id").trim().default(0),
   body("postal_code")
     .trim()
     .notEmpty()
