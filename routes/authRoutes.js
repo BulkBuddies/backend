@@ -48,6 +48,8 @@ router.get(
     failureRedirect: DEV_ENV
       ? FAILURE_REDIRECT_CLIENT_DEV_URL
       : FAILURE_REDIRECT_CLIENT_URL || "/api/v1/",
+    failureMessage: true,
+
   })
 );
 // Reedirecciona al front
@@ -62,7 +64,6 @@ router.get(
       : FAILURE_REDIRECT_CLIENT_URL || "/api/v1/",
   })
 );
-
 router.post("/login", signInValidator, loginUser);
 router.get("/auth/success", googleAuthController);
 router.get("/logout", logoutController);
