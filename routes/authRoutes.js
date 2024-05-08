@@ -43,8 +43,8 @@ router.get(
 router.get(
   "/auth/google/redirect",
   passport.authenticate("google-signin", {
-    successRedirect: PRODUCTION_ENV && LOGIN_REDIRECT_CLIENT_URL,
-    failureRedirect: PRODUCTION_ENV && FAILURE_REDIRECT_CLIENT_URL,
+    successRedirect: LOGIN_REDIRECT_CLIENT_URL,
+    failureRedirect: FAILURE_REDIRECT_CLIENT_URL,
     failureMessage: true,
   })
 );
