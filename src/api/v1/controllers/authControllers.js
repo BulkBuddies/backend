@@ -74,8 +74,15 @@ const googleAuthController = async (req, res, next) => {
       .passport.user;
     console.log("store", getGoogleData._json);
     console.log("type", getGoogleData.provider);
-    const user = getGoogleData._json;
-    const type = getGoogleData.provider;
+    let user;
+    let type;
+    if (req.user) {
+      user = req.user.provider?._json;
+      type = req.user?.provider;
+    }
+
+    user = getGoogleData._json;
+    type = getGoogleData.provider;
     /* 
     await deleteSessionCookie(req, res);  */
     const foundUser = await findUserBy("email", user.email);
