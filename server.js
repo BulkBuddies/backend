@@ -33,26 +33,25 @@ PRODUCTION_ENV && app.use(logger());
 
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-
+/* 
 PRODUCTION_ENV && client.connect();
 
 PRODUCTION_ENV &&
   client.on("error", (err) => {
     console.log("Redis error: ", err);
-  });
+  }); */
 
 app.use(
   session({
     secret: JWT_SECRET,
     resave: false,
     saveUninitialized: false,
-    store: PRODUCTION_ENV
-      ? new RedisStore({ client: client })
-      : new MemoryStore(),
+    store: new MemoryStore(),
     cookie: {
       maxAge: 7 * 24 * 60 * 60 * 1000,
-      secure: PRODUCTION_ENV ? true : false,
-      sameSite: PRODUCTION_ENV ? "none" : "lax",  
+      httpOnly: true,
+      secure: PRODUCTION_ENV,
+      sameSite: PRODUCTION_ENV ? "None" : "lax",
     },
   })
 );
@@ -61,28 +60,28 @@ app.use(passport.initialize());
 app.use(passport.session());
 swaggerDocs(app, PORT);
 
-let count = 1
+let count = 1;
 let showlogs = (req, res, next) => {
-  console.log("\n==============================")
-  console.log(`------------>  ${count++}`)
+  console.log("\n==============================");
+  console.log(`------------>  ${count++}`);
 
-  console.log(`\n req.session.passport -------> `)
-  console.log(req.session.passport)
+  console.log(`\n req.session.passport -------> `);
+  console.log(req.session.passport);
 
-  console.log(`\n req.user -------> `)
-  console.log(req.user)
+  console.log(`\n req.user -------> `);
+  console.log(req.user);
 
-  console.log("\n Session and Cookie")
-  console.log(`req.session.id -------> ${req.session.id}`)
-  console.log(`req.session.cookie -------> `)
-  console.log(req.session.cookie)
+  console.log("\n Session and Cookie");
+  console.log(`req.session.id -------> ${req.session.id}`);
+  console.log(`req.session.cookie -------> `);
+  console.log(req.session.cookie);
 
-  console.log("===========================================\n")
+  console.log("===========================================\n");
 
-  next()
-}
+  next();
+};
 
-app.use(showlogs)
+app.use(showlogs);
 
 app.get("/api/v1", async (req, res) => {
   res.status(200).json({ message: "Welcome" });

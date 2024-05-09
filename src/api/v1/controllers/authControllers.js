@@ -65,8 +65,17 @@ const googleAuthController = async (req, res, next) => {
     console.log("-----------------------------------------");
     console.log("-----------------------------------------");
     /*    if (!req.user) throw createNewError("auth_04"); */
-    const user = req.user?._json;
-    const type = req.user?.provider;
+
+    const secondUser = req.session;
+    console.log("session", secondUser);
+    const sessionIdArray = Object.keys(req.sessionStore.sessions);
+    const sessionId = sessionIdArray[0];
+    const getGoogleData = JSON.parse(req.sessionStore.sessions[sessionId])
+      .passport.user;
+    console.log("store", getGoogleData._json);
+    console.log("type", getGoogleData.provider);
+    const user = getGoogleData._json;
+    const type = getGoogleData.provider;
     /* 
     await deleteSessionCookie(req, res);  */
     const foundUser = await findUserBy("email", user.email);
